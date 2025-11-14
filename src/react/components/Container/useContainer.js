@@ -58,10 +58,13 @@ export const useContainer = () => {
 
     const addWords = (words) => {
         setIsLoading(true);
-        words.forEach((word) => {
-            wordsService.set(word);
-        });
-        fetchWords().finally(() => {
+        Promise.all(words.map((word) => {
+            return wordsService.set(word);
+        })).then(() => {
+            fetchWords().finally(() => {
+                setIsLoading(false);
+            });
+        }).catch(() => {
             setIsLoading(false);
         });
     };
