@@ -23,7 +23,7 @@ export const Container = () => {
     <div className="es-container">
       <div className="es-container-header">
         <button
-          className="btn btn-outline-info fw-bold rounded-pill"
+          className="btn btn-outline-info fw-bold rounded-pill button-top"
           onClick={() => {
             if (Object.keys(checkWords).length) {
               setCheckWords({});
@@ -42,7 +42,7 @@ export const Container = () => {
         </button>
         <Block condition={Object.values(checkWords).some((value) => value)}>
           <button
-            className="btn btn-outline-danger fw-bold rounded-pill"
+            className="btn btn-outline-danger fw-bold rounded-pill button-top"
             onClick={() => deleteSelectedWords()}
           >
             ({Object.values(checkWords).filter((value) => value).length}) Delete
@@ -52,13 +52,13 @@ export const Container = () => {
 
         <div style={{ flex: 1 }}></div>
         <button
-          className="btn btn-outline-info fw-bold rounded-pill"
+          className="btn btn-outline-info fw-bold rounded-pill button-top"
           onClick={() => modalRef.current?.open({ word: "", meaning: "" })}
         >
           Add Word
         </button>
         <button
-          className="btn btn-outline-info fw-bold rounded-pill"
+          className="btn btn-outline-info fw-bold rounded-pill button-top"
           onClick={() => addWordsRef.current?.open()}
         >
           Add Words
