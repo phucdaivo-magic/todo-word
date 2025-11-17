@@ -4,6 +4,7 @@ import { AddWords } from "../AddWords/index.jsx";
 import { Modal } from "../Modal";
 import { Block } from "../Block";
 import { useRef } from "react";
+import clsx from "clsx";
 
 export const Container = () => {
   const modalRef = useRef(null);
@@ -23,7 +24,7 @@ export const Container = () => {
     <div className="es-container">
       <div className="es-container-header">
         <button
-          className="btn btn-outline-info fw-bold rounded-pill button-top"
+          className="btn btn-sm btn-outline-info fw-bold rounded-pill button-top"
           onClick={() => {
             if (Object.keys(checkWords).length) {
               setCheckWords({});
@@ -42,7 +43,7 @@ export const Container = () => {
         </button>
         <Block condition={Object.values(checkWords).some((value) => value)}>
           <button
-            className="btn btn-outline-danger fw-bold rounded-pill button-top"
+            className="btn btn-sm btn-outline-danger fw-bold rounded-pill button-top"
             onClick={() => deleteSelectedWords()}
           >
             ({Object.values(checkWords).filter((value) => value).length}) Delete
@@ -52,13 +53,13 @@ export const Container = () => {
 
         <div style={{ flex: 1 }}></div>
         <button
-          className="btn btn-outline-info fw-bold rounded-pill button-top"
+          className="btn btn-sm btn-outline-info fw-bold rounded-pill button-top"
           onClick={() => modalRef.current?.open({ word: "", meaning: "" })}
         >
           Add Word
         </button>
         <button
-          className="btn btn-outline-info fw-bold rounded-pill button-top"
+          className="btn btn-sm btn-outline-info fw-bold rounded-pill button-top"
           onClick={() => addWordsRef.current?.open()}
         >
           Add Words
@@ -66,7 +67,12 @@ export const Container = () => {
       </div>
       <div className="es-word-cards">
         {words.map((word, index) => (
-          <div className="es-word-card" key={word.id}>
+          <div
+            className={clsx("es-word-card", {
+              "is-invalid": !word.word || !word.meaning,
+            })}
+            key={word.id}
+          >
             <div
               className="es-word-card-stt"
               onClick={() =>
@@ -103,13 +109,13 @@ export const Container = () => {
             </div>
             <div className="es-word-card-actions">
               <button
-                className="es-word-card-button btn edit-button btn-outline-primary"
+                className="es-word-card-button btn btn-sm edit-button btn-outline-primary"
                 onClick={() => modalRef.current?.open(word)}
               >
                 Edit
               </button>
               <button
-                className="es-word-card-button btn delete-button btn-outline-danger"
+                className="es-word-card-button btn btn-sm delete-button btn-outline-danger"
                 onClick={() => deleteWord(word)}
               >
                 Delete

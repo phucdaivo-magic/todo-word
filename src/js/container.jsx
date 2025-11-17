@@ -14,4 +14,4 @@ class EsContainer extends HTMLElement {
 }
 customElements.define("es-container", EsContainer);
 
-// new EventSource("/esbuild").addEventListener("change", () => location.reload());
+new EventSource("/esbuild").addEventListener("change", () => location.reload());

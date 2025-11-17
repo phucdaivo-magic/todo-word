@@ -4,21 +4,14 @@
 body {
   margin: 0;
   padding: 0;
+  font-size: 11px;
 
   @media screen and (max-width: 768px) {
     --gap: 7px;
+  }
 
-    .button-top {
-      font-size: 12px;
-    }
-
-    .es-word-card-button {
-      font-size: 12px;
-    }
-
-    .es-word-card-content {
-      font-size: 12px;
-    }
+  .button-top {
+    font-size: 11px;
   }
 
   @media screen and (min-width: 768px) {
@@ -68,23 +61,25 @@ body {
 
 .es-word-cards {
   display: flex;
-  gap: 5px;
   flex-direction: column;
+  border: 1px solid #ddd;
 
   .es-word-card {
-    font-size: 16px;
+    border-bottom: 1px solid #ddd;
     background-color: #fafafa;
-    padding: var(--gap);
+    padding: 2px;
     display: flex;
     flex-direction: row;
     gap: var(--gap);
 
+    &.is-invalid {
+      background-color: #f8d7da;
+    }
+
     .es-word-card-stt {
-      font-size: 14px;
       font-weight: bold;
       width: 20px;
       text-align: center;
-      opacity: 0.5;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -102,19 +97,21 @@ body {
         font-weight: bold;
       }
 
-      .es-word-card-meaning {
-        font-size: 14px;
-      }
+      .es-word-card-meaning {}
     }
 
     .es-word-card-actions {
       display: flex;
       flex-direction: row;
       gap: var(--gap);
+      padding: 5px;
+      align-items: center;
+      justify-content: center;
       height: fit-content;
 
       .edit-button {
         color: #007bff;
+        font-size: 11px;
 
         &:hover,
         &:focus {
@@ -124,6 +121,7 @@ body {
 
       .delete-button {
         color: #dc3545;
+        font-size: 11px;
 
         &:hover,
         &:focus {
@@ -143,15 +141,15 @@ body {
 }
 
 .es-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border: 1px solid #666;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 4px;
+  padding: 2px;
   box-sizing: border-box;
 
   &.is-checked {
