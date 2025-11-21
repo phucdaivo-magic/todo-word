@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES Animation Demo</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./www/scss/app.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+    
+    .demo-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    
+    .demo-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+    }
+    
+    .demo-subtitle {
+      font-size: 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      opacity: 0.9;
+    }
+    
+    .demo-box {
+      width: 300px;
+      height: 300px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 20px 30px;
+      border-radius: 50px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .controls button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .controls button:hover {
+      transform: scale(1.05);
+    }
+    
+    .controls button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .progress-display {
+      color: #2c3e50;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    
+    .instruction {
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      text-align: center;
+      z-index: 1000;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+    }
+    
+    .demo-grid .demo-box {
+      width: 100%;
+      height: 200px;
+      font-size: 18px;
+    }
+    
+    @media (max-width: 768px) {
+      .demo-title {
+        font-size: 32px;
+      }
+      
+      .demo-box {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .controls {
+        bottom: 20px;
+        padding: 15px 20px;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="es-animation-progress"></div>
+  
+  <!-- Instructions -->
+  <div class="instruction">
+    🖱️ Scroll or use ← → arrow keys to animate
+  </div>
+  
+  <!-- Controls -->
+  <div class="controls">
+    <button id="prevBtn">← Prev</button>
+    <span class="progress-display" id="progressDisplay">0 / 10</span>
+    <button id="nextBtn">Next →</button>
+    <button id="resetBtn">↺ Reset</button>
+  </div>
+  
+  <!-- Demo 1: Single Box -->
+  <div class="demo-section">
+    <h1 class="demo-title">ES Animation Demo</h1>
+    <p class="demo-subtitle">Scroll-based animation component</p>
+    
+    <es-animation id="mainAnimation" max-steps="10" animation-speed="normal" debug>
+      <div class="es-animation-item demo-box">
+        Scroll Me!
+      </div>
+    </es-animation>
+  </div>
+  
+  <!-- Demo 2: Fade Animation -->
+  <div class="demo-section" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+    <h2 class="demo-title">Fade Animation</h2>
+    <p class="demo-subtitle">Smooth fade effect</p>
+    
+    <es-animation max-steps="10" animation-speed="slow" class="es-animation-fade">
+      <div class="es-animation-item demo-box">
+        Fading Box
+      </div>
+    </es-animation>
+  </div>
+  
+  <!-- Demo 3: Slide Animation -->
+  <div class="demo-section" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+    <h2 class="demo-title">Slide Animation</h2>
+    <p class="demo-subtitle">Slide from bottom</p>
+    
+    <es-animation max-steps="10" class="es-animation-slide-up">
+      <div class="es-animation-item demo-box">
+        Sliding Box
+      </div>
+    </es-animation>
+  </div>
+  
+  <!-- Demo 4: Scale Animation -->
+  <div class="demo-section" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+    <h2 class="demo-title">Scale Animation</h2>
+    <p class="demo-subtitle">Growing effect</p>
+    
+    <es-animation max-steps="10" class="es-animation-scale">
+      <div class="es-animation-item demo-box">
+        Scaling Box
+      </div>
+    </es-animation>
+  </div>
+  
+  <!-- Demo 5: Rotate Animation -->
+  <div class="demo-section" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+    <h2 class="demo-title">Rotate Animation</h2>
+    <p class="demo-subtitle">Full 360° rotation</p>
+    
+    <es-animation max-steps="10" class="es-animation-rotate">
+      <div class="es-animation-item demo-box">
+        Rotating Box
+      </div>
+    </es-animation>
+  </div>
+  
+  <!-- Demo 6: Color Animation -->
+  <div class="demo-section" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+    <h2 class="demo-title">Color Animation</h2>
+    <p class="demo-subtitle">Rainbow colors</p>
+    
+    <es-animation max-steps="10" class="es-animation-color">
+      <div class="es-animation-item demo-box" style="color: white;">
+        Color Changing
+      </div>
+    </es-animation>
+  </div>
+  
+  <!-- Demo 7: Multiple Items -->
+  <div class="demo-section" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+    <h2 class="demo-title">Multiple Items</h2>
+    <p class="demo-subtitle">Grid animation</p>
+    
+    <es-animation max-steps="10" animation-speed="fast">
+      <div class="demo-grid">
+        <div class="es-animation-item demo-box">Box 1</div>
+        <div class="es-animation-item demo-box">Box 2</div>
+        <div class="es-animation-item demo-box">Box 3</div>
+        <div class="es-animation-item demo-box">Box 4</div>
+        <div class="es-animation-item demo-box">Box 5</div>
+        <div class="es-animation-item demo-box">Box 6</div>
+      </div>
+    </es-animation>
+  </div>
+  
+  <!-- JavaScript -->
+  <script type="module" src="./www/js/animation.js"></script>
+  
+  <script>
+    // Wait for custom element to be defined
+    customElements.whenDefined('es-animation').then(() => {
+      const animation = document.getElementById('mainAnimation');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const progressDisplay = document.getElementById('progressDisplay');
+      
+      // Button controls
+      prevBtn.onclick = () => animation.prev();
+      nextBtn.onclick = () => animation.next();
+      resetBtn.onclick = () => animation.reset();
+      
+      // Update progress display
+      function updateDisplay() {
+        const step = animation.getCurrentStep();
+        const progress = Math.round(animation.getProgress());
+        progressDisplay.textContent = `${step} / 10 (${progress}%)`;
+        
+        // Update button states
+        prevBtn.disabled = step === 0;
+        nextBtn.disabled = step === 10;
+      }
+      
+      // Listen to step changes
+      animation.addEventListener('step-change', updateDisplay);
+      
+      // Initial update
+      updateDisplay();
+      
+      // Log events for demo
+      animation.addEventListener('step-change', (event) => {
+        console.log('Animation step changed:', event.detail);
+      });
+    });
+  </script>
+</body>
+</html>
+
