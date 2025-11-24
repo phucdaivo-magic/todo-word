@@ -40,7 +40,7 @@ const defineClasses = Array.from(document.querySelectorAll('[class]')).flatMap((
 
 const uniqueClasses = defineClasses.reduce((acc, cls) => {
     const [property, value] = cls.split(/:(.+)/);
-    const cssQuery = ':[]#()/.%,\''.split('').reduce((acc, cur) => acc.replaceAll(cur, '\\' + cur), cls);
+    const cssQuery = ':[]#()/.%,\'!@'.split('').reduce((acc, cur) => acc.replaceAll(cur, '\\' + cur), cls);
 
     const pseudoSelector = PSEUDO_SELECTORS.find((p) => property.includes(p));
     const queryId = id6();
