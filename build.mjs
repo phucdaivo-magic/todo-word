@@ -37,7 +37,7 @@ let ctx = await esbuild.build({
     assetNames: 'assets/[name]',
     sourcemap: false,
     minify: true,
-    loader: { '.png': 'file', '.css': 'empty' },
+    loader: { '.png': 'file', '.css': 'empty', '.woff': 'file' },
 })
 
 console.log('Build completed')

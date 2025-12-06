@@ -1,0 +1,206 @@
+@font-face {
+    font-family: "Beaufort";
+    src: local(""), url("../fonts/amstel/Beaufort-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local(""), url("../fonts/amstel/montserrat-v15-latin-500.woff") format("woff");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    --color-red: #D6001C;
+    --font-size-title: 65px;
+}
+
+.ams-header {
+    width: 100%;
+    height: 100px;
+    background-color: var(--color-red);
+}
+
+.ams-color-red {
+    color: var(--color-red);
+}
+
+.ams-border {
+    height: 8px;
+    width: 100%;
+    content: '';
+    display: block;
+    background: linear-gradient(90deg, #ECD988, #BE8F39, #ECD988, #BE8F39, #ECD988);
+}
+
+.ams-brand-hero {
+    height: 100vh;
+    position: relative;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-position: top;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        text-align: center;
+
+    }
+
+    &__title {
+        all: unset;
+        font-family: "Beaufort", sans-serif;
+        font-size: var(--font-size-title);
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        line-height: calc(60/ 65);
+    }
+
+    &__decoration {
+        height: 10px;
+        margin: 30px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            display: block;
+            height: 100%;
+        }
+    }
+
+    &__description {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.7;
+        color: #595858;
+    }
+}
+
+.ams-brand-story {
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    &__item {
+        padding: 60px;
+        display: flex;
+        flex-direction: row;
+        gap: 60px;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            .ams-brand-story__title {
+                &:before {
+                    display: none;
+                }
+
+                &:after {
+                    display: block;
+                }
+            }
+        }
+
+        &:nth-child(odd) {
+            .ams-brand-story__title {
+                &:before {
+                    display: block;
+                }
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+
+    &__about {
+        flex: 1;
+        width: 50%;
+    }
+
+    &__image {
+        flex: 1;
+        width: 50%;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 40px 60px -20px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 72px;
+        font-weight: 600;
+        line-height: 1.2;
+        position: relative;
+        font-family: "Beaufort", sans-serif;
+
+        &:before {
+            content: '';
+            height: 1px;
+            width: 200px;
+            position: absolute;
+            background-color: #C8C9C7;
+            top: 36px;
+            right: 100%;
+            z-index: -1;
+        }
+
+        &:after {
+            content: '';
+            height: 1px;
+            width: 200px;
+            position: absolute;
+            background-color: #C8C9C7;
+            bottom: 36px;
+            left: calc(100% - 100px);
+            z-index: -1;
+        }
+    }
+
+    &__description {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #595858;
+    }
+}
+
+[data-component="slider"] {
+    &>div {
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+ 

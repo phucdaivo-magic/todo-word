@@ -37,7 +37,7 @@ let ctx = await esbuild.context({
     assetNames: 'assets/[name]',
     sourcemap: true,
     minify: true,
-    loader: { '.png': 'file', '.css': 'empty' },
+    loader: { '.png': 'file', '.css': 'empty', '.woff': 'file' },
 })
 
 await ctx.watch()
