@@ -214,5 +214,7 @@ class Slider {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new Slider(document.querySelector('[data-component="slider"]'));
+    document.querySelectorAll('[data-component="slider"]').forEach(($slider) => {
+        new Slider($slider);
+    });
 });

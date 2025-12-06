@@ -105,6 +105,11 @@ body {
         flex-direction: row;
         gap: 60px;
 
+        @media screen and (max-width: 1200px) {
+            flex-direction: column !important;
+            padding: 40px 20px;
+        }
+
         &:nth-child(even) {
             flex-direction: row-reverse;
 
@@ -136,11 +141,17 @@ body {
     &__about {
         flex: 1;
         width: 50%;
+        @media screen and (max-width: 1200px) {
+            width: 100%;
+        }
     }
 
     &__image {
         flex: 1;
         width: 50%;
+        @media screen and (max-width: 1200px) {
+            width: 100%;
+        }
 
         img {
             display: block;
@@ -148,6 +159,10 @@ body {
             height: auto;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 40px 60px -20px rgba(0, 0, 0, 0.15);
         }
+    }
+
+    @media screen and (max-width: 1200px) {
+        text-align: center;
     }
 
     &__title {
@@ -158,6 +173,11 @@ body {
         position: relative;
         font-family: "Beaufort", sans-serif;
 
+        @media screen and (max-width: 1200px) {
+            font-size: 32px;
+            text-align: center;
+        }
+
         &:before {
             content: '';
             height: 1px;
@@ -167,6 +187,14 @@ body {
             top: 36px;
             right: 100%;
             z-index: -1;
+
+            @media screen and (max-width: 1200px) {
+                height: 46px;
+                width: 1px;
+                bottom: calc(100% + 10px);
+                top: unset;
+                right: 50%
+            }
         }
 
         &:after {
@@ -178,6 +206,13 @@ body {
             bottom: 36px;
             left: calc(100% - 100px);
             z-index: -1;
+            @media screen and (max-width: 1200px) {
+                height: 46px;
+                width: 1px;
+                bottom: calc(100% + 10px);
+                top: unset;
+                left: 50%
+            }
         }
     }
 
@@ -190,17 +225,96 @@ body {
 }
 
 [data-component="slider"] {
-    &>div {
-        height: 400px;
-        overflow: hidden;
-        position: relative;
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+    background-color: var(--color-red);
+}
+
+.ams-slider__item {
+    height: 576px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 auto;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        height: fit-content;
+        text-align: center;
+        .ams-slider__item__decoration {
+            justify-content: center;;
         }
     }
+
+    &__image {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        z-index: -1;
+
+        @media screen and (max-width: 768px) {
+            position: relative;
+            z-index: unset;
+        }
+    }
+
+    &__wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;    
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+        @media screen and (max-width: 1200px) {
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+    
+    }
+
+    &__content {
+        background-color: var(--color-red);
+        padding: 48px;
+        height: fit-content;
+        box-sizing: border-box;
+        width: 50%;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    &__decoration {
+        height: 10px;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        img {
+            display: block;
+            height: 100%;
+        }
+    }
+
+    &__title {
+        font-family: "Beaufort", sans-serif;
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #fff;
+        margin: 0;
+    }
+
+    &__description {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #fff;
+    }
 }
- 
