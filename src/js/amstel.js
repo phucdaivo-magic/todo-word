@@ -6,7 +6,7 @@ class Slider {
         this.index = 0;
         this.distance = 0;
         this.rows = 1;
-        this.gap = 100;
+        this.gap = 0;
         this.init();
         this.addNavigation();
         this.addTouchEvents();
