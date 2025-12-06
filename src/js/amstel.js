@@ -157,8 +157,8 @@ class Slider {
         prevButton.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            this.index = Math.max(0, this.index-1);
-            
+            this.index = Math.max(0, this.index - 1);
+
             this.updateView(true);
         });
     }
@@ -186,14 +186,15 @@ class Slider {
     updateView(isNavigating = false) {
         this.index = Math.max(0, this.index);
         this.index = Math.min(this.index, this.itemList.length - 1);
+        let distance = this.distance;
         this.itemList.forEach(($item, index) => {
             if (this.distance !== 0) {
                 $item.style.transition = 'none';
-                if (this.index === 0 && this.distance > 100) {
-                    this.distance = 100;
+                if (this.index === 0 && this.distance > 0) {
+                    distance = this.distance / 5;
                 }
-                if (this.index === this.itemList.length - 1 && this.distance < -100) {
-                    this.distance = -100;
+                if (this.index === this.itemList.length - 1 && this.distance < 0) {
+                    distance = this.distance / 5;
                 }
             } else {
                 if (isNavigating) {
@@ -202,7 +203,7 @@ class Slider {
                     $item.style.transition = 'transform 0.25s cubic-bezier(0.42, 0, 0.58, 1)';
                 }
             }
-            $item.style.transform = `translate3d(calc(${(-this.index) * 100}% + ${this.distance}px), 0, 0)`;
+            $item.style.transform = `translate3d(calc(${(-this.index) * 100}% + ${distance}px), 0, 0)`;
         });
     }
 
