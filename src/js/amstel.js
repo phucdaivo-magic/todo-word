@@ -10,7 +10,7 @@ class Slider {
         this.addTouchEvents();
         this.addMouseDrag();
         this.addKeyboardEvents();
-      
+
     }
 
     init() {
@@ -140,7 +140,7 @@ class Slider {
             if (this.index >= this.itemList.length) {
                 this.index = 0;
             }
-            this.updateView();
+            this.updateView(true);
         });
     }
 
@@ -151,27 +151,31 @@ class Slider {
             } else if (e.key === 'ArrowLeft') {
                 this.index--;
             }
-            this.updateView();
+            this.updateView(true);
         });
     }
 
     debounce(func, delay) {
         let timeout;
-        return function(...args) {
+        return function (...args) {
             clearTimeout(timeout);
             timeout = setTimeout(() => func.apply(this, args), delay);
         };
     }
 
 
-    updateView() {
+    updateView(isNavigating = false) {
         this.index = Math.max(0, this.index);
         this.index = Math.min(this.index, this.itemList.length - 1);
         this.itemList.forEach(($item, index) => {
             if (this.distance !== 0) {
                 $item.style.transition = 'none';
             } else {
-                $item.style.transition = 'transform 0.6s cubic-bezier(0.42, 0, 0.58, 1)';
+                if (isNavigating) {
+                    $item.style.transition = 'transform 0.8s cubic-bezier(0.42, 0, 0.58, 1)';
+                } else {
+                    $item.style.transition = 'transform 0.25s cubic-bezier(0.42, 0, 0.58, 1)';
+                }
             }
             $item.style.transform = `translate3d(calc(${(-this.index) * 100}% + ${this.distance}px), 0, 0)`;
         });
