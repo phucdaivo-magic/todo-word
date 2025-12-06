@@ -29,7 +29,8 @@ class Slider {
             $item.style.width = calc;
             $item.style.maxWidth = calc;
             $item.style.minWidth = calc;
-            $item.style.position = `relative`
+            $item.style.position = `relative`;
+            $item.style.touchAction = `pan-y`;
 
         });
     }
@@ -93,13 +94,16 @@ class Slider {
     }
 
     addTouchEvents() {
+        document.addEventListener('scroll', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        }, { passive: false });
         this.$element.addEventListener('touchstart', (e) => {
             this.startX = e.touches[0].clientX;
         });
         this.$element.addEventListener('touchmove', (e) => {
             if (this.startX) {
                 this.endX = e.touches[0].clientX;
-                this.endY = e.touches[0].clientY;
                 this.distance = this.endX - this.startX;
                 this.updateView();
             }
