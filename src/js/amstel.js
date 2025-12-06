@@ -5,6 +5,8 @@ class Slider {
         this.$element = $element;
         this.index = 0;
         this.distance = 0;
+        this.rows = 1;
+        this.gap = 100;
         this.init();
         this.addNavigation();
         this.addTouchEvents();
@@ -16,14 +18,16 @@ class Slider {
     init() {
         this.$element.style.display = `flex`;
         this.$element.style.flexDirection = `row`;
+        this.$element.style.gap = this.gap + 'px';
         this.$element.style.flexWrap = `nowrap`;
         this.$element.style.overflow = `hidden`;
         this.$element.style.position = `relative`;
         this.itemList = this.$element.querySelectorAll(':scope > div');
         this.itemList.forEach(($item) => {
-            $item.style.width = `100%`
-            $item.style.maxWidth = `100%`
-            $item.style.minWidth = `100%`
+            const calc = `calc((100% - ${(this.rows - 1) * this.gap}px) / ${this.rows})`;
+            $item.style.width = calc;
+            $item.style.maxWidth = calc;
+            $item.style.minWidth = calc;
             $item.style.position = `relative`
 
         });
@@ -185,16 +189,16 @@ class Slider {
 
     updateView(isNavigating = false) {
         this.index = Math.max(0, this.index);
-        this.index = Math.min(this.index, this.itemList.length - 1);
+        this.index = Math.min(this.index, this.itemList.length  - this.rows);
         let distance = this.distance;
         this.itemList.forEach(($item, index) => {
             if (this.distance !== 0) {
                 $item.style.transition = 'none';
                 if (this.index === 0 && this.distance > 0) {
-                    distance = this.distance / 5;
+                    distance = this.distance / 3;
                 }
-                if (this.index === this.itemList.length - 1 && this.distance < 0) {
-                    distance = this.distance / 5;
+                if (this.index === this.itemList.length - this.rows && this.distance < 0) {
+                    distance = this.distance / 3;
                 }
             } else {
                 if (isNavigating) {
@@ -203,7 +207,7 @@ class Slider {
                     $item.style.transition = 'transform 0.25s cubic-bezier(0.42, 0, 0.58, 1)';
                 }
             }
-            $item.style.transform = `translate3d(calc(${(-this.index) * 100}% + ${distance}px), 0, 0)`;
+            $item.style.transform = `translate3d(calc(${(-this.index) * 100}% + ${distance}px - ${(this.gap * this.index)}px), 0, 0)`;
         });
     }
 
