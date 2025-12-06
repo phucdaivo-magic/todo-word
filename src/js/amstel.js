@@ -200,10 +200,10 @@ class Slider {
             if (this.distance !== 0) {
                 $item.style.transition = 'none';
                 if (this.index === 0 && this.distance > 0) {
-                    distance = this.distance / 3;
+                    distance = this.distance / 6;
                 }
                 if (this.index === this.itemList.length - this.rows && this.distance < 0) {
-                    distance = this.distance / 3;
+                    distance = this.distance / 6;
                 }
             } else {
                 if (isNavigating) {
