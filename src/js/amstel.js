@@ -248,6 +248,7 @@ class Slider {
         paginationContent.style.margin = '5px auto';
 
         this.paginationItems = Array.from(this.itemList).map(($item, index) => {
+           if (index > this.itemList.length - this.rows) return;
             const paginationItem = document.createElement('div');
             paginationItem.style.width = '8px';
             paginationItem.style.height = '8px';
