@@ -89,7 +89,6 @@ class Slider {
 
     addTouchEvents() {
         this.$element.addEventListener('touchstart', (e) => {
-            e.preventDefault();
             this.startX = e.touches[0].clientX;
         });
         this.$element.addEventListener('touchmove', (e) => {
@@ -137,9 +136,29 @@ class Slider {
             event.preventDefault();
             event.stopPropagation();
             this.index++;
-            if (this.index >= this.itemList.length) {
-                this.index = 0;
-            }
+            this.index = Math.min(this.index, this.itemList.length - 1);
+            this.updateView(true);
+        });
+
+        const prevButton = document.createElement('button');
+        prevButton.innerHTML = 'Prev';
+        prevButton.style.position = 'absolute';
+        prevButton.style.top = '50%';
+        prevButton.style.left = '0';
+        prevButton.style.transform = 'translateY(-50%)';
+        prevButton.style.zIndex = '1000';
+        prevButton.style.backgroundColor = 'white';
+        prevButton.style.border = 'none';
+        prevButton.style.padding = '10px';
+        prevButton.style.cursor = 'pointer';
+        this.$element.appendChild(prevButton);
+
+        // Events
+        prevButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            this.index = Math.max(0, this.index-1);
+            
             this.updateView(true);
         });
     }
@@ -170,6 +189,12 @@ class Slider {
         this.itemList.forEach(($item, index) => {
             if (this.distance !== 0) {
                 $item.style.transition = 'none';
+                if (this.index === 0 && this.distance > 100) {
+                    this.distance = 100;
+                }
+                if (this.index === this.itemList.length - 1 && this.distance < -100) {
+                    this.distance = -100;
+                }
             } else {
                 if (isNavigating) {
                     $item.style.transition = 'transform 0.8s cubic-bezier(0.42, 0, 0.58, 1)';
