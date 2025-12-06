@@ -8,11 +8,12 @@ class Slider {
         this.rows = 1;
         this.gap = 0;
         this.init();
+        if(this.itemList.length <= this.rows) return;
+        this.addPagination();
         this.addNavigation();
         this.addTouchEvents();
         this.addMouseDrag();
         this.addKeyboardEvents();
-
     }
 
     init() {
@@ -98,6 +99,7 @@ class Slider {
         this.$element.addEventListener('touchmove', (e) => {
             if (this.startX) {
                 this.endX = e.touches[0].clientX;
+                this.endY = e.touches[0].clientY;
                 this.distance = this.endX - this.startX;
                 this.updateView();
             }
@@ -186,7 +188,6 @@ class Slider {
         };
     }
 
-
     updateView(isNavigating = false) {
         this.index = Math.max(0, this.index);
         this.index = Math.min(this.index, this.itemList.length  - this.rows);
@@ -209,6 +210,64 @@ class Slider {
             }
             $item.style.transform = `translate3d(calc(${(-this.index) * 100}% + ${distance}px - ${(this.gap * this.index)}px), 0, 0)`;
         });
+
+        this.paginationItems.forEach(($item, index) => {
+            $item.style.backgroundColor = this.index === index ? '#D6001C' : '#C8C9C7';
+            $item.style.scale = index === this.index ? '1' : '0.6';
+        });
+    }
+
+    addPagination() {
+        const pagination = document.createElement('div');
+        pagination.classList.add('slider-pagination');
+        pagination.style.position = 'absolute';
+        pagination.style.bottom = '0';
+        pagination.style.left = '0';
+        pagination.style.width = '100%';
+
+        const paginationContent = document.createElement('div');
+        paginationContent.classList.add('slider-pagination-content');
+        paginationContent.style.position = 'relative';
+        paginationContent.style.bottom = '0';
+        paginationContent.style.left = '0';
+        paginationContent.style.height = '20px';
+        paginationContent.style.width = 'fit-content';
+        paginationContent.style.backgroundColor = '#fff';
+        paginationContent.style.borderRadius = '16px';
+        paginationContent.style.display = 'flex';
+        paginationContent.style.flexDirection = 'row';
+        paginationContent.style.alignItems = 'center';
+        paginationContent.style.justifyContent = 'center';
+        paginationContent.style.gap = '5px';
+        paginationContent.style.padding = '12px';
+        paginationContent.style.boxSizing = 'border-box';
+        paginationContent.style.margin = '5px auto';
+
+        this.paginationItems = Array.from(this.itemList).map(($item, index) => {
+            const paginationItem = document.createElement('div');
+            paginationItem.style.width = '8px';
+            paginationItem.style.height = '8px';
+            paginationItem.style.backgroundColor = index === this.index ? '#D6001C' : '#C8C9C7';
+            paginationItem.style.transition = 'background-color 0.25s cubic-bezier(0.42, 0, 0.58, 1)';
+            paginationItem.style.scale = index === this.index ? '1' : '0.6';
+            paginationItem.style.borderRadius = '10px';
+            paginationItem.style.display = 'flex';
+            paginationItem.style.flexDirection = 'row';
+            paginationItem.classList.add('slider-pagination-item');
+
+            paginationItem.addEventListener('click', () => {
+                this.index = index;
+                this.updateView(true);
+            });
+
+            paginationContent.appendChild(paginationItem);
+            return paginationItem;
+        });
+   
+        
+        pagination.appendChild(paginationContent);
+
+        this.$element.appendChild(pagination);
     }
 
 }
