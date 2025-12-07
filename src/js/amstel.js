@@ -5,10 +5,12 @@ class Slider {
         this.$element = $element;
         this.index = 0;
         this.distance = 0;
+        this.isNavigating = false;
         this.rows = 1;
         this.gap = 0;
         this.init();
         this.shouldAddActions(() => {
+            this.updateIsNavigating();
             this.addPagination();
             this.addNavigation();
             this.addTouchEvents();
@@ -29,9 +31,7 @@ class Slider {
                 if ($img.complete) {
                     resolve();
                 }
-                $img.onload = () => {
-                    resolve();
-                }
+                $img.onload = resolve
             });
         });
     }
@@ -59,9 +59,21 @@ class Slider {
         });
     }
 
+    updateIsNavigating() {
+        this.$element.addEventListener('click', () => {
+            this.isNavigating = true;
+        }); 
+
+        document.addEventListener('click', (e) => {
+            if (this.$element.contains(e.target)) {
+                return;
+            }
+            this.isNavigating = false;
+        });
+    }
+
     addTouchEvents() {
         this.$element.addEventListener('touchstart', (e) => {
-            console.log(e)
             this.startX = e.touches[0].clientX;
         });
         this.$element.addEventListener('touchmove', (e) => {
@@ -169,7 +181,6 @@ class Slider {
         nextButton.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            // this.index = Math.min(this.index, this.itemList.length - 1);
             if (this.index > this.itemList.length - this.rows - 1) {
                 this.index = 0;
             } else {
@@ -208,6 +219,7 @@ class Slider {
 
     addKeyboardEvents() {
         document.addEventListener('keydown', (e) => {
+            if (this.isNavigating === false) return;
             if (e.key === 'ArrowRight') {
                 this.index++;
             } else if (e.key === 'ArrowLeft') {
