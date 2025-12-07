@@ -8,12 +8,32 @@ class Slider {
         this.rows = 1;
         this.gap = 0;
         this.init();
-        if(this.itemList.length <= this.rows) return;
-        this.addPagination();
-        this.addNavigation();
-        this.addTouchEvents();
-        this.addMouseDrag();
-        this.addKeyboardEvents();
+        this.shouldAddActions(() => {
+            this.addPagination();
+            this.addNavigation();
+            this.addTouchEvents();
+            this.addMouseDrag();
+            this.addKeyboardEvents();
+        });
+    }
+
+    shouldAddActions(callback) {
+        if (this.itemList.length > this.rows) {
+            callback();
+        }
+    }
+
+    loadImagesSuccess() {
+        return new Promise((resolve) => {
+            this.$element.querySelectorAll('img').forEach(($img) => {
+                if ($img.complete) {
+                    resolve();
+                }
+                $img.onload = () => {
+                    resolve();
+                }
+            });
+        });
     }
 
     init() {
@@ -32,6 +52,10 @@ class Slider {
             $item.style.position = `relative`;
             $item.style.touchAction = `pan-y`;
 
+        });
+
+        this.loadImagesSuccess().then(() => {
+            this.$element.style.height = this.$element.getBoundingClientRect().height + 'px';
         });
     }
 
@@ -145,8 +169,12 @@ class Slider {
         nextButton.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            this.index++;
-            this.index = Math.min(this.index, this.itemList.length - 1);
+            // this.index = Math.min(this.index, this.itemList.length - 1);
+            if (this.index > this.itemList.length - this.rows - 1) {
+                this.index = 0;
+            } else {
+                this.index++;
+            }
             this.updateView(true);
         });
 
@@ -167,7 +195,12 @@ class Slider {
         prevButton.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            this.index = Math.max(0, this.index - 1);
+            // this.index = Math.max(0, this.index - 1);
+            if (this.index < 1) {
+                this.index = this.itemList.length - this.rows;
+            } else {
+                this.index--;
+            }
 
             this.updateView(true);
         });
@@ -194,7 +227,7 @@ class Slider {
 
     updateView(isNavigating = false) {
         this.index = Math.max(0, this.index);
-        this.index = Math.min(this.index, this.itemList.length  - this.rows);
+        this.index = Math.min(this.index, this.itemList.length - this.rows);
         let distance = this.distance;
         this.itemList.forEach(($item, index) => {
             if (this.distance !== 0) {
@@ -248,7 +281,7 @@ class Slider {
         paginationContent.style.margin = '5px auto';
 
         this.paginationItems = Array.from(this.itemList).map(($item, index) => {
-           if (index > this.itemList.length - this.rows) return;
+            if (index > this.itemList.length - this.rows) return;
             const paginationItem = document.createElement('div');
             paginationItem.style.width = '8px';
             paginationItem.style.height = '8px';
@@ -268,8 +301,8 @@ class Slider {
             paginationContent.appendChild(paginationItem);
             return paginationItem;
         });
-   
-        
+
+
         pagination.appendChild(paginationContent);
 
         this.$element.appendChild(pagination);

@@ -226,7 +226,7 @@ body {
 }
 
 [data-component="slider"] {
-    background-color: var(--color-red);
+    // background-color: var(--color-red);
 }
 
 .ams-slider__item {
@@ -237,12 +237,15 @@ body {
     justify-content: flex-end;
     align-items: center;
     margin: 0 auto;
+    background-color: var(--color-red);
+    
     @media screen and (max-width: 768px) {
         flex-direction: column;
-        height: fit-content;
+        height: 100%;
         text-align: center;
+        justify-content: flex-start;
         .ams-slider__item__decoration {
-            justify-content: center;;
+            justify-content: center;
         }
     }
 
