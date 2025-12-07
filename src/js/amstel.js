@@ -6,6 +6,7 @@ class Slider {
         this.index = 0;
         this.distance = 0;
         this.isNavigating = false;
+        this.limitKeepCurrent = 50;
         this.rows = 1;
         this.gap = 0;
         this.init();
@@ -82,7 +83,7 @@ class Slider {
         this.$element.addEventListener('touchend', (e) => {
             this.endX = e.touches[0].clientX;
             this.deltaX = this.endX - this.startX;
-            if (this.deltaX > 100) {
+            if (this.deltaX > this.limitKeepCurrent) {
                 this.index++;
             }
         });
@@ -106,11 +107,11 @@ class Slider {
             e.preventDefault();
             this.endX = e.clientX;
             this.startX = null;
-            if (this.distance > 100) {
+            if (this.distance > this.limitKeepCurrent) {
                 this.index--;
                 this.distance = 0;
                 this.updateView();
-            } else if (this.distance < -100) {
+            } else if (this.distance < -this.limitKeepCurrent) {
                 this.index++;
                 this.distance = 0;
                 this.updateView();
@@ -148,11 +149,11 @@ class Slider {
             this.endX = e.changedTouches[0].clientX;
             this.deltaX = this.endX - this.startX;
             this.startX = null;
-            if (this.distance > 100) {
+            if (this.distance > this.limitKeepCurrent) {
                 this.index--;
                 this.distance = 0;
                 this.updateView();
-            } else if (this.distance < -100) {
+            } else if (this.distance < -this.limitKeepCurrent) {
                 this.index++;
                 this.distance = 0;
                 this.updateView();
