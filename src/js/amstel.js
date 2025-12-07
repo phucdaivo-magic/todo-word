@@ -27,14 +27,16 @@ class Slider {
     }
 
     loadImagesSuccess() {
-        return new Promise((resolve) => {
-            this.$element.querySelectorAll('img').forEach(($img) => {
+        return Promise.all(Array.from(this.$element.querySelectorAll('img')).map(($img) => {
+            return new Promise((resolve) => {
                 if ($img.complete) {
-                    resolve();
+                    resolve($img);
                 }
-                $img.onload = resolve
+                $img.onload = () => {
+                    resolve($img);
+                }
             });
-        });
+        }));
     }
 
     init() {
@@ -55,7 +57,8 @@ class Slider {
 
         });
 
-        this.loadImagesSuccess().then(() => {
+        this.loadImagesSuccess().then((images) => {
+            console.log('images loaded', images);
             this.$element.style.height = this.$element.getBoundingClientRect().height + 'px';
         });
     }
@@ -63,7 +66,7 @@ class Slider {
     updateIsNavigating() {
         this.$element.addEventListener('click', () => {
             this.isNavigating = true;
-        }); 
+        });
 
         document.addEventListener('click', (e) => {
             if (this.$element.contains(e.target)) {

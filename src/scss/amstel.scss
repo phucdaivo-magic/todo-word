@@ -104,7 +104,7 @@ body {
         padding: 60px;
         display: flex;
         flex-direction: row;
-        gap: 60px;
+        gap: 120px;
 
         @media screen and (max-width: 1200px) {
             flex-direction: column !important;
@@ -142,6 +142,7 @@ body {
     &__about {
         flex: 1;
         width: 50%;
+
         @media screen and (max-width: 1200px) {
             width: 100%;
         }
@@ -149,10 +150,28 @@ body {
 
     &__image {
         flex: 1;
-        width: 50%;
-        @media screen and (max-width: 1200px) {
-            width: 100%;
+        width: 100%;
+
+        &.only-sm-display {
+            display: block;
         }
+
+        &.only-md-display {
+            display: none;
+        }
+
+        @media (min-width: 1200px) {
+            width: 50%;
+
+            &.only-sm-display {
+                display: none;
+            }
+
+            &.only-md-display {
+                display: block;
+            }
+        }
+
 
         img {
             display: block;
@@ -173,10 +192,15 @@ body {
         line-height: 1.2;
         position: relative;
         font-family: "Beaufort", sans-serif;
+        font-size: 32px;
+        text-align: center;
+        padding: 32px 0;
 
-        @media screen and (max-width: 1200px) {
-            font-size: 32px;
-            text-align: center;
+        @media (min-width: 1200px) {
+            text-align: left;
+            font-size: 72px;
+            margin: 0 0 10px;
+            padding: 0;
         }
 
         &:before {
@@ -207,6 +231,7 @@ body {
             bottom: 36px;
             left: calc(100% - 100px);
             z-index: -1;
+
             @media screen and (max-width: 1200px) {
                 height: 46px;
                 width: 1px;
@@ -237,15 +262,29 @@ body {
     justify-content: flex-end;
     align-items: center;
     margin: 0 auto;
-    background-color: var(--color-red);
-    
+
+
     @media screen and (max-width: 768px) {
         flex-direction: column;
         height: 100%;
         text-align: center;
         justify-content: flex-start;
+
         .ams-slider__item__decoration {
             justify-content: center;
+        }
+    }
+
+    .is-force-sm-display & {
+        @media screen and (max-width: 1200px) {
+            flex-direction: column;
+            height: 100%;
+            text-align: center;
+            justify-content: flex-start;
+
+            .ams-slider__item__decoration {
+                justify-content: center;
+            }
         }
     }
 
@@ -261,25 +300,46 @@ body {
         @media screen and (max-width: 768px) {
             position: relative;
             z-index: unset;
+            height: 375px;
+        }
+
+        .is-force-sm-display & {
+            @media screen and (max-width: 1200px) {
+                position: relative;
+                z-index: unset;
+                height: 375px;
+            }
         }
     }
 
     &__wrapper {
-        max-width: 1200px;
+        max-width: calc(1200px - 100px);
         margin: 0 auto;
+        padding: 0 20px;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        align-items: center;    
+        align-items: center;
         position: relative;
+
         @media screen and (max-width: 768px) {
             flex-direction: column;
+            padding: 0;
+            flex: 1;
         }
+
         @media screen and (max-width: 1200px) {
-            padding: 0 20px;
             box-sizing: border-box;
         }
-    
+
+        .is-force-sm-display & {
+            @media screen and (max-width: 1200px) {
+                max-width: 100%;
+                flex-direction: column;
+                padding: 0;
+                flex: 1;
+            }
+        }
     }
 
     &__content {
@@ -287,9 +347,20 @@ body {
         padding: 48px;
         height: fit-content;
         box-sizing: border-box;
-        width: 50%;
+        width: calc(50% - 60px);
+
         @media screen and (max-width: 768px) {
             width: 100%;
+            height: 100%;
+            padding: 40px 20px;
+        }
+
+        .is-force-sm-display & {
+            @media screen and (max-width: 1200px) {
+                width: 100%;
+                height: 100%;
+                padding: 40px 20px;
+            }
         }
     }
 
@@ -313,8 +384,15 @@ body {
         line-height: 1.2;
         color: #fff;
         margin: 0;
+
         @media screen and (max-width: 768px) {
             font-size: 32px;
+        }
+
+        .is-force-sm-display & {
+            @media screen and (max-width: 1200px) {
+                font-size: 32px;
+            }
         }
     }
 
