@@ -1,0 +1,106 @@
+// Pagination
+.slider-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    .slider-pagination-content {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        height: 20px;
+        width: fit-content;
+        background-color: #fff;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 12px;
+        box-sizing: border-box;
+        margin: 5px auto;
+
+        .slider-pagination-item {
+            width: 8px;
+            height: 8px;
+            background-color: #C8C9C7;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s cubic-bezier(0.42, 0, 0.58, 1);
+            scale: 0.6;
+
+            &.slider-pagination-item-active {
+                background-color: #D6001C;
+                scale: 1;
+            }
+
+            &:hover {
+                background-color: #D6001C;
+                cursor: pointer;
+                scale: 1;
+            }
+        }
+    }
+}
+
+// Navigation
+.slider-navigation {
+    position: absolute;
+    top: 60px;
+    left: calc(100vw - 960px / 2);
+    width: 120px;
+    height: 120px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid #fff;
+    border: solid 1px #ECD988;
+    padding: 20px;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 1200px) {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 100%;
+        height: fit-content;
+        border: none;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 1200px) {
+        left: 0;
+        right: 0;
+        top: calc((375px - 48px) / 2);
+        margin: 0 auto;
+        width: 100%;
+        height: fit-content;
+        border: none;
+        border-radius: 0;
+    }
+
+    .slider-navigation-button {
+        all: unset;
+        background-image: url('../images/amstel/slide-right.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 8px;
+        cursor: pointer;
+        rotate: 180deg;
+
+        &.slider-navigation-button-prev {
+            rotate: 0deg;
+        }
+    }
+}

@@ -1,5 +1,4 @@
 new EventSource("/esbuild").addEventListener("change", () => location.reload());
-
 class Slider {
     constructor($element) {
         this.$element = $element;
@@ -7,6 +6,7 @@ class Slider {
         this.distance = 0;
         this.isNavigating = false;
         this.limitKeepCurrent = 50;
+        this.draggingOver = false;
         this.rows = 1;
         this.gap = 0;
         this.init();
@@ -55,11 +55,6 @@ class Slider {
             $item.style.position = `relative`;
             $item.style.touchAction = `pan-y`;
 
-        });
-
-        this.loadImagesSuccess().then((images) => {
-            console.log('images loaded', images);
-            this.$element.style.height = this.$element.getBoundingClientRect().height + 'px';
         });
     }
 
@@ -167,22 +162,28 @@ class Slider {
         });
     }
 
+    throttle(func, delay) {
+        let lastCall = 0;
+        return function (...args) {
+            const now = Date.now();
+            if (now - lastCall >= delay) {
+                lastCall = now;
+                func.apply(this, args);
+            }
+        };
+    }
+
+
     addNavigation() {
+        const navigation = document.createElement('div');
+        navigation.classList.add('slider-navigation');
+
         const nextButton = document.createElement('button');
-        nextButton.innerHTML = 'Next';
-        nextButton.style.position = 'absolute';
-        nextButton.style.top = '50%';
-        nextButton.style.right = '0';
-        nextButton.style.transform = 'translateY(-50%)';
-        nextButton.style.zIndex = '1000';
-        nextButton.style.backgroundColor = 'white';
-        nextButton.style.border = 'none';
-        nextButton.style.padding = '10px';
-        nextButton.style.cursor = 'pointer';
-        this.$element.appendChild(nextButton);
+        navigation.appendChild(nextButton);
+        nextButton.classList.add('slider-navigation-button', 'slider-navigation-button-next');
 
         // Events
-        nextButton.addEventListener('click', (event) => {
+        nextButton.addEventListener('click', this.throttle((event) => {
             event.preventDefault();
             event.stopPropagation();
             if (this.index > this.itemList.length - this.rows - 1) {
@@ -191,23 +192,13 @@ class Slider {
                 this.index++;
             }
             this.updateView(true);
-        });
+        }, 600));
 
         const prevButton = document.createElement('button');
-        prevButton.innerHTML = 'Prev';
-        prevButton.style.position = 'absolute';
-        prevButton.style.top = '50%';
-        prevButton.style.left = '0';
-        prevButton.style.transform = 'translateY(-50%)';
-        prevButton.style.zIndex = '1000';
-        prevButton.style.backgroundColor = 'white';
-        prevButton.style.border = 'none';
-        prevButton.style.padding = '10px';
-        prevButton.style.cursor = 'pointer';
-        this.$element.appendChild(prevButton);
-
+        navigation.appendChild(prevButton);
+        prevButton.classList.add('slider-navigation-button', 'slider-navigation-button-prev');
         // Events
-        prevButton.addEventListener('click', (event) => {
+        prevButton.addEventListener('click', this.throttle((event) => {
             event.preventDefault();
             event.stopPropagation();
             // this.index = Math.max(0, this.index - 1);
@@ -218,7 +209,9 @@ class Slider {
             }
 
             this.updateView(true);
-        });
+        }, 600));
+
+        this.$element.appendChild(navigation);
     }
 
     addKeyboardEvents() {
@@ -233,14 +226,6 @@ class Slider {
         });
     }
 
-    debounce(func, delay) {
-        let timeout;
-        return function (...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), delay);
-        };
-    }
-
     updateView(isNavigating = false) {
         this.index = Math.max(0, this.index);
         this.index = Math.min(this.index, this.itemList.length - this.rows);
@@ -248,11 +233,19 @@ class Slider {
         this.itemList.forEach(($item, index) => {
             if (this.distance !== 0) {
                 $item.style.transition = 'none';
-                if (this.index === 0 && this.distance > 0) {
-                    distance = this.distance / 6;
+                const updateDistance = () => {
+                    if (this.draggingOver) {
+                        distance = this.distance / 6;
+                    } else {
+                        distance = 0;
+                    }
                 }
+                if (this.index === 0 && this.distance > 0) {
+                    updateDistance();
+                }
+
                 if (this.index === this.itemList.length - this.rows && this.distance < 0) {
-                    distance = this.distance / 6;
+                    updateDistance();
                 }
             } else {
                 if (isNavigating) {
@@ -260,54 +253,29 @@ class Slider {
                 } else {
                     $item.style.transition = 'transform 0.25s cubic-bezier(0.42, 0, 0.58, 1)';
                 }
+
             }
             $item.style.transform = `translate3d(calc(${(-this.index) * 100}% + ${distance}px - ${(this.gap * this.index)}px), 0, 0)`;
         });
 
         this.paginationItems.forEach(($item, index) => {
-            $item.style.backgroundColor = this.index === index ? '#D6001C' : '#C8C9C7';
-            $item.style.scale = index === this.index ? '1' : '0.6';
+            $item.classList.toggle('slider-pagination-item-active', index === this.index);
         });
     }
 
     addPagination() {
         const pagination = document.createElement('div');
         pagination.classList.add('slider-pagination');
-        pagination.style.position = 'absolute';
-        pagination.style.bottom = '0';
-        pagination.style.left = '0';
-        pagination.style.width = '100%';
 
         const paginationContent = document.createElement('div');
         paginationContent.classList.add('slider-pagination-content');
-        paginationContent.style.position = 'relative';
-        paginationContent.style.bottom = '0';
-        paginationContent.style.left = '0';
-        paginationContent.style.height = '20px';
-        paginationContent.style.width = 'fit-content';
-        paginationContent.style.backgroundColor = '#fff';
-        paginationContent.style.borderRadius = '16px';
-        paginationContent.style.display = 'flex';
-        paginationContent.style.flexDirection = 'row';
-        paginationContent.style.alignItems = 'center';
-        paginationContent.style.justifyContent = 'center';
-        paginationContent.style.gap = '5px';
-        paginationContent.style.padding = '12px';
-        paginationContent.style.boxSizing = 'border-box';
-        paginationContent.style.margin = '5px auto';
+
 
         this.paginationItems = Array.from(this.itemList).map(($item, index) => {
             if (index > this.itemList.length - this.rows) return;
             const paginationItem = document.createElement('div');
-            paginationItem.style.width = '8px';
-            paginationItem.style.height = '8px';
-            paginationItem.style.backgroundColor = index === this.index ? '#D6001C' : '#C8C9C7';
-            paginationItem.style.transition = 'background-color 0.25s cubic-bezier(0.42, 0, 0.58, 1)';
-            paginationItem.style.scale = index === this.index ? '1' : '0.6';
-            paginationItem.style.borderRadius = '10px';
-            paginationItem.style.display = 'flex';
-            paginationItem.style.flexDirection = 'row';
             paginationItem.classList.add('slider-pagination-item');
+            paginationItem.classList.toggle('slider-pagination-item-active', index === this.index);
 
             paginationItem.addEventListener('click', () => {
                 this.index = index;
