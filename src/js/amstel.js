@@ -299,3 +299,25 @@ document.addEventListener('DOMContentLoaded', () => {
         new Slider($slider);
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.text-and-media-block').forEach(($block) => {
+        const images = Array.from($block.querySelectorAll('img'));
+        Promise.all(images.map(($img)=> {
+            return new Promise((resolve) => {
+                if ($img.complete) {
+                    resolve($img);
+                }
+                $img.onload = () => {
+                    resolve($img);
+                }
+            });
+        })).then(() => {
+             $block.style.setProperty('--image-height', `${images[0].clientHeight}px`);
+        });
+
+        const title = $block.querySelector('.block-title');
+            title.style.setProperty('--client-child-height', `${title.querySelector(':scope > *').offsetHeight}px`);
+            title.style.setProperty('--client-child-width', `${title.querySelector(':scope > *').offsetWidth}px`);
+    });
+});
