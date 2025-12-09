@@ -301,23 +301,96 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.text-and-media-block').forEach(($block) => {
-        const images = Array.from($block.querySelectorAll('img'));
-        Promise.all(images.map(($img)=> {
-            return new Promise((resolve) => {
-                if ($img.complete) {
-                    resolve($img);
-                }
-                $img.onload = () => {
-                    resolve($img);
-                }
-            });
-        })).then(() => {
-             $block.style.setProperty('--image-height', `${images[0].clientHeight}px`);
-        });
 
-        const title = $block.querySelector('.block-title');
-            title.style.setProperty('--client-child-height', `${title.querySelector(':scope > *').offsetHeight}px`);
-            title.style.setProperty('--client-child-width', `${title.querySelector(':scope > *').offsetWidth}px`);
+    document.querySelectorAll('[data-component="LayoutComputed"]').forEach((component) => {
+        const $children = component.querySelectorAll('[set-variable]');
+
+        window.addEventListener('resize', () => {
+
+            Promise.all(Array.from($children).map(($child) => {
+                return new Promise((resolve) => {
+                    const [variableName, selector] = $child.getAttribute('set-variable').split(' ');
+                    const [variableWidth, variableHeight] = [variableName + '-width', variableName + '-height'];
+
+                    if ($child.tagName === 'IMG') {
+                        if ($child.complete) {
+                            component.style.setProperty(variableHeight, `${$child.clientHeight}px`);
+                            component.style.setProperty(variableWidth, `${$child.clientWidth}px`);
+                            resolve();
+
+                        } else {
+                            $child.onload = () => {
+                                component.style.setProperty(variableHeight, `${$child.clientHeight}px`);
+                                component.style.setProperty(variableWidth, `${$child.clientWidth}px`);
+                                resolve();
+                            }
+                        }
+                    } else if ($child.querySelector('img')) {
+                        const $image = $child.querySelector('img');
+                        if ($image.complete) {
+                            component.style.setProperty(variableHeight, `${$child.offsetHeight}px`);
+                            component.style.setProperty(variableWidth, `${$child.offsetWidth}px`);
+                            resolve();
+                        } else {
+                            $image.onload = () => {
+                                component.style.setProperty(variableHeight, `${$child.offsetHeight}px`);
+                                component.style.setProperty(variableWidth, `${$child.offsetWidth}px`);
+                                resolve();
+                            }
+                        }
+                    } else {
+                        if (selector) {
+                            const $child = component.querySelector(selector);
+                            if ($child) {
+                                component.style.setProperty(variableHeight, `${$child.offsetHeight}px`);
+                                component.style.setProperty(variableWidth, `${$child.offsetWidth}px`);
+                                resolve();
+                            } else {
+                                component.style.setProperty(variableHeight, `${$child.offsetHeight}px`);
+                                component.style.setProperty(variableWidth, `${$child.offsetWidth}px`);
+                                resolve();
+                            }
+                        }
+                    }
+                }).then(() => {
+                    $child.classList.add('layout-computed-child-initialized');
+                });
+            })).then(() => {
+                component.classList.add('layout-computed-initialized');
+            });
+        })
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // Scroll to hash
+    document.querySelectorAll('[data-component="ScrollToHash"]').forEach((component) => {
+        const hash = component.getAttribute('data-hash');
+        if (hash) {
+            component.style.height = `var(--top-selector-height, 0)`;
+            component.style.display = 'block';
+            component.style.background = 'red';
+            component.style.position = 'absolute';
+            component.style.width = '100%';
+            component.style.marginTop = 'calc(var(--top-selector-height, 0) * -1)';
+            component.style.zIndex = '-1';
+            component.style.opacity = '0';
+            const topSelector = component.getAttribute('data-top-selector') || '';
+            if (topSelector) {
+                const $topSelectorElement = document.querySelector(topSelector);
+                if ($topSelectorElement) {
+                    component.style.setProperty('--top-selector-height', `${$topSelectorElement.offsetHeight}px`);
+                }
+            }
+            const $link = document.querySelector(`a[href = "${hash}"]`);
+            if ($link) {
+                $link.addEventListener('click', (e) => {
+                    component.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'nearest'
+                    });
+                });
+            }
+        }
     });
 });
