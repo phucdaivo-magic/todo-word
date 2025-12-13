@@ -1,7 +1,6 @@
 
 const img = new Image();
-import aaa from "../../src/images/aaa.jpg";
-img.src = aaa;
+img.src = 'https://phucdaivo-magic.github.io/todo-word/www/assets/aaa.jpg';
 class GameMagi {
     constructor(canvas = document.getElementById("game")) {
         this.canvas = canvas;
