@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Beer Tower Physics Game</title>
+<style>
+    body { margin: 0; background: #fff; }
+</style>
+</head>
+<body>
+
+<canvas id="game" width="600" height="900"></canvas>
+
+
+<script src="./js/game.js"></script>
+<!-- <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    
+    let mouseX = canvas.width / 2;
+    let lastMouseX = mouseX;
+    let gameOver = false;
+    
+    const CAN_WIDTH = 30;
+    const CAN_HEIGHT = 50;
+    const MAX_HEIGHT = 450;
+    const FALL_THRESHOLD = 25;
+    
+    const player = {
+        x: canvas.width / 2,
+        y: canvas.height - 80,
+        width: 80,
+        height: 20,
+        stack: []
+    };
+    
+    let stackX = null;
+    let shake = 0;
+    let shakeVelocity = 0;
+    
+    const cans = [];
+    
+    function spawnCan() {
+        cans.push({
+            x: Math.random() * (canvas.width - CAN_WIDTH),
+            y: -50,
+            speed: 3
+        });
+    }
+    
+    canvas.addEventListener("mousemove", e => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+    });
+    
+    function update() {
+        if (gameOver) return;
+    
+        const deltaX = mouseX - lastMouseX;
+        lastMouseX = mouseX;
+    
+        player.x = mouseX - player.width / 2;
+    
+        if (Math.random() < 0.02) spawnCan();
+    
+        // Move stack with mouse AFTER it exists
+        if (stackX !== null) {
+            stackX += deltaX;
+        }
+    
+        cans.forEach((can, index) => {
+            can.y += can.speed;
+    
+            let topY = player.y - player.stack.length * CAN_HEIGHT;
+            const currentStackX = stackX ?? (player.x + (player.width - CAN_WIDTH) / 2);
+    
+            const hit =
+                can.y + CAN_HEIGHT >= topY &&
+                can.x < currentStackX + CAN_WIDTH &&
+                can.x + CAN_WIDTH > currentStackX;
+    
+            if (hit) {
+                if (stackX === null) stackX = can.x;
+    
+                const offsetX = can.x - stackX;
+                player.stack.push({ offsetX });
+    
+                shakeVelocity += offsetX * 0.1;
+                cans.splice(index, 1);
+            }
+    
+            if (can.y > canvas.height) cans.splice(index, 1);
+        });
+    
+        shakeVelocity *= 0.9;
+        shake += shakeVelocity;
+    
+        let totalOffset = 0;
+        for (let c of player.stack) {
+            totalOffset += c.offsetX;
+            if (Math.abs(totalOffset) > FALL_THRESHOLD) gameOver = true;
+        }
+    
+        if (player.stack.length * CAN_HEIGHT > MAX_HEIGHT) gameOver = true;
+    }
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+        ctx.fillStyle = "#FFD700";
+        ctx.fillRect(player.x, player.y, player.width, player.height);
+    
+        if (stackX !== null) {
+            let y = player.y;
+            let x = stackX + shake;
+    
+            for (let c of player.stack) {
+                y -= CAN_HEIGHT;
+                x += c.offsetX;
+                ctx.fillStyle = "#FF9800";
+                ctx.fillRect(x, y, CAN_WIDTH, CAN_HEIGHT);
+            }
+        }
+    
+        ctx.fillStyle = "#00BCD4";
+        for (let c of cans) {
+            ctx.fillRect(c.x, c.y, CAN_WIDTH, CAN_HEIGHT);
+        }
+    
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText("Height: " + player.stack.length, 20, 30);
+    
+        if (gameOver) {
+            ctx.fillStyle = "red";
+            ctx.font = "40px Arial";
+            ctx.fillText("GAME OVER", 130, 350);
+        }
+    }
+    
+    function loop() {
+        update();
+        draw();
+        requestAnimationFrame(loop);
+    }
+    
+    loop();
+    </script>
+     -->
