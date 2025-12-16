@@ -1,0 +1,316 @@
+/*-----------------------------------------------------------------------------------------------------------
+For breakpoint // Usage @include breakpoint(sm) {}
+-----------------------------------------------------------------------------------------------------------*/
+@mixin breakpoint($point) {
+    @if $point ==xxs {
+        @media only screen and (min-width: 480px) {
+            @content;
+        }
+    }
+
+    @if $point ==xs {
+        @media only screen and (min-width: 640px) {
+            @content;
+        }
+    }
+
+    @else if $point ==sm {
+        @media only screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $point ==md {
+        @media only screen and (min-width: 960px) {
+            @content;
+        }
+    }
+
+    @else if $point ==rg {
+        @media only screen and (min-width: 1024px) {
+            @content;
+        }
+    }
+
+    @else if $point ==rg1025 {
+
+        // special breakpoint for brand 2 Tiger and Sol
+        @media only screen and (min-width: 1025px) {
+            @content;
+        }
+    }
+
+    @else if $point ==lg {
+        @media only screen and (min-width: 1280px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xl {
+        @media only screen and (min-width: 1440px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xxl {
+        @media only screen and (min-width: 1600px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xxxl {
+        @media only screen and (min-width: 1920px) {
+            @content;
+        }
+    }
+
+    @else if $point ==hv {
+
+        // for hover stage
+        @media only screen and (min-width: 1025px) {
+            @content;
+        }
+    }
+}
+
+@mixin breakpoint-down($point) {
+    @if $point ==xxs {
+        @media only screen and (max-width: 479px) {
+            @content;
+        }
+    }
+
+    @if $point ==xs {
+        @media only screen and (max-width: 639px) {
+            @content;
+        }
+    }
+
+    @else if $point ==sm {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @else if $point ==md {
+        @media only screen and (max-width: 959px) {
+            @content;
+        }
+    }
+
+    @else if $point ==rg {
+        @media only screen and (max-width: 1023px) {
+            @content;
+        }
+    }
+
+    @else if $point ==rg1025 {
+
+        // special breakpoint for brand 2 Tiger and Sol
+        @media only screen and (max-width: 1024px) {
+            @content;
+        }
+    }
+
+    @else if $point ==lg {
+        @media only screen and (max-width: 1279px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xl {
+        @media only screen and (max-width: 1339px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xxl {
+        @media only screen and (max-width: 1599px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xxxl {
+        @media only screen and (max-width: 1919px) {
+            @content;
+        }
+    }
+}
+
+@mixin breakpoint-between($point) {
+    @if $point ==xxs {
+        @media only screen and (min-width: 480px) and (max-width: 639px) {
+            @content;
+        }
+    }
+
+    @if $point ==xs {
+        @media only screen and (min-width: 640px) and (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @else if $point ==sm {
+        @media only screen and (min-width: 768px) and (max-width: 959px) {
+            @content;
+        }
+    }
+
+    @else if $point ==md {
+        @media only screen and (min-width: 960px) and (max-width: 1023px) {
+            @content;
+        }
+    }
+
+    @else if $point ==rg {
+        @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+            @content;
+        }
+    }
+
+    @else if $point ==lg {
+        @media only screen and (min-width: 1280px) and (max-width: 1439px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xl {
+        @media only screen and (min-width: 1440px) and (max-width: 1599px) {
+            @content;
+        }
+    }
+
+    @else if $point ==rg&lg {
+
+        ///////////////    mix    //////////////////////
+        @media only screen and (min-width: 1024px) and (max-width: 1439px) {
+            @content;
+        }
+    }
+}
+
+.outbound-dialog {
+    background: rgba(0, 0, 0, 0.8);
+
+
+
+    &__body {
+        color: #000;
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-top: 1em;
+            margin-bottom: 1em;
+
+            strong {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &__content {
+        font-family: "Montserrat", sans-serif;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px 60px;
+        height: 90%;
+        border-top: 30px solid #fff;
+        border-bottom: 30px solid #fff;
+
+        &:before {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            height: 1px;
+            width: 100%;
+            background-color: #ccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__title {
+        font-size: px(30);
+        display: block;
+
+        @include breakpoint(lg) {
+            font-size: px(48);
+        }
+
+        font-family: "Montserrat",
+        sans-serif;
+        padding-bottom: 20px;
+        margin: 0 auto;
+        text-align: center;
+        color: #000;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+
+        &:after {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            height: 2px;
+            width: 160px;
+            background-color: #ceb863;
+        }
+    }
+
+    &__close {
+        display: block;
+        opacity: 1;
+    }
+
+    &__overlay-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        flex-direction: column;
+        top: 10px;
+        right: 10px;
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+        --rotate: 45deg;
+
+        &:hover {
+            --rotate: 0deg;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            right: 10px;
+            top: 20px;
+            background-color: #fff;
+            width: 17px;
+            height: 2px;
+            cursor: pointer;
+            transform: rotate(calc(var(--rotate) * -1));
+            transition: all 0.3s ease;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            right: 10px;
+            top: 20px;
+            background-color: #fff;
+            width: 17px;
+            height: 2px;
+            transform: rotate(var(--rotate));
+            box-sizing: border-box;
+            cursor: pointer;
+            margin-top: -2px;
+            transition: all 0.3s ease;
+        }
+
+
+    }
+}

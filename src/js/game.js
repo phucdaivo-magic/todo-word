@@ -84,12 +84,12 @@ class Player extends Character {
             const isX = can.x >= lastCan.xHitStart && can.x + can.width <= lastCan.xHitEnd;
             const isY = can.y + can.height >= lastCan.y && can.y + can.height <= lastCan.y + lastCan.height + 10;
 
-            if (can.y + can.height >= lastCan.y + 20 ){
+            if (can.y + can.height >= lastCan.y + 20) {
                 let rotate = 8;
 
-                if (can.x < lastCan.xHitStart ){
+                if (can.x < lastCan.xHitStart) {
                     rotate = -8;
-                } else if (can.x + can.width > lastCan.xHitEnd ){
+                } else if (can.x + can.width > lastCan.xHitEnd) {
                     rotate = 8;
                 }
 
@@ -97,7 +97,7 @@ class Player extends Character {
                     isHit: false,
                     rotate: rotate,
                 }
-            }   
+            }
             return {
                 isHit: isX && isY,
             }
@@ -110,7 +110,7 @@ class Can extends Character {
         super();
         this.color = "green";
         this.height = 506 / 2;
-        this.width = 195 /2 ;
+        this.width = 195 / 2;
         this.speed = 4;
         this.angle = 0;
     }
@@ -128,7 +128,7 @@ class Can extends Character {
         game.ctx.drawImage(img, -this.width / 2, -this.height / 2, this.width, this.height);
         game.ctx.restore();
 
-      
+
     }
 
     rotate(rotate) {
@@ -165,7 +165,7 @@ class CanOfPlayer extends Character {
         game.ctx.fillStyle = this.color;
         game.ctx.save()
         game.ctx.translate(xCenter, yCenter);
-        game.ctx.rotate(this.distance/ 3 * Math.PI / 180);
+        game.ctx.rotate(this.distance / 3 * Math.PI / 180);
         game.ctx.drawImage(img, -w / 2, -h / 2, w, h);
         game.ctx.restore();
 

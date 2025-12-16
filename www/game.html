@@ -1,149 +1,220 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Beer Tower Physics Game</title>
-<style>
-    body { margin: 0; background: #fff; }
-</style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tower Fall</title>
+    <style>
+      body {
+        margin: 0;
+        background: #111;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        display: block;
+        margin: auto;
+        background: linear-gradient(#222, #000);
+      }
+      #ui {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 20px;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ui">Score: <span id="score">0</span></div>
+    <canvas id="game" width="400" height="600"></canvas>
 
-<canvas id="game" width="600" height="900"></canvas>
+    <script>
+      /* ================= CORE ================= */
 
+      const canvas = document.getElementById("game");
+      const ctx = canvas.getContext("2d");
+      const scoreEl = document.getElementById("score");
 
-<script src="./js/game.js"></script>
-<!-- <script>
-    const canvas = document.getElementById("game");
-    const ctx = canvas.getContext("2d");
-    
-    let mouseX = canvas.width / 2;
-    let lastMouseX = mouseX;
-    let gameOver = false;
-    
-    const CAN_WIDTH = 30;
-    const CAN_HEIGHT = 50;
-    const MAX_HEIGHT = 450;
-    const FALL_THRESHOLD = 25;
-    
-    const player = {
-        x: canvas.width / 2,
-        y: canvas.height - 80,
-        width: 80,
-        height: 20,
-        stack: []
-    };
-    
-    let stackX = null;
-    let shake = 0;
-    let shakeVelocity = 0;
-    
-    const cans = [];
-    
-    function spawnCan() {
-        cans.push({
-            x: Math.random() * (canvas.width - CAN_WIDTH),
-            y: -50,
-            speed: 3
-        });
-    }
-    
-    canvas.addEventListener("mousemove", e => {
-        const rect = canvas.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-    });
-    
-    function update() {
-        if (gameOver) return;
-    
-        const deltaX = mouseX - lastMouseX;
-        lastMouseX = mouseX;
-    
-        player.x = mouseX - player.width / 2;
-    
-        if (Math.random() < 0.02) spawnCan();
-    
-        // Move stack with mouse AFTER it exists
-        if (stackX !== null) {
-            stackX += deltaX;
+      /* ================= CONSTANTS ================= */
+
+      const GRAVITY = 0.6;
+      const MAX_FALL_SPEED = 18;
+      const COLLAPSE_OFFSET = 0.35;
+
+      /* ================= STATE ================= */
+
+      let score = 0;
+      let gameOver = false;
+
+      /* ================= PLAYER BASE ================= */
+
+      class Base {
+        constructor() {
+          this.x = canvas.width / 2 - 60;
+          this.y = canvas.height - 20;
+          this.width = 120;
+          this.height = 20;
         }
-    
-        cans.forEach((can, index) => {
-            can.y += can.speed;
-    
-            let topY = player.y - player.stack.length * CAN_HEIGHT;
-            const currentStackX = stackX ?? (player.x + (player.width - CAN_WIDTH) / 2);
-    
-            const hit =
-                can.y + CAN_HEIGHT >= topY &&
-                can.x < currentStackX + CAN_WIDTH &&
-                can.x + CAN_WIDTH > currentStackX;
-    
-            if (hit) {
-                if (stackX === null) stackX = can.x;
-    
-                const offsetX = can.x - stackX;
-                player.stack.push({ offsetX });
-    
-                shakeVelocity += offsetX * 0.1;
-                cans.splice(index, 1);
-            }
-    
-            if (can.y > canvas.height) cans.splice(index, 1);
-        });
-    
-        shakeVelocity *= 0.9;
-        shake += shakeVelocity;
-    
-        let totalOffset = 0;
-        for (let c of player.stack) {
-            totalOffset += c.offsetX;
-            if (Math.abs(totalOffset) > FALL_THRESHOLD) gameOver = true;
+
+        draw() {
+          ctx.fillStyle = "#3498db";
+          ctx.fillRect(this.x, this.y, this.width, this.height);
         }
-    
-        if (player.stack.length * CAN_HEIGHT > MAX_HEIGHT) gameOver = true;
-    }
-    
-    function draw() {
+      }
+
+      /* ================= BLOCK ================= */
+
+      class Block {
+        constructor(x) {
+          this.width = 80;
+          this.height = 30;
+
+          this.x = x;
+          this.y = -this.height;
+
+          this.velocityY = 0;
+          this.angle = 0;
+          this.angularVelocity = 0;
+        }
+
+        update() {
+          this.velocityY += GRAVITY;
+          this.velocityY = Math.min(this.velocityY, MAX_FALL_SPEED);
+          this.y += this.velocityY;
+
+          this.angle += this.angularVelocity;
+          this.angularVelocity *= 0.98;
+        }
+
+        draw() {
+          ctx.save();
+          ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+          ctx.rotate((this.angle * Math.PI) / 180);
+          ctx.fillStyle = "#f1c40f";
+          ctx.fillRect(
+            -this.width / 2,
+            -this.height / 2,
+            this.width,
+            this.height
+          );
+          ctx.restore();
+        }
+      }
+
+      /* ================= STACKED BLOCK ================= */
+
+      class StackedBlock {
+        constructor(block, base, index) {
+          this.base = base;
+          this.width = block.width;
+          this.height = block.height;
+
+          this.offset = block.x - base.x;
+          this.y = base.y - this.height * (index + 1);
+
+          this.angle = 0;
+          this.angularVelocity = block.angularVelocity;
+        }
+
+        update() {
+          this.angularVelocity *= 0.96;
+          this.angle += this.angularVelocity;
+        }
+
+        draw(index) {
+          const x = this.base.x + this.offset;
+          const y = this.base.y - this.height * (index + 1);
+
+          ctx.save();
+          ctx.translate(x + this.width / 2, y + this.height / 2);
+          ctx.rotate((this.angle * Math.PI) / 180);
+          ctx.fillStyle = "#f39c12";
+          ctx.fillRect(
+            -this.width / 2,
+            -this.height / 2,
+            this.width,
+            this.height
+          );
+          ctx.restore();
+        }
+      }
+
+      /* ================= GAME OBJECTS ================= */
+
+      const base = new Base();
+      let fallingBlock = new Block(base.x);
+      let stack = [];
+
+      /* ================= INPUT ================= */
+
+      document.addEventListener("mousemove", (e) => {
+        if (!gameOver) {
+          fallingBlock.x =
+            e.clientX -
+            canvas.getBoundingClientRect().left -
+            fallingBlock.width / 2;
+        }
+      });
+
+      /* ================= COLLISION ================= */
+
+      function checkCollision() {
+        const target = stack.length === 0 ? base : stack[stack.length - 1];
+
+        const targetX = stack.length === 0 ? base.x : base.x + target.offset;
+        const targetWidth = target.width;
+
+        if (fallingBlock.y + fallingBlock.height >= target.y) {
+          const blockCenter = fallingBlock.x + fallingBlock.width / 2;
+          const targetCenter = targetX + targetWidth / 2;
+
+          const offset = (blockCenter - targetCenter) / targetWidth;
+
+          if (Math.abs(offset) > COLLAPSE_OFFSET) {
+            gameOver = true;
+            return;
+          }
+
+          const torque = offset * fallingBlock.velocityY * 0.6;
+          fallingBlock.angularVelocity = torque;
+
+          stack.push(new StackedBlock(fallingBlock, base, stack.length));
+          score++;
+          scoreEl.textContent = score;
+
+          fallingBlock = new Block(base.x);
+        }
+      }
+
+      /* ================= LOOP ================= */
+
+      function loop() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-        ctx.fillStyle = "#FFD700";
-        ctx.fillRect(player.x, player.y, player.width, player.height);
-    
-        if (stackX !== null) {
-            let y = player.y;
-            let x = stackX + shake;
-    
-            for (let c of player.stack) {
-                y -= CAN_HEIGHT;
-                x += c.offsetX;
-                ctx.fillStyle = "#FF9800";
-                ctx.fillRect(x, y, CAN_WIDTH, CAN_HEIGHT);
-            }
+
+        base.draw();
+
+        stack.forEach((b, i) => {
+          b.update();
+          b.draw(i);
+        });
+
+        if (!gameOver) {
+          fallingBlock.update();
+          fallingBlock.draw();
+          checkCollision();
+        } else {
+          ctx.fillStyle = "#e74c3c";
+          ctx.font = "32px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
         }
-    
-        ctx.fillStyle = "#00BCD4";
-        for (let c of cans) {
-            ctx.fillRect(c.x, c.y, CAN_WIDTH, CAN_HEIGHT);
-        }
-    
-        ctx.fillStyle = "white";
-        ctx.font = "20px Arial";
-        ctx.fillText("Height: " + player.stack.length, 20, 30);
-    
-        if (gameOver) {
-            ctx.fillStyle = "red";
-            ctx.font = "40px Arial";
-            ctx.fillText("GAME OVER", 130, 350);
-        }
-    }
-    
-    function loop() {
-        update();
-        draw();
+
         requestAnimationFrame(loop);
-    }
-    
-    loop();
+      }
+
+      loop();
     </script>
-     -->
+  </body>
+</html>

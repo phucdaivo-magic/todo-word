@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": [],
-  "sourcesContent": [],
-  "mappings": "",
+  "sources": ["../../src/js/app.js"],
+  "sourcesContent": ["// reload\r\nnew EventSource(\"/esbuild\").addEventListener(\"change\", () => location.reload());"],
+  "mappings": "MACA,IAAI,YAAY,UAAU,EAAE,iBAAiB,SAAU,IAAM,SAAS,OAAO,CAAC",
   "names": []
 }
