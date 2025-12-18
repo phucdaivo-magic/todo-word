@@ -71,28 +71,13 @@ class Slider {
         });
     }
 
-    addTouchEvents() {
-        this.$element.addEventListener('touchstart', (e) => {
-            this.startX = e.touches[0].clientX;
-        });
-        this.$element.addEventListener('touchmove', (e) => {
-            this.endX = e.touches[0].clientX;
-        });
-        this.$element.addEventListener('touchend', (e) => {
-            this.endX = e.touches[0].clientX;
-            this.deltaX = this.endX - this.startX;
-            if (this.deltaX > this.limitKeepCurrent) {
-                this.index++;
-            }
-        });
-    }
-
     addMouseDrag() {
         this.$element.addEventListener('mousedown', (e) => {
             e.preventDefault();
             this.startX = e.clientX;
 
         });
+
         this.$element.addEventListener('mousemove', (e) => {
             if (this.startX) {
                 this.endX = e.clientX;
@@ -149,12 +134,19 @@ class Slider {
             this.endX = e.changedTouches[0].clientX;
             this.deltaX = this.endX - this.startX;
             this.startX = null;
+            let step = this.distance / (this.$element.offsetWidth / this.rows);
+
+            if (step < 0) {
+                step = Math.floor(step);
+            } else {
+                step = Math.ceil(step);
+            }
             if (this.distance > this.limitKeepCurrent) {
-                this.index--;
+                this.index = this.index - step;
                 this.distance = 0;
                 this.updateView();
             } else if (this.distance < -this.limitKeepCurrent) {
-                this.index++;
+                this.index = this.index - step;
                 this.distance = 0;
                 this.updateView();
             }
@@ -363,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     });
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     // Scroll to hash
     document.querySelectorAll('[data-component="ScrollToHash"]').forEach((component) => {
