@@ -101,33 +101,33 @@ class Slider {
             }
         });
 
-        this.$element.addEventListener('mouseup', (e) => {
+        const mouseUpHandler = (e) => {
             e.preventDefault();
             this.endX = e.clientX;
-            const step = Math.floor(this.distance / (this.$element.offsetWidth / this.rows));
+            let step = this.distance / (this.$element.offsetWidth / this.rows);
+
+            if (step < 0) {
+                step = Math.floor(step);
+            } else {
+                step = Math.ceil(step);
+            }
 
             this.startX = null;
             if (this.distance > this.limitKeepCurrent) {
-                this.index = Math.floor(this.index - step);
+                this.index = this.index - step;
                 this.distance = 0;
                 this.updateView();
             } else if (this.distance < -this.limitKeepCurrent) {
-                this.index = Math.floor(this.index - step);
+                this.index = this.index - step;
                 this.distance = 0;
                 this.updateView();
             }
             this.distance = 0;
             this.updateView();
+        }
 
-        });
-
-        this.$element.addEventListener('mouseleave', (e) => {
-            e.preventDefault();
-            this.endX = e.clientX;
-            this.startX = null;
-            this.distance = 0;
-            this.updateView();
-        });
+        this.$element.addEventListener('mouseup', mouseUpHandler);
+        this.$element.addEventListener('mouseleave', mouseUpHandler);
     }
 
     addTouchEvents() {
