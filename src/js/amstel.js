@@ -6,8 +6,8 @@ class Slider {
         this.distance = 0;
         this.isNavigating = false;
         this.limitKeepCurrent = 50;
-        this.draggingOver = false;
-        this.rows = 1;
+        this.draggingOver = true;
+        this.rows = 2;
         this.gap = 0;
         this.init();
         this.shouldAddActions(() => {
@@ -104,13 +104,15 @@ class Slider {
         this.$element.addEventListener('mouseup', (e) => {
             e.preventDefault();
             this.endX = e.clientX;
+            const step = Math.floor(this.distance / (this.$element.offsetWidth / this.rows));
+
             this.startX = null;
             if (this.distance > this.limitKeepCurrent) {
-                this.index--;
+                this.index = Math.floor(this.index - step);
                 this.distance = 0;
                 this.updateView();
             } else if (this.distance < -this.limitKeepCurrent) {
-                this.index++;
+                this.index = Math.floor(this.index - step);
                 this.distance = 0;
                 this.updateView();
             }
@@ -259,7 +261,7 @@ class Slider {
         });
 
         this.paginationItems.forEach(($item, index) => {
-            $item.classList.toggle('slider-pagination-item-active', index === this.index);
+            $item?.classList?.toggle('slider-pagination-item-active', index === this.index);
         });
     }
 
