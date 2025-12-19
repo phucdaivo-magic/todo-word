@@ -7,9 +7,21 @@ class Slider {
         this.isNavigating = false;
         this.limitKeepCurrent = 50;
         this.draggingOver = true;
-        this.rows = 2;
+        this.rows = 1;
         this.gap = 0;
+        Object.entries(this.$element.dataset).forEach(([key, value]) => {
+            if (isNaN(value)) {
+                this[key] = value;
+            } else {
+                this[key] = JSON.parse(value);
+
+            }
+        });
+
         this.init();
+
+        console.log(this);
+
         this.shouldAddActions(() => {
             this.updateIsNavigating();
             this.addPagination();
