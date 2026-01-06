@@ -1,20 +1,32 @@
 .masonry {
-    width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    position: relative;
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  position: relative;
 
-    .masonry-item {
-        position: absolute;
-        width: calc(100% / 4);
+  .masonry-item {
+    --gap: 4px;
+    position: absolute;
+    width: calc(100% / 3 - var(--gap));
+    padding: calc(var(--gap) / 2);
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 1s;
 
-        img {
-            width: 100%;
-        }
+    img {
+      width: 100%;
+      display: block;
     }
+  }
+  background-color: #eee;
+  min-height: 100vh;
+}
 
-    height: 300px;
-    background-color: #f0f0f0;
+body {
+  margin: 0;
+  position: relative;
 }

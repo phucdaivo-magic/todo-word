@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/masonry.scss"],
+  "sourcesContent": [".masonry {\n  width: 700px;\n  max-width: 100%;\n  margin: 0 auto;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 4px;\n  position: relative;\n\n  .masonry-item {\n    --gap: 4px;\n    position: absolute;\n    width: calc(100% / 3 - var(--gap));\n    padding: calc(var(--gap) / 2);\n    top: 0;\n    right: 0;\n    opacity: 0;\n    transition: all 1s;\n\n    img {\n      width: 100%;\n      display: block;\n    }\n  }\n  background-color: #eee;\n  min-height: 100vh;\n}\n\nbody {\n  margin: 0;\n  position: relative;\n}\n"],
+  "mappings": "AAAA,CAAA,QACE,MAAA,MACA,UAAA,KAFF,OAGE,EAAA,KACA,QAAA,KACA,UAAA,KACA,IAAA,IACA,SAAA,SAEA,CATF,QASE,CAAA,aACE,OAAA,IACA,SAAA,SACA,MAAA,KAAA,eAAA,EAAA,IAAA,QACA,QAAA,KAAA,IAAA,OAAA,EAAA,GACA,IAAA,EACA,MAAA,EACA,QAAA,EACA,WAAA,IAAA,GAEA,CAnBJ,QAmBI,CAVF,aAUE,IACE,MAAA,KACA,QAAA,MArBN,CAAA,QAwBE,iBAAA,KACA,WAAA,MAGF,KA5BA,OA6BE,EACA,SAAA",
+  "names": []
+}

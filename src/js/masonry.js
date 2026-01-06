@@ -1,68 +1,104 @@
-document.addEventListener('DOMContentLoaded', () => {
-    masonry();
+document.addEventListener("DOMContentLoaded", () => {
+	masonry();
 });
 
 const masonry = () => {
-    const $masonry = document.querySelector('.masonry');
-    const $masonryItems = document.querySelectorAll('.masonry-item');
-    const masonryBoundingClientRect = $masonry.getBoundingClientRect();
+	const $masonry = document.querySelector(".masonry");
+	const $masonryItems = document.querySelectorAll(".masonry-item");
+	const masonryBoundingClientRect = $masonry.getBoundingClientRect();
 
-    const masonryRect = {
-        top: masonryBoundingClientRect.top,
-        left: masonryBoundingClientRect.left,
-        width: masonryBoundingClientRect.width,
-        height: masonryBoundingClientRect.height
-    };
+	const { push, get } = useMasonry();
 
-    const position = {
-        top: 0,
-        left: 0,
-    };
+	Array.from($masonryItems)
+		.map((item) => {
+			return new Promise((resolve) => {
+				const img = item.querySelector("img");
+				if (img.complete) {
+					resolve(item);
+				} else {
+					img.onload = () => resolve(item);
+				}
+			});
+		})
+		.forEach((item, index) => {
+			item.then((item) => {
+				const itemMasonry = get();
+				const left =
+					itemMasonry.index || itemMasonry.index === 0
+						? itemMasonry.left
+						: itemMasonry.left + itemMasonry.width;
 
+				const top =
+					itemMasonry.index || itemMasonry.index === 0
+						? itemMasonry.top + itemMasonry.height
+						: itemMasonry.top;
 
-    console.log($masonry.getBoundingClientRect());
+				item.style.setProperty("position", "absolute");
+				item.style.setProperty("top", `${top}px`);
+				item.style.setProperty("left", `${left}px`);
+				item.style.setProperty("z-index", `${index + 1}`);
+				item.style.setProperty("opacity", `1`);
 
-    const { pushTop, tops } = useTop();
-    let isFullBase = false;
+				const itemRect = item.getBoundingClientRect();
 
+				const width = itemRect.width;
+				const height = itemRect.height;
 
-    $masonryItems.forEach((item, index) => {
-        setTimeout(() => {
-            item.style.setProperty('position', 'absolute');
-            item.style.setProperty('top', `${position.top}px`);
-            item.style.setProperty('left', `${position.left}px`);
-            item.style.setProperty('z-index', `${index + 1}`);
-
-            pushTop({
-                top: position.top + item.offsetHeight,
-                left: position.left
-            });
-
-            const rect = item.getBoundingClientRect();
-            position.left = position.left + (rect.width);
-            if (isFullBase) {
-
-            } else if (position.left >= masonryRect.width) {
-                isFullBase = true;
-            }
-        }, index * 500);
-    });
+				push({ top, left, width, height, item }, itemMasonry.index);
+			}, index * 1);
+		});
 };
 
-const useTop = () => {
-    const tops = [];
-    const pushTop = (top) => {
-        tops.push(top);
-    }
+const useMasonry = () => {
+	let items = [];
+	const push = (item, index) => {
+		if (index || index === 0) {
+			items = items.map((_item, _index) => {
+				if (_index === index) {
+					return item;
+				}
+				return _item;
+			});
+		} else {
+			items.push(item);
+		}
 
-    const getTop = (left) => {
-        const itemTop = tops.reduce((current, acc) => {
-        }, {});
+		console.log(items);
+	};
 
-        return itemTop.top;
-    };
+	const get = () => {
+		if (items.length === 0) {
+			return {
+				top: 0,
+				left: 0,
+				width: 0,
+				height: 0,
+			};
+		} else if (items.length < 3) {
+			return [...items].pop();
+		} else {
+			const topLast = items.reduce(
+				(acc, cur, index) => {
+					console.log(cur, acc);
 
-    return { pushTop, tops, getTop };
+					if (cur.top + cur.height <= acc.top + acc.height) {
+						return { ...cur, index };
+					}
+
+					return acc;
+				},
+				{ ...items[0], index: 0 }
+			);
+
+			console.log(topLast);
+
+			return {
+				...topLast,
+			};
+		}
+	};
+
+	return { push, get };
 };
 
-new EventSource('/esbuild').addEventListener('change', () => location.reload());
+new EventSource("/esbuild").addEventListener("change", () => location.reload());
