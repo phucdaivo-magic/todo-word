@@ -1,18 +1,19 @@
 .horizontal-scroll-bar-content-block {
   overflow: hidden;
-
+  max-width: 500px;
+  margin: auto;
   .block-inner {
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 24px;
       top: 0;
       height: 390px;
       width: 50px;
       display: block;
-      background-image: url(https://tgcny25.local:9010/dist/images/tgcny26.my/scroll-vertical.png);
+      background-image: url("../images/scroll-vertical.png");
       background-repeat: no-repeat;
       background-size: contain;
       z-index: 1;
@@ -24,13 +25,13 @@
       display: flex;
 
       &:after {
-        content: '';
+        content: "";
         display: block;
         height: 390px;
         width: 50px;
         min-width: 50px;
         flex-shrink: 0;
-        background-image: url(https://tgcny25.local:9010/dist/images/tgcny26.my/scroll-vertical.png);
+        background-image: url("../images//scroll-vertical.png");
         background-repeat: no-repeat;
         background-size: contain;
         margin-left: -6px;
@@ -53,6 +54,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            background-color: green;
           }
         }
       }

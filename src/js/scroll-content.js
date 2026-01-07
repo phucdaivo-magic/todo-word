@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 class HorizontalScrolling {
     constructor(element) {
         this.$element = element;
@@ -29,12 +28,13 @@ class HorizontalScrolling {
         this.$scrollContent.style.setProperty("--scroll-content-after-left", `${-leftStart - 10}px`);
 
         setTimeout(() => {
-            this.$imageWrapper.style.setProperty("transition", "transform 1s ease-in-out");
-            this.$scrollContent.style.setProperty("transition", "transform 1s ease-in-out");
+            this.$imageWrapper.style.setProperty("transition", "transform 1.5s ease-in-out");
+            this.$scrollContent.style.setProperty("transition", "transform 1.5s ease-in-out");
 
             this.$imageWrapper.style.setProperty("transform", `translateX(${0}px)`);
             this.$scrollContent.style.setProperty("--scroll-content-after-left", `0px`);
-        }, 1000);
+        }, 500);
+
         setTimeout(() => {
             this.$imageWrapper.style.setProperty("transition", "none");
             this.$scrollContent.style.setProperty("transition", "none");
@@ -61,13 +61,13 @@ class HorizontalScrolling {
     onIntersecting() {
         const options = {
             root: null,
-            threshold: 0,
+            threshold: 1,
         };
 
         const callback = (entries, observer) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    console.log('Element is in view');
+                    this.runAnimation()
                 } else {
                     console.log('Element is not in view');
                 }
