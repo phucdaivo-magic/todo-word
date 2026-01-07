@@ -1,5 +1,21 @@
+@mixin media($name, $values) {
+  $keys: map-keys($values);
+
+  @each $key in $keys {
+    $value: map-get($values, $key);
+
+    @if $key ==0 {
+      #{$name}: $value;
+    } @else {
+      @media (min-width: $key) {
+        #{$name}: $value;
+      }
+    }
+  }
+}
+
 .masonry {
-  width: 700px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
@@ -8,21 +24,39 @@
   position: relative;
 
   .masonry-item {
-    --gap: 4px;
+    --gap: 5px;
+    --1c: calc(100% / 1 - var(--gap));
+    --2c: calc(100% / 2 - var(--gap));
+    --3c: calc(100% / 3 - var(--gap));
+    --4c: calc(100% / 4 - var(--gap));
+    --5c: calc(100% / 5 - var(--gap));
+    --6c: calc(100% / 6 - var(--gap));
+    --7c: calc(100% / 7 - var(--gap));
+
     position: absolute;
-    width: calc(100% / 3 - var(--gap));
     padding: calc(var(--gap) / 2);
     top: 0;
     right: 0;
     opacity: 0;
     transition: all 1s;
 
+    @include media(
+      "width",
+      (
+        0: var(--1c),
+        400px: var(--2c),
+        768px: var(--3c),
+        1024px: var(--4c),
+        1280px: var(--5c),
+        1920px: var(--6c),
+      )
+    );
+
     img {
       width: 100%;
       display: block;
     }
   }
-  background-color: #eee;
   min-height: 100vh;
 }
 
