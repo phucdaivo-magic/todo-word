@@ -10,23 +10,28 @@ body {
     color: #595858;
     background-color: #fff;
     line-height: 1.5;
+    font-weight: 400;
 }
 
 .steps {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    gap: 40px;
+    gap: 10px;
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
 
     &__title {
         font-size: 20px;
-        font-weight: lighter;
         text-align: center;
         color: #595858;
         padding-bottom: 20px;
+
+        strong {
+            font-weight: 800;
+            color: #0063d3;
+        }
     }
 
     .step-divider {
@@ -47,7 +52,7 @@ body {
             font-size: 20px;
             font-weight: bold;
             text-align: center;
-            color: #D6001C;
+            color: #f17400;
             padding-bottom: 20px;
         }
 
@@ -73,14 +78,33 @@ body {
 
             &__text {
                 width: 60%;
-                font-size: 14px;
-                font-weight: normal;
+                font-size: 16px;
+                font-weight: 400;
 
                 p {
                     padding: 0;
                     margin: 0;
                 }
+
+                strong {
+                    font-weight: 800;
+                    color: #0063d3;
+                }
             }
+        }
+    }
+
+    .steps__summary {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+        color: #595858;
+        padding-bottom: 20px;
+
+        strong {
+            font-weight: 800;
+            color: #0063d3;
         }
     }
 }
