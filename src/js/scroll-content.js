@@ -1,142 +1,206 @@
 new EventSource("/esbuild").addEventListener("change", () => location.reload());
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    const horizontalScrollings = document.querySelectorAll("[data-component='HorizontalScrolling']");
-    horizontalScrollings.forEach(horizontalScrolling => {
-        new HorizontalScrolling(horizontalScrolling);
-    });
+	const horizontalScrollings = document.querySelectorAll(
+		"[data-component='HorizontalScrolling']"
+	);
+	horizontalScrollings.forEach((horizontalScrolling) => {
+		new HorizontalScrolling(horizontalScrolling);
+	});
 });
 
+const CONFIG = {
+	INTERSECTING: {
+		threshold: 0.5,
+	},
+	WIDTH_SCROLL_CONTENT_OFFSET: 56 / 2,
+	CSS: {
+		TRANSITION: "transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+		SCROLL_LEFT_PROPERTY: "--scroll-content-after-left",
+	},
+};
+
 class HorizontalScrolling {
-    constructor(element) {
-        this.$element = element;
-        this.$imageWrapper = this.$element.querySelector(".image-wrapper");
-        this.$scrollContent = this.$element.querySelector(".scroll-content");
+	constructor(element) {
+		this.$element = element;
+		this.$imageWrapper = this.$element.querySelector(".image-wrapper");
+		this.$scrollContent = this.$element.querySelector(".scroll-content");
 
-        this.isDragging = false;
-        this.scrollLeft = 0;
-        this.maxScrollLeft = this.$imageWrapper.offsetWidth - this.$scrollContent.clientWidth + 30;
-        this.updateStyles();
-        this.registerEvents();
-        this.runAnimation();
-    }
+		this.isDragging = false;
+		this.scrollLeft = 0;
+		this.maxScrollLeft = this.getMaxScrollLeft();
+		this.runAnimation = this.runAnimation();
 
-    runAnimation() {
-        const leftStart = this.$imageWrapper.getBoundingClientRect().width - 40;
-        this.$imageWrapper.style.setProperty("transform", `translateX(${-leftStart}px)`);
-        this.$scrollContent.style.setProperty("--scroll-content-after-left", `${-leftStart - 10}px`);
+		this.runAnimation.init();
 
-        setTimeout(() => {
-            this.$imageWrapper.style.setProperty("transition", "transform 1.5s ease-in-out");
-            this.$scrollContent.style.setProperty("transition", "transform 1.5s ease-in-out");
+		this.shouldRegisterEvents(() => {
+			this.initStyles();
+			this.onIntersecting();
+		});
+	}
 
-            this.$imageWrapper.style.setProperty("transform", `translateX(${0}px)`);
-            this.$scrollContent.style.setProperty("--scroll-content-after-left", `0px`);
-        }, 500);
+	getMaxScrollLeft() {
+		return (
+			this.$imageWrapper.offsetWidth -
+			this.$scrollContent.clientWidth +
+			CONFIG.WIDTH_SCROLL_CONTENT_OFFSET
+		);
+	}
 
-        setTimeout(() => {
-            this.$imageWrapper.style.setProperty("transition", "none");
-            this.$scrollContent.style.setProperty("transition", "none");
-        }, 2000);
-    }
+	initStyles() {
+		this.$scrollContent.style.setProperty("overflow", "hidden");
+		this.$scrollContent.style.setProperty("cursor", "move");
+	}
 
-    shouldRegisterEvents(callback) {
-        if (this.maxScrollLeft > 0) {
-            callback();
-        }
-    }
+	runAnimation() {
+		const init = () =>
+			new Promise((resolve) => {
+				const leftStart = this.$imageWrapper.getBoundingClientRect().width - 60;
+				this.$imageWrapper.style.setProperty(
+					"transform",
+					`translateX(${-leftStart}px)`
+				);
+				this.$scrollContent.style.setProperty(
+					CONFIG.CSS.SCROLL_LEFT_PROPERTY,
+					`${-leftStart}px`
+				);
 
-    updateStyles() {
-        this.$scrollContent.style.setProperty("overflow", "hidden");
-        this.$scrollContent.style.setProperty("cursor", "move");
-    }
+				resolve();
+			});
 
-    registerEvents() {
-        this.addMouseDrag();
-        this.onTouchDrag();
-        this.onIntersecting();
-    }
+		const start = () =>
+			new Promise((resolve) => {
+				setTimeout(() => {
+					this.$imageWrapper.style.setProperty(
+						"transition",
+						CONFIG.CSS.TRANSITION
+					);
+					this.$scrollContent.style.setProperty(
+						"transition",
+						CONFIG.CSS.TRANSITION
+					);
 
-    onIntersecting() {
-        const options = {
-            root: null,
-            threshold: 1,
-        };
+					this.$imageWrapper.style.setProperty(
+						"transform",
+						`translateX(${0}px)`
+					);
+					this.$scrollContent.style.setProperty(
+						CONFIG.CSS.SCROLL_LEFT_PROPERTY,
+						0
+					);
+				}, 500);
 
-        const callback = (entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    this.runAnimation()
-                } else {
-                    console.log('Element is not in view');
-                }
-            });
-        };
-        const observer = new IntersectionObserver(callback, options);
-        observer.observe(this.$element);
-    }
+				setTimeout(() => {
+					this.$imageWrapper.style.removeProperty("transition");
+					this.$scrollContent.style.removeProperty("transition");
+					resolve();
+				}, 500 + 1200);
+			});
 
-    addMouseDrag() {
-        this.$element.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            this.startX = e.clientX;
-            this.isDragging = true;
-        });
+		return { init, start };
+	}
 
-        this.$element.addEventListener('mousemove', (e) => {
-            if (this.isDragging) {
-                this.endX = e.clientX;
-                this.distance = this.endX - this.startX;
-                this.updateScroll();
-            }
-        });
+	shouldRegisterEvents(callback) {
+		if (this.maxScrollLeft > 0) {
+			callback();
+		}
+	}
 
-        const mouseUpHandler = (e) => {
-            e.preventDefault();
-            this.endX = e.clientX;
-            this.scrollLeft = Math.max(Math.min(this.scrollLeft + this.distance, 0), -this.maxScrollLeft);
-            this.distance = 0;
-            this.updateScroll();
-            this.isDragging = false;
-        }
+	registerEvents() {
+		this.registerMouseEventListeners();
+		this.registerTouchEventListeners();
+	}
 
-        this.$element.addEventListener('mouseup', mouseUpHandler);
-        this.$element.addEventListener('mouseleave', mouseUpHandler);
-    }
+	onIntersecting() {
+		const observer = new IntersectionObserver((entries, observer) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					this.runAnimation.start().then(() => this.registerEvents());
+					observer.unobserve(this.$element);
+				}
+			});
+		}, CONFIG.INTERSECTING);
+		observer.observe(this.$element);
+	}
 
-    onTouchDrag() {
-        this.$element.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            this.startX = e.touches[0].clientX;
-            this.isDragging = true;
-        });
-        this.$element.addEventListener('touchmove', (e) => {
-            if (this.isDragging) {
-                this.endX = e.touches[0].clientX;
-                this.distance = this.endX - this.startX;
-                this.updateScroll();
-            }
-        });
-        const touchUpHandler = (e) => {
-            e.preventDefault();
-            this.endX = e.changedTouches[0].clientX;
-            this.deltaX = this.endX - this.startX;
-            this.startX = null;
-            this.scrollLeft = Math.max(Math.min(this.scrollLeft + this.distance, 0), -this.maxScrollLeft);
-            this.distance = 0;
-            this.updateScroll();
-            this.isDragging = false;
-        }
+	registerMouseEventListeners() {
+		const onMouseDown = (e) => {
+			e.preventDefault();
+			this.startX = e.clientX;
+			this.isDragging = true;
+		};
 
-        this.$element.addEventListener('touchend', touchUpHandler);
-    }
+		const onMouseMove = (e) => {
+			if (this.isDragging) {
+				this.endX = e.clientX;
+				this.distance = this.endX - this.startX;
+				this.updateView();
+			}
+		};
 
-    updateScroll() {
-        let scrollLeft = this.scrollLeft + this.distance;
-        scrollLeft = Math.min(scrollLeft, 0);
-        scrollLeft = Math.max(scrollLeft, -this.maxScrollLeft);
-        this.$imageWrapper.style.setProperty("transform", `translateX(${scrollLeft}px)`);
-        this.$scrollContent.style.setProperty("--scroll-content-after-left", `${scrollLeft - 30}px`);
-    }
+		const onMouseup = (e) => {
+			e.preventDefault();
+			this.endX = e.clientX;
+			this.scrollLeft = Math.max(
+				Math.min(this.scrollLeft + this.distance, 0),
+				-this.maxScrollLeft
+			);
+			this.distance = 0;
+			this.updateView();
+			this.isDragging = false;
+		};
+		this.$element.addEventListener("mousedown", onMouseDown);
+		this.$element.addEventListener("mousemove", onMouseMove);
+		this.$element.addEventListener("mouseup", onMouseup);
+		this.$element.addEventListener("mouseleave", onMouseup);
+	}
+
+
+	registerTouchEventListeners() {
+		const onTouchstart = (e) => {
+			e.preventDefault();
+			this.startX = e.touches[0].clientX;
+			this.isDragging = true;
+		};
+
+		const onTouchmove = (e) => {
+			if (this.isDragging) {
+				this.endX = e.touches[0].clientX;
+				this.distance = this.endX - this.startX;
+				this.updateView();
+			}
+		};
+
+		const onTouchend = (e) => {
+			e.preventDefault();
+			this.endX = e.changedTouches[0].clientX;
+			this.deltaX = this.endX - this.startX;
+			this.startX = null;
+			this.scrollLeft = Math.max(
+				Math.min(this.scrollLeft + this.distance, 0),
+				-this.maxScrollLeft
+			);
+			this.distance = 0;
+			this.updateView();
+			this.isDragging = false;
+		};
+
+		this.$element.addEventListener("touchstart", onTouchstart);
+		this.$element.addEventListener("touchmove", onTouchmove);
+		this.$element.addEventListener("touchend", onTouchend);
+	}
+
+	updateView() {
+		let scrollLeft = this.scrollLeft + this.distance;
+		scrollLeft = Math.min(scrollLeft, 0);
+		scrollLeft = Math.max(scrollLeft, -this.maxScrollLeft);
+		this.$imageWrapper.style.setProperty(
+			"transform",
+			`translateX(${scrollLeft}px)`
+		);
+		this.$scrollContent.style.setProperty(
+			"--scroll-content-after-left",
+			`${scrollLeft}px`
+		);
+	}
 }

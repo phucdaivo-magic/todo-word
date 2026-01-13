@@ -1,50 +1,139 @@
+@mixin breakpoint($point) {
+  @if $point ==xxs {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }
+  }
+
+  @if $point ==xs {
+    @media only screen and (min-width: 640px) {
+      @content;
+    }
+  }
+
+  @else if $point ==sm {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $point ==md {
+    @media only screen and (min-width: 960px) {
+      @content;
+    }
+  }
+
+  @else if $point ==rg {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+
+  @else if $point ==rg1025 {
+
+    // special breakpoint for brand 2 Tiger and Sol
+    @media only screen and (min-width: 1025px) {
+      @content;
+    }
+  }
+
+  @else if $point ==lg {
+    @media only screen and (min-width: 1280px) {
+      @content;
+    }
+  }
+
+  @else if $point ==xl {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    }
+  }
+
+  @else if $point ==xxl {
+    @media only screen and (min-width: 1600px) {
+      @content;
+    }
+  }
+
+  @else if $point ==hv {
+
+    // for hover stage
+    @media only screen and (min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
 .horizontal-scroll-bar-content-block {
   overflow: hidden;
-  max-width: 500px;
-  margin: auto;
-  .block-inner {
+
+  .horizontal-scroll-viewport {
     position: relative;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
-      left: 24px;
+      left: 0;
       top: 0;
-      height: 390px;
-      width: 50px;
+      height: var(--scroll-height);
+      width: var(--scroll-width);
+      min-width: var(--scroll-width);
       display: block;
-      background-image: url("../images/scroll-vertical.png");
+      background-image: url('https://edw.local:9010/dist/images/tgcny26.my/scroll-vertical.png');
       background-repeat: no-repeat;
       background-size: contain;
       z-index: 1;
+      background-size: 100% 100%;
     }
 
     .scroll-content {
-      margin-left: 40px;
-      overflow: auto;
+      overflow: visible;
       display: flex;
+      margin-left: calc(var(--scroll-width) / 2);
+
 
       &:after {
-        content: "";
+        position: relative;
+        content: '';
         display: block;
-        height: 390px;
-        width: 50px;
-        min-width: 50px;
+        width: var(--scroll-width);
+        min-width: var(--scroll-width);
+        height: var(--scroll-height);
         flex-shrink: 0;
-        background-image: url("../images//scroll-vertical.png");
+        background-image: url('https://edw.local:9010/dist/images/tgcny26.my/scroll-vertical.png');
         background-repeat: no-repeat;
-        background-size: contain;
-        margin-left: -6px;
+        background-size: 100% 100%;
         transform: translateX(var(--scroll-content-after-left));
         transition: inherit;
+        display: block;
       }
 
       .image-wrapper {
+        --padding-x: calc(20px + var(--scroll-width) / 2);
         display: flex;
         gap: 20px;
-        background: linear-gradient(to right, #5c0403, #951914 100%);
-        padding: 20px 45px;
-        margin: 24px 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: var(--padding-x);
+        padding-right: var(--padding-x);
+        position: relative;
+        margin-right: calc(var(--scroll-width) / -2);
+        margin-top: calc(var(--scroll-height) * 0.07);
+        margin-bottom: calc(var(--scroll-height) * 0.09);
+        box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.43);
+
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          content: '';
+          display: block;
+          height: 100%;
+          background: linear-gradient(to right, #5c0403, #951914 100%);
+          z-index: -1;
+        }
 
         .image-frame {
           width: 300px;
@@ -54,60 +143,227 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            background-color: green;
           }
         }
       }
     }
   }
 
-  // @include breakpoint(sm) {
-  //   .block-inner {
-  //     &::before {
-  //       height: 510px;
-  //       width: 60px;
-  //     }
+  --scroll-width: 44px;
+  --scroll-height: 405px;
 
-  //     .scroll-content {
-  //       &:after {
-  //         height: 510px;
-  //         min-width: 60px;
-  //         width: 60px;
-  //       }
+  @include breakpoint(sm) {
+    --scroll-width: 56px;
+    --scroll-height: 522px;
 
-  //       .image-wrapper {
-  //         margin-top: 30px;
-  //         margin-bottom: 40px;
+    .horizontal-scroll-viewport {
+      .scroll-content {
 
-  //         .image-frame {
-  //           width: 400px;
-  //           height: 400px;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 
-  // @include breakpoint(rg) {
-  //   .block-inner {
-  //     max-width: 792px;
-  //     margin: 0 auto;
+        .image-wrapper {
 
-  //     &::before {
-  //       left: 0;
-  //     }
+          .image-frame {
+            width: 400px;
+            height: 400px;
+          }
+        }
+      }
+    }
+  }
 
-  //     .scroll-content {
-  //       margin-left: 32px;
-
-  //       &:after {
-  //         margin-right: 0;
-  //       }
-  //     }
-  //   }
-  // }
+  @include breakpoint(rg) {
+    .horizontal-scroll-viewport {
+      max-width: 792px;
+      margin: 0 auto;
+    }
+  }
 }
 
-body {
-  margin: 0;
+
+.video-with-verticle-scrolling-block {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 150px;
+
+  .block-inner {
+    position: relative;
+    width: 335px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      z-index: -2;
+    }
+
+    &::before {
+      top: 10px;
+      left: -75px;
+      background-image: url(https://edw.local:9010/dist/images/tgcny26.my/crack-1.png);
+      width: calc(496px / 4);
+      height: calc(669px / 4);
+    }
+
+    &::after {
+      top: calc(100% - 50px);
+      left: 10px;
+      background-image: url(https://edw.local:9010/dist/images/tgcny26.my/crack-2.png);
+      width: calc(548px / 4);
+      height: calc(626px / 4);
+    }
+
+    .video-container {
+      background-image: url(https://edw.local:9010/dist/images/tgcny26.my/bg-video-1.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      aspect-ratio: 1650/943;
+      margin: 0;
+
+      iframe,
+      video {
+        width: 100%;
+        height: 100%;
+        vertical-align: bottom;
+        mask-image: url(https://edw.local:9010/dist/images/tgcny26.my/bg-video-mask.png);
+        mask-size: calc(100% - 4px);
+        mask-position: center;
+        mask-repeat: no-repeat;
+      }
+    }
+
+    .video-scroll {
+      margin: -4px auto 0;
+      width: calc(100% - 19px - 19px);
+      position: relative;
+      text-align: center;
+
+      &::after {
+        position: absolute;
+        left: -19px;
+        bottom: -20px;
+        content: '';
+        width: calc(100% + 19px + 19px);
+        height: 50px;
+        background-image: url(https://edw.local:9010/dist/images/tgcny26.my/scroll-horizontal.png);
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+      }
+
+      .video-scroll-content {
+        background-image: url(https://edw.local:9010/dist/images/tgcny26.my/bg-scroll.jpg);
+        background-size: 10px auto;
+        background-repeat: repeat-x;
+        background-color: #951914;
+        background-position: bottom center;
+        padding: 16px 20px 0;
+        transition: padding 0.6s ease-out;
+
+        &.is-visible {
+          padding: 30px 20px 50px;
+        }
+
+        *:not(.btn) {
+          font-size: px(20);
+          line-height: 1.5;
+          background: rgba(236, 213, 135, 1);
+          background: linear-gradient(to bottom, #d9a658 10%, #f3db8e);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+          filter: drop-shadow(2px 6px 6px rgba($color: #000000, $alpha: 0.6));
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .h1,
+        .h2,
+        .h3,
+        .h4 {
+          text-shadow: none;
+          -webkit-text-stroke: transparent;
+        }
+
+        .btn {
+          padding-left: 20px;
+          padding-right: 20px;
+          font-size: px(16);
+          -webkit-text-fill-color: initial;
+          text-fill-color: initial;
+        }
+      }
+    }
+
+
+    @include breakpoint(xs) {
+      width: 580px;
+
+      .video-scroll {
+        width: calc(100% - 33px - 33px);
+
+        .video-scroll-content {
+          padding: 32px 20px 0;
+
+          &.is-visible {
+            padding: 50px 20px 70px;
+          }
+        }
+
+        &::after {
+          left: -44px;
+          bottom: -30px;
+          width: calc(100% + 44px + 44px);
+          height: 80px;
+        }
+      }
+    }
+
+    @include breakpoint(sm) {
+      width: 680px;
+
+      .video-scroll {
+        width: calc(100% - 39px - 39px);
+        margin-top: -6px;
+
+        .video-scroll-content {
+          &.is-visible {
+            padding: 50px 20px 90px;
+          }
+        }
+
+        &::after {
+          left: -50px;
+          width: calc(100% + 50px + 50px);
+          height: 100px;
+        }
+      }
+    }
+
+    @include breakpoint(rg) {
+      width: 782px;
+
+      &::before {
+        left: -105px;
+        width: calc(496px / 3);
+        height: calc(669px / 3);
+      }
+
+      &::after {
+        width: calc(548px / 3);
+        height: calc(626px / 3);
+      }
+
+      .video-scroll {
+        margin-top: -7px;
+        width: calc(100% - 45px - 45px);
+      }
+    }
+  }
 }

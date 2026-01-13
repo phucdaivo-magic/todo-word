@@ -61,7 +61,6 @@ class Select {
         const updatePositionDropdown = (show) => {
             const { bottomCss, leftCss, widthCss } = this.getBoundingClientRect(element);
             this.setStyle($dropdownPopup, {
-                display: 'block',
                 top: bottomCss,
                 left: leftCss,
                 width: widthCss,
