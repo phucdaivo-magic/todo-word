@@ -18,6 +18,8 @@ body {
     box-sizing: border-box;
     gap: 40px;
     padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
 
     &__title {
         font-size: 20px;
@@ -91,4 +93,9 @@ body {
     font-weight: normal;
     line-height: 1.5;
     text-align: center;
+
+    .steps__notice__list {
+        max-width: 600px;
+        margin: 0 auto;
+    }
 }
