@@ -64,6 +64,28 @@ body {
       margin-bottom: 10px;
       padding: 5px;
       background: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      .icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 100px;
+        border: 3px solid red;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        .span {
+          height: 100%;
+          display: block;
+          background-color: red;
+          border: 1.5px solid red;
+          transform: rotate(45deg);
+        }
+      }
     }
 
     &__content {
