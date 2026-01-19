@@ -106,56 +106,85 @@ gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
 // });
 
 const sections = gsap.utils.toArray("section");
-
 sections.forEach((sec, i) => {
   gsap.set(sec, { top: `${i * 100}%` });
 });
 
 
 
-const tl = gsap.timeline({
+const gsapTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: "body",
     start: "top top",
     end: "+=500%", // 1 (hold) + 1 + 1 + 1 + 1
     scrub: true,
     markers: true,
-		 
+    // snap: {
+    //   snapTo: 1 / 4, // 4 phase
+    //   duration: 0.8,
+    //   ease: "power2.out"
+    // }
   }
 });
 
  
 
 /* 🔹 PHASE 1: SCROLL 1 → SECTION 1 ĐỨNG YÊN */
-tl.to(".section-1 .box-title", {
-  y: -500,
-  opacity: 0,
-  duration: 1
+// tl.to(".section-1 .box-title", {
+//   y: -500,
+//   opacity: 0,
+//   duration: 1
+// });
+// tl.to(".section-1 .frame-center-image", {
+//   scale: 0.5,
+// 	y: -300,
+//   duration: 1
+// }, "<");
+
+// tl.to(".section-1 .frame-right-content", {
+//   y: -500,
+//   opacity: 0,
+//   duration: 1
+// }, "<");
+
+document.querySelectorAll("[data-timeline]").forEach(item => {
+  const timelines = JSON.parse(item.dataset.timeline);
+  timelines.forEach(timeline => {
+    gsapTimeline.to(item, {...timeline}, "<");
+  });
 });
-tl.to(".section-1 .frame-center-image", {
-  scale: 0.5,
-	y: -300,
-  duration: 1
-},  "<");
 
  
 
-/* 🔹 PHASE 2: SCROLL 2 → BẮT ĐẦU KÉO SECTION */
-tl.to(sections, {
+// /* 🔹 PHASE 2: SCROLL 2 → BẮT ĐẦU KÉO SECTION */
+gsapTimeline.to(sections, {
   yPercent: -100,
   ease: "none",
   duration: 1
 });
 
+const section2Content = document.querySelector(".frame-2-content").children[0];
+const section2 = document.querySelector(".section-2");
+const outnerScrollHeight = section2.getBoundingClientRect().height - section2Content.getBoundingClientRect().height - 32;
+
+
+gsapTimeline.to(".frame-2-content", {
+  y: outnerScrollHeight > 0 ? 0: outnerScrollHeight,
+  ease: "none",
+  duration: 1,
+  ease: "circ.inOut",
+});
+
+
 /* 🔹 PHASE 3: SCROLL TIẾP → KÉO SECTION 2 */
-tl.to(sections, {
+gsapTimeline.to(sections, {
   yPercent: -200,
   ease: "none",
   duration: 1
 });
 
 /* 🔹 PHASE 4: SCROLL TIẾP → KÉO SECTION 3 */
-tl.to(sections, {
+gsapTimeline.to(sections, {
   yPercent: -300,
   ease: "none",
   duration: 1
@@ -187,27 +216,27 @@ tl.to(sections, {
  
 
 // DEMO 1: Basic animation
-gsap.from(".box", {
-	opacity: 0,
-	y: 50,
-	duration: 1,
-	ease: "power2.out"
-});
+// gsap.from(".box", {
+// 	opacity: 0,
+// 	y: 50,
+// 	duration: 1,
+// 	ease: "power2.out"
+// });
 
 // DEMO 2: Timeline animation
-gsap.timeline({
-	scrollTrigger: {
-		trigger: ".timeline",
-		start: "top 80%"
-	}
-})
-	.from(".item", {
-		scale: 0,
-		opacity: 0,
-		stagger: 0.2,
-		duration: 0.6,
-		ease: "back.out(1.7)"
-	});
+// gsap.timeline({
+// 	scrollTrigger: {
+// 		trigger: ".timeline",
+// 		start: "top 80%"
+// 	}
+// })
+// 	.from(".item", {
+// 		scale: 0,
+// 		opacity: 0,
+// 		stagger: 0.2,
+// 		duration: 0.6,
+// 		ease: "back.out(1.7)"
+// 	});
 
 // DEMO 3: ScrollTrigger + Pin (thay ScrollMagic)
 // gsap.to(".pin-text", {
