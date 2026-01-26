@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/js/index.js"],
+  "sourcesContent": ["class EsHeader extends HTMLElement {\r\n    constructor() {\r\n        super();\r\n    }\r\n}\r\ncustomElements.define(\"es-header\", EsHeader);\r\n\r\n\r\nnew EventSource('/esbuild').addEventListener('change', () => location.reload())"],
+  "mappings": "MAAA,IAAMA,EAAN,cAAuB,WAAY,CAC/B,aAAc,CACV,MAAM,CACV,CACJ,EACA,eAAe,OAAO,YAAaA,CAAQ,EAG3C,IAAI,YAAY,UAAU,EAAE,iBAAiB,SAAU,IAAM,SAAS,OAAO,CAAC",
+  "names": ["EsHeader"]
+}

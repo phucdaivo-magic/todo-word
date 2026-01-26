@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/scss/minaQ.scss"],
+  "sourcesContent": ["body {\r\n    font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.background{\r\n    background: linear-gradient(#608eb9, #75879e, #b4b5b0, #d7ccbf)\r\n}\r\n\r\n.text {\r\n    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);\r\n}"],
+  "mappings": "AAAA,KACI,YAAA,UAAA,CAAA,WAGJ,CAAA,WACI,WAAA,gBAAA,OAAA,CAAA,OAAA,CAAA,OAAA,CAAA,SAGJ,CAAA,KACI,YAAA,IAAA,IAAA,IAAA,KAAA,CAAA,CAAA,CAAA,CAAA,CAAA,CAAA",
+  "names": []
+}

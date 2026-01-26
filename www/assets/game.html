@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tower Fall</title>
+    <style>
+      body {
+        margin: 0;
+        background: #111;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        display: block;
+        margin: auto;
+        background: linear-gradient(#222, #000);
+      }
+      #ui {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 20px;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ui">Score: <span id="score">0</span></div>
+    <canvas id="game" width="400" height="600"></canvas>
+
+    <script>
+      /* ================= CORE ================= */
+
+      const canvas = document.getElementById("game");
+      const ctx = canvas.getContext("2d");
+      const scoreEl = document.getElementById("score");
+
+      /* ================= CONSTANTS ================= */
+
+      const GRAVITY = 0.6;
+      const MAX_FALL_SPEED = 18;
+      const COLLAPSE_OFFSET = 0.35;
+
+      /* ================= STATE ================= */
+
+      let score = 0;
+      let gameOver = false;
+
+      /* ================= PLAYER BASE ================= */
+
+      class Base {
+        constructor() {
+          this.x = canvas.width / 2 - 60;
+          this.y = canvas.height - 20;
+          this.width = 120;
+          this.height = 20;
+        }
+
+        draw() {
+          ctx.fillStyle = "#3498db";
+          ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+      }
+
+      /* ================= BLOCK ================= */
+
+      class Block {
+        constructor(x) {
+          this.width = 80;
+          this.height = 30;
+
+          this.x = x;
+          this.y = -this.height;
+
+          this.velocityY = 0;
+          this.angle = 0;
+          this.angularVelocity = 0;
+        }
+
+        update() {
+          this.velocityY += GRAVITY;
+          this.velocityY = Math.min(this.velocityY, MAX_FALL_SPEED);
+          this.y += this.velocityY;
+
+          this.angle += this.angularVelocity;
+          this.angularVelocity *= 0.98;
+        }
+
+        draw() {
+          ctx.save();
+          ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+          ctx.rotate((this.angle * Math.PI) / 180);
+          ctx.fillStyle = "#f1c40f";
+          ctx.fillRect(
+            -this.width / 2,
+            -this.height / 2,
+            this.width,
+            this.height
+          );
+          ctx.restore();
+        }
+      }
+
+      /* ================= STACKED BLOCK ================= */
+
+      class StackedBlock {
+        constructor(block, base, index) {
+          this.base = base;
+          this.width = block.width;
+          this.height = block.height;
+
+          this.offset = block.x - base.x;
+          this.y = base.y - this.height * (index + 1);
+
+          this.angle = 0;
+          this.angularVelocity = block.angularVelocity;
+        }
+
+        update() {
+          this.angularVelocity *= 0.96;
+          this.angle += this.angularVelocity;
+        }
+
+        draw(index) {
+          const x = this.base.x + this.offset;
+          const y = this.base.y - this.height * (index + 1);
+
+          ctx.save();
+          ctx.translate(x + this.width / 2, y + this.height / 2);
+          ctx.rotate((this.angle * Math.PI) / 180);
+          ctx.fillStyle = "#f39c12";
+          ctx.fillRect(
+            -this.width / 2,
+            -this.height / 2,
+            this.width,
+            this.height
+          );
+          ctx.restore();
+        }
+      }
+
+      /* ================= GAME OBJECTS ================= */
+
+      const base = new Base();
+      let fallingBlock = new Block(base.x);
+      let stack = [];
+
+      /* ================= INPUT ================= */
+
+      document.addEventListener("mousemove", (e) => {
+        if (!gameOver) {
+          fallingBlock.x =
+            e.clientX -
+            canvas.getBoundingClientRect().left -
+            fallingBlock.width / 2;
+        }
+      });
+
+      /* ================= COLLISION ================= */
+
+      function checkCollision() {
+        const target = stack.length === 0 ? base : stack[stack.length - 1];
+
+        const targetX = stack.length === 0 ? base.x : base.x + target.offset;
+        const targetWidth = target.width;
+
+        if (fallingBlock.y + fallingBlock.height >= target.y) {
+          const blockCenter = fallingBlock.x + fallingBlock.width / 2;
+          const targetCenter = targetX + targetWidth / 2;
+
+          const offset = (blockCenter - targetCenter) / targetWidth;
+
+          if (Math.abs(offset) > COLLAPSE_OFFSET) {
+            gameOver = true;
+            return;
+          }
+
+          const torque = offset * fallingBlock.velocityY * 0.6;
+          fallingBlock.angularVelocity = torque;
+
+          stack.push(new StackedBlock(fallingBlock, base, stack.length));
+          score++;
+          scoreEl.textContent = score;
+
+          fallingBlock = new Block(base.x);
+        }
+      }
+
+      /* ================= LOOP ================= */
+
+      function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        base.draw();
+
+        stack.forEach((b, i) => {
+          b.update();
+          b.draw(i);
+        });
+
+        if (!gameOver) {
+          fallingBlock.update();
+          fallingBlock.draw();
+          checkCollision();
+        } else {
+          ctx.fillStyle = "#e74c3c";
+          ctx.font = "32px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+        }
+
+        requestAnimationFrame(loop);
+      }
+
+      loop();
+    </script>
+  </body>
+</html>

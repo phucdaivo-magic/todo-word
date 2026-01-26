@@ -1,0 +1,108 @@
+.m\:\[0\] {
+    margin: 0
+}
+.position\:\[fixed\] {
+    position: fixed
+}
+.top\:\[0\] {
+    top: 0
+}
+.left\:\[0\] {
+    left: 0
+}
+.right\:\[0\] {
+    right: 0
+}
+.bottom\:\[0\] {
+    bottom: 0
+}
+.animation\:\[ease-in-out\] {
+    animation: ease-in-out
+}
+.after\:transition\:\[all_0\.3s_ease-in-out\]:after {
+    transition: all 0.3s ease-in-out
+}
+.w\:\[100\%\] {
+    width: 100%
+}
+.h\:\[100vh\] {
+    height: 100vh
+}
+.display\:\[flex\] {
+    display: flex
+}
+.justify-content\:\[center\] {
+    justify-content: center
+}
+.align-items\:\[center\] {
+    align-items: center
+}
+.position\:\[absolute\] {
+    position: absolute
+}
+.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-1.scroll-1\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.transition\:\[all_0\.3s_ease-in-out\] {
+    transition: all 0.3s ease-in-out
+}
+.transform\:\[translateY\(100vh\)\] {
+    transform: translateY(100vh)
+}
+.scroll-1.scroll-1\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-2.scroll-2\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-2.scroll-2\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-3.scroll-3\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-3.scroll-3\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-4.scroll-4\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-4.scroll-4\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-5.scroll-5\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-5.scroll-5\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-6.scroll-6\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-6.scroll-6\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-7.scroll-7\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-7.scroll-7\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-8.scroll-8\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-8.scroll-8\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-9.scroll-9\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}
+.scroll-9.scroll-9\.transform\:\[translateY\(0\)\] {
+    transform: translateY(0)
+}
+.scroll-10.scroll-10\.transform\:\[translateY\(-100vh\)\] {
+    transform: translateY(-100vh)
+}

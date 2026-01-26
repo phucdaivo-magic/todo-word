@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/js/main.js"],
+  "sourcesContent": ["\r\nnew EventSource('/esbuild').addEventListener('change', () => {\r\n  location.reload();\r\n});\r\n"],
+  "mappings": "MACA,IAAI,YAAY,UAAU,EAAE,iBAAiB,SAAU,IAAM,CAC3D,SAAS,OAAO,CAClB,CAAC",
+  "names": []
+}

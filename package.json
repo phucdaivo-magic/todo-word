@@ -2,9 +2,11 @@
   "name": "es-build",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "node build.mjs",
     "dev": "node dev.mjs",
+    "scan": "node ./src/libs/scan.js",
     "push": "node build.mjs && git add . && git commit -m 'update' && git push"
   },
   "author": "",
@@ -17,6 +19,7 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "css-magi": "^1.0.9",
+    "cssnano": "^7.1.2",
     "firebase": "^12.6.0",
     "gsap": "^3.14.2",
     "react": "^19.2.0",
