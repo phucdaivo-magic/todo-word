@@ -79,7 +79,7 @@ const useFileOutput = (file, outDir) => {
   if (!fs.existsSync(outDir)) {
     fs.mkdirSync(outDir, { recursive: true });
   }
-  const fileName = file.split('\\').pop().replace('.html', '.css');
+  const fileName = path.basename(file).replace('.html', '.css');
   const outDirPath = path.resolve(outDir);
   const outFile = path.join(outDirPath, fileName);
   return outFile;
