@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../src/css/main.css"],
-  "sourcesContent": [".margin\\:0 {\n    margin: 0\n}\n.background\\:\\#eee {\n    background: #eee\n}"],
-  "mappings": "AAAA,CAAC,UAAD,OACY,CACZ,CACA,CAAC,kBACG,WAAY,IAChB",
+  "sourcesContent": [".margin\\:0 {\n    margin: 0\n}\n@media (min-width:768px) {\n    .md\\:background\\:red {\n        background: red\n    }\n}\n.color\\:white {\n    color: white\n}\n.border\\:1px_solid_blue {\n    border: 1px solid blue\n}"],
+  "mappings": "AAAA,CAAC,UAAD,OACY,CACZ,CACA,OAAO,UAAW,OACd,CAAC,oBACG,WAAY,GAChB,CACJ,CACA,CAAC,aACG,MAAO,IACX,CACA,CAAC,uBACG,OAAQ,IAAI,MAAM,IACtB",
   "names": []
 }

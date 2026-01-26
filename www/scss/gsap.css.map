@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": ["../../src/scss/gsap.scss"],
-  "sourcesContent": ["body {\r\n    margin: 0;\r\n    font-family: sans-serif;\r\n    background: #f3f4f6;\r\n  }\r\n\r\n  section {\r\n    height: 100vh;\r\n    display: flex;\r\n  }\r\n\r\n  .box {\r\n    width: 120px;\r\n    height: 120px;\r\n    background: #4f46e5;\r\n    color: white;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: 20px;\r\n    border-radius: 12px;\r\n  }\r\n\r\n  .timeline {\r\n    display: flex;\r\n    gap: 20px;\r\n  }\r\n\r\n  .item {\r\n    width: 80px;\r\n    height: 80px;\r\n    background: #22c55e;\r\n    border-radius: 10px;\r\n  }\r\n\r\n  .pin-section {\r\n    background: #111827;\r\n  }\r\n\r\n  .pin-text {\r\n    color: white;\r\n    font-size: 48px;\r\n  }"],
+  "sources": ["../../src/gsap.scss"],
+  "sourcesContent": ["body {\n    margin: 0;\n    font-family: sans-serif;\n    background: #f3f4f6;\n  }\n\n  section {\n    height: 100vh;\n    display: flex;\n  }\n\n  .box {\n    width: 120px;\n    height: 120px;\n    background: #4f46e5;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 20px;\n    border-radius: 12px;\n  }\n\n  .timeline {\n    display: flex;\n    gap: 20px;\n  }\n\n  .item {\n    width: 80px;\n    height: 80px;\n    background: #22c55e;\n    border-radius: 10px;\n  }\n\n  .pin-section {\n    background: #111827;\n  }\n\n  .pin-text {\n    color: white;\n    font-size: 48px;\n  }"],
   "mappings": "AAAA,YACI,EACA,YAAA,WACA,WAAA,QAGF,QACE,OAAA,MACA,QAAA,KAGF,CAAA,IACE,MAAA,MACA,OAAA,MACA,WAAA,QACA,MAAA,KACA,QAAA,KACA,YAAA,OACA,gBAAA,OACA,UAAA,KAnBJ,cAoBI,KAGF,CAAA,SACE,QAAA,KACA,IAAA,KAGF,CAAA,KACE,MAAA,KACA,OAAA,KACA,WAAA,QA/BJ,cAgCI,KAGF,CAAA,YACE,WAAA,QAGF,CAAA,SACE,MAAA,KACA,UAAA",
   "names": []
 }

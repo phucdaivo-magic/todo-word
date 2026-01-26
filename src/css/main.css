@@ -1,6 +1,14 @@
 .margin\:0 {
     margin: 0
 }
-.background\:\#eee {
-    background: #eee
+@media (min-width:768px) {
+    .md\:background\:red {
+        background: red
+    }
+}
+.color\:white {
+    color: white
+}
+.border\:1px_solid_blue {
+    border: 1px solid blue
 }
