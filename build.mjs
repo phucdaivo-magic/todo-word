@@ -1,6 +1,7 @@
 import * as esbuild from 'esbuild';
 import { sassPlugin } from 'esbuild-sass-plugin';
 import fs from 'fs';
+import { generateCSSForFile } from './src/libs/scan.js';
 
 // auto load file form src/js and src/scss
 const jsFiles = fs.readdirSync('src/js').map((file) => `src/js/${file}`);
@@ -14,7 +15,7 @@ const customPlugin = {
     setup(build) {
         build.onStart(() => {
             console.log('build started at', new Date())
-            console.log('build started', build.initialOptions.entryPoints)
+            generateCSSForFile({ srcDir: 'src', outDir: 'src/css' });
         })
         build.onEnd(() => {
             console.log('build ended at', new Date())

@@ -22,7 +22,7 @@ const customPlugin = {
         build.onStart(() => {
             timer.start = new Date()
             console.log('build started at', new Date())
-            generateCSSForFile({ srcDir: 'src', outDir: 'src/css' })
+            generateCSSForFile({ srcDir: 'src', outDir: 'src/css' });
         })
         build.onEnd(() => {
             timer.end = new Date()
