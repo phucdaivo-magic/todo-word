@@ -82,6 +82,18 @@
 .font-size\:16px {
     font-size: 16px
 }
+.display\:inline-flex {
+    display: inline-flex
+}
+.flex-wrap\:wrap {
+    flex-wrap: wrap
+}
+.gap\:5px {
+    gap: 5px
+}
+.transition\:all_1s {
+    transition: all 1s
+}
 .animation\:hexagon-item_linear_infinite_2s {
     animation: hexagon-item linear infinite 2s
 }
@@ -127,32 +139,26 @@
 .border\:1px_solid_var\(--green-color\) {
     border: 1px solid var(--green-color)
 }
-.height\:fit-content {
-    height: fit-content
+.width\:30px {
+    width: 30px
+}
+.height\:26px {
+    height: 26px
+}
+.left\:-1px {
+    left: -1px
 }
 .position\:relative {
     position: relative
 }
-.--size\:30px\; {
-    --size: 30px;
+.min-width\:32px {
+    min-width: 32px
 }
-.hover\:background\:var\(--green-color\):hover {
-    background: var(--green-color)
+.height\:36px {
+    height: 36px
 }
-.width\:--size {
-    width: var(--size)
-}
-.height\:calc\(var\(--size\)_\*_58\/100\) {
-    height: calc(var(--size) * 58/100)
-}
-.border-left\:1px_solid_var\(--green-color\) {
-    border-left: 1px solid var(--green-color)
-}
-.border-right\:1px_solid_var\(--green-color\) {
-    border-right: 1px solid var(--green-color)
-}
-.before\:content\:attr\(data-content\):before {
-    content: attr(data-content)
+.clip-path\:polygon\(50\%_0\%\,100\%_25\%\,100\%_75\%\,50\%_100\%\,0\%_75\%\,0\%_25\%\) {
+    clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)
 }
 .before\:position\:absolute:before {
     position: absolute
@@ -160,51 +166,39 @@
 .before\:inset\:0:before {
     inset: 0
 }
-.before\:background\:inherit:before {
-    background: inherit
+.before\:background\:--green-color:before {
+    background: var(--green-color)
 }
-.before\:border-radius\:inherit:before {
-    border-radius: inherit
+.before\:content\:attr\(data-content\):before {
+    content: attr(data-content)
 }
-.before\:transform\:rotate\(60deg\):before {
-    transform: rotate(60deg)
+.before\:display\:block:before {
+    display: block
 }
-.before\:border-left\:1px_solid_var\(--green-color\):before {
-    border-left: 1px solid var(--green-color)
-}
-.before\:border-right\:1px_solid_var\(--green-color\):before {
-    border-right: 1px solid var(--green-color)
-}
-.after\:border-left\:1px_solid_var\(--green-color\):after {
-    border-left: 1px solid var(--green-color)
-}
-.after\:border-right\:1px_solid_var\(--green-color\):after {
-    border-right: 1px solid var(--green-color)
+.before\:clip-path\:inherit:before {
+    clip-path: inherit
 }
 .after\:position\:absolute:after {
     position: absolute
 }
-.after\:inset\:0:after {
-    inset: 0
+.after\:inset\:1px:after {
+    inset: 1px
 }
 .after\:background\:inherit:after {
     background: inherit
 }
-.after\:border-radius\:inherit:after {
-    border-radius: inherit
+.after\:display\:block:after {
+    display: block
 }
-.after\:transform\:rotate\(-60deg\):after {
-    transform: rotate(-60deg)
+.after\:clip-path\:inherit:after {
+    clip-path: inherit
 }
 .flex-direction\:column {
     flex-direction: column
 }
-.gap\:10px {
-    gap: 10px
+.gap\:0 {
+    gap: 0
 }
-.gap\:1px {
-    gap: 1px
-}
-.margin-left\:16px {
-    margin-left: 16px
+.margin-left\:15px {
+    margin-left: 15px
 }

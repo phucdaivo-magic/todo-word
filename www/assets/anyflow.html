@@ -1,193 +1,276 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="" href="https://fonts.googleapis.com" />
+    <link rel="preload" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/anyflow.css" />
+    <link rel="stylesheet" href="../css/anyflow-jsx.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="" href="https://fonts.googleapis.com" />
-  <link rel="preload" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/anyflow.css" />
-  <link rel="stylesheet" href="../css/anyflow-jsx.css" />
-
-  <style>
-    :root {
-      --green-color: #9ae600;
-      --text-color: #444;
-    }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
+    <style>
+      :root {
+        --green-color: #9ae600;
+        --text-color: #444;
       }
 
-      to {
-        transform: rotate(360deg);
-      }
-    }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
 
-    @keyframes scale {
-      0% {
-        transform: scale(0);
-        opacity: 0.5;
-      }
-
-      70% {
-        transform: scale(1.5);
-        opacity: 0.6;
+        to {
+          transform: rotate(360deg);
+        }
       }
 
-      100% {
-        transform: scale(2.5);
-        opacity: 0.1;
+      @keyframes scale {
+        0% {
+          transform: scale(0);
+          opacity: 0.5;
+        }
+
+        70% {
+          transform: scale(1.5);
+          opacity: 0.6;
+        }
+
+        100% {
+          transform: scale(2.5);
+          opacity: 0.1;
+        }
       }
-    }
 
-    @keyframes hexagon-item {
-      0% {
-        background: #fff;
+      @keyframes hexagon-item {
+        0% {
+          background: #fff;
+        }
+
+        50% {
+          background: var(--green-color);
+        }
+
+        100% {
+          background: #fff;
+        }
       }
 
-      50% {
-        background: var(--green-color);
+      @keyframes text {
+        0% {
+          transform: scale(1);
+          color: var(--text-color);
+        }
+        5% {
+          z-index: 999;
+          background-color: #9ae600;
+        }
+        10% {
+          transform: scale(1);
+          color: var(--text-color);
+          background-color: #fff;
+        }
+
+        20% {
+        }
       }
+    </style>
+  </head>
 
-      100% {
-        background: #fff;
-      }
-    }
-  </style>
-</head>
-
-<body class="margin:0 font-family:Anton,_sans-serif font-weight:400">
-
-  <div class="background:#eee max-width:1024px margin:0_auto">
-    <!-- 1 -->
-    <div class="height:100vh width:100% display:flex flex-direction:row gap:2px box-sizing:border-box flex-wrap:wrap">
-      <div data-component="CTActionComponent" class="color:--text-color order:2 md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff
-        transform:translateX(-100)">
-
-      </div>
-      <div data-component="TitleComponent"
-        class="color:--text-color order:1 md:order:3 md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff">
-      </div>
-
-    </div>
-    <!-- 2 -->
-    <div
-      class="position:relative height:100vh width:100% display:flex flex-direction:row gap:2px box-sizing:border-box">
+  <body class="margin:0 font-family:Anton,_sans-serif font-weight:400">
+    <div class="background:#eee max-width:1024px margin:0_auto">
+      <!-- 1 -->
       <div
-        class="position:absolute top:0 right:0 left:0 text-align:center font-size:40px font-weight:bold color:--text-color">
-        WERE ARE
-        <span class="color:--green-color">GOOD</span> AT
+        class="height:100vh width:100% display:flex flex-direction:row gap:2px box-sizing:border-box flex-wrap:wrap"
+      >
+        <div
+          data-component="CTActionComponent"
+          class="color:--text-color order:2 md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff transform:translateX(-100)"
+        ></div>
+        <div
+          data-component="TitleComponent"
+          class="color:--text-color order:1 md:order:3 md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff"
+        ></div>
       </div>
+      <!-- 2 -->
       <div
-        class="height:2px background:#eee position:absolute top:50% left:0 right:0 display:flex align-items:center justify-content:center">
-        <div class="width:100px display:flex justify-content:center align-items:center gap:10px">
-          <div class="width:10px height:10px background:var(--green-color) border-radius:100px position:relative">
-            <div
-              class="animation-delay:0.6s animation:_scale_0.8s_linear_infinite | opacity:0.5 | width:10px height:10px background:var(--green-color) border-radius:100px position:absolute top:0 left:0">
-            </div>
-          </div>
-          <div>DESIGN</div>
+        class="position:relative height:100vh width:100% display:flex flex-direction:row gap:2px box-sizing:border-box"
+      >
+        <div
+          class="position:absolute top:0 right:0 left:0 text-align:center font-size:40px font-weight:bold color:--text-color"
+        >
+          WERE ARE
+          <span class="color:--green-color">GOOD</span> AT
         </div>
         <div
-          class="animation:_spin_8s_linear_infinite position:relative display:flex justify-content:center align-items:center --size:250px width:var(--size) height:var(--size) min-width:var(--size) min-height:var(--size) max-width:var(--size) max-height:var(--size) border:2px_dashed_var(--green-color) border-radius:100%">
-          <!-- Row 1 -->
-          <div class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(0deg)">
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"></div>
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"></div>
-          </div>
-          <!-- Row 1 -->
-          <div class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(30deg)">
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"></div>
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"></div>
-          </div>
-
-          <!-- Row 1 -->
-          <div class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(60deg)">
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"></div>
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"></div>
-          </div>
-
-          <!-- Row 1 -->
-          <div class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(90deg)">
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"></div>
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"></div>
-          </div>
-
-          <!-- Row 1 -->
-          <div class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(120deg)">
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"></div>
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"></div>
-          </div>
-
-          <!-- Row 1 -->
-          <div class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(150deg)">
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"></div>
-            <div class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"></div>
-          </div>
-        </div>
-        <div class="width:100px display:flex justify-content:center align-items:center gap:10px">
-          <div class="width:10px height:10px background:var(--green-color) border-radius:100px position:relative">
+          class="height:2px background:#eee position:absolute top:50% left:0 right:0 display:flex align-items:center justify-content:center"
+        >
+          <div
+            class="width:100px display:flex justify-content:center align-items:center gap:10px"
+          >
             <div
-              class="animation:_scale_0.8s_linear_infinite | opacity:0.5 | width:10px height:10px background:var(--green-color) border-radius:100px position:absolute top:0 left:0">
+              class="width:10px height:10px background:var(--green-color) border-radius:100px position:relative"
+            >
+              <div
+                class="animation-delay:0.6s animation:_scale_0.8s_linear_infinite | opacity:0.5 | width:10px height:10px background:var(--green-color) border-radius:100px position:absolute top:0 left:0"
+              ></div>
+            </div>
+            <div>DESIGN</div>
+          </div>
+          <div
+            class="animation:_spin_8s_linear_infinite position:relative display:flex justify-content:center align-items:center --size:250px width:var(--size) height:var(--size) min-width:var(--size) min-height:var(--size) max-width:var(--size) max-height:var(--size) border:2px_dashed_var(--green-color) border-radius:100%"
+          >
+            <!-- Row 1 -->
+            <div
+              class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(0deg)"
+            >
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"
+              ></div>
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"
+              ></div>
+            </div>
+            <!-- Row 1 -->
+            <div
+              class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(30deg)"
+            >
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"
+              ></div>
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"
+              ></div>
+            </div>
+
+            <!-- Row 1 -->
+            <div
+              class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(60deg)"
+            >
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"
+              ></div>
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"
+              ></div>
+            </div>
+
+            <!-- Row 1 -->
+            <div
+              class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(90deg)"
+            >
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"
+              ></div>
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"
+              ></div>
+            </div>
+
+            <!-- Row 1 -->
+            <div
+              class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(120deg)"
+            >
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"
+              ></div>
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"
+              ></div>
+            </div>
+
+            <!-- Row 1 -->
+            <div
+              class="min-width:calc(100%_+_20px) height:2px position:absolute transform:rotate(150deg)"
+            >
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 left:0"
+              ></div>
+              <div
+                class="width:20px height:100% background:var(--green-color) position:absolute top:0 right:0"
+              ></div>
             </div>
           </div>
-          <div>SEO</div>
+          <div
+            class="width:100px display:flex justify-content:center align-items:center gap:10px"
+          >
+            <div
+              class="width:10px height:10px background:var(--green-color) border-radius:100px position:relative"
+            >
+              <div
+                class="animation:_scale_0.8s_linear_infinite | opacity:0.5 | width:10px height:10px background:var(--green-color) border-radius:100px position:absolute top:0 left:0"
+              ></div>
+            </div>
+            <div>SEO</div>
+          </div>
+        </div>
+        <div
+          data-component="HexagonComponent"
+          class="width:calc(50%_-_1px) height:100% display:flex justify-content:flex-end padding:20px flex-direction:column box-sizing:border-box background:#fff"
+        ></div>
+        <div
+          class="width:calc(50%_-_1px) height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff"
+        ></div>
+      </div>
+
+      <!-- 3 -->
+      <div
+        class="container height:100vh width:100% display:flex flex-direction:row gap:2px box-sizing:border-box flex-wrap:wrap"
+      >
+        <div
+          class="md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff"
+        >
+          <div
+            class="color:--text-color font-size:50px font-weight:bold text-transform:uppercase"
+          >
+            WE BELIEVE IN A
+            <span class="color:--green-color">PROCESS</span>
+            THAT WORKS
+          </div>
+        </div>
+
+        <div
+          class="md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff"
+        >
+          <div class="color:--text-color">
+            If you have an idea, a thought, or even just a rough direction in
+            mind, we'd truly love to hear it. You don't need everything figured
+            out. Sometimes a simple conversation is all it takes to find the
+            right direction. Let's talk and see where it leads.
+          </div>
+          <button
+            class="animation:hexagon-item_linear_infinite_2s color:--text-color after:content:attr(data-content) box-sizing:border-box hover:background:#fff hover:color:#000 hover:border:1px_solid_--green-color transition:all_0.3s cursor:pointer font-family:Anton font-weight:500 width:fit-content margin-top:20px background:--green-color padding:10px border-radius:3px border:1px_solid_var(--green-color)"
+          >
+            LET'S TALK
+          </button>
+          <div
+            data-component="HexagonComponent"
+            class="width:calc(50%_-_1px) height:100% display:flex justify-content:flex-end padding:20px flex-direction:column box-sizing:border-box background:#fff"
+          ></div>
         </div>
       </div>
-      <div data-component="HexagonComponent"
-        class="width:calc(50%_-_1px) height:100% display:flex justify-content:flex-end padding:20px flex-direction:column box-sizing:border-box background:#fff">
-      </div>
-      <div
-        class="width:calc(50%_-_1px) height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff">
-      </div>
     </div>
-
-    <!-- 3 -->
     <div
-      class="container height:100vh width:100% display:flex flex-direction:row gap:2px box-sizing:border-box flex-wrap:wrap">
+      class="position:fixed right:0 top:0 width:50px bottom:0 display:flex align-items:center justify-content:center"
+    >
       <div
-        class="md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff">
-        <div class="color:--text-color font-size:50px font-weight:bold text-transform:uppercase">
-          WE BELIEVE IN A
-          <span class="color:--green-color">PROCESS</span>
-          THAT WORKS
-        </div>
-      </div>
-
-      <div
-        class="md:width:calc(50%_-_1px) md:height:100% display:flex justify-content:center padding:20px flex-direction:column box-sizing:border-box background:#fff">
-        <div class="color:--text-color">
-          If you have an idea, a thought, or even just a rough direction in
-          mind, we'd truly love to hear it. You don't need everything figured
-          out. Sometimes a simple conversation is all it takes to find the
-          right direction. Let's talk and see where it leads.
-        </div>
-        <button
-          class="animation:hexagon-item_linear_infinite_2s color:--text-color after:content:attr(data-content) box-sizing:border-box hover:background:#fff hover:color:#000 hover:border:1px_solid_--green-color transition:all_0.3s cursor:pointer font-family:Anton font-weight:500 width:fit-content margin-top:20px background:--green-color padding:10px border-radius:3px border:1px_solid_var(--green-color)">
-          LET'S TALK
-        </button>
-        <div data-component="HexagonComponent"
-          class="width:calc(50%_-_1px) height:100% display:flex justify-content:flex-end padding:20px flex-direction:column box-sizing:border-box background:#fff">
-        </div>
+        class="width:5px height:100px background:#eee border-radius:100px position:relative"
+      >
+        <div
+          class="width:5px height:40px background:#000 border-radius:100px position:absolute top:40px"
+        ></div>
       </div>
     </div>
-  </div>
-  <div class="position:fixed right:0 top:0 width:50px bottom:0 display:flex align-items:center justify-content:center">
-    <div class="width:5px height:100px background:#eee border-radius:100px position:relative">
-      <div class="width:5px height:40px background:#000 border-radius:100px position:absolute top:40px"></div>
+    <div
+      class="height:200px color:#fff background:#000 font-size:30px display:flex justify-content:center align-items:center text-transform:uppercase"
+    >
+      Code with passion
     </div>
-  </div>
-  <div
-    class="height:200px color:#fff background:#000 font-size:30px display:flex justify-content:center align-items:center text-transform:uppercase">
-    Code with passion
-  </div>
-</body>
+  </body>
 
-<script src="../js/anyflow.js"></script>
-
-
+  <script src="../js/anyflow.js"></script>
 </html>
