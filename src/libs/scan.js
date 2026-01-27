@@ -83,6 +83,7 @@ const useFileOutput = (file, outDir) => {
     .replace('.jsx', '-jsx.css')
     .replace('.js', '-js.css')
     .replace('.html', '.css')
+    .replace('.html', '.css');
 
   const outDirPath = path.resolve(outDir);
   const outFile = path.join(outDirPath, fileName);

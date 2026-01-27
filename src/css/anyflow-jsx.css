@@ -7,8 +7,11 @@
 .text-transform\:uppercase {
     text-transform: uppercase
 }
-.color\:lab\(83\.7876\%_-45\.0447_88\.4738\) {
-    color: lab(83.7876% -45.0447 88.4738)
+.margin-bottom\:100px {
+    margin-bottom: 100px
+}
+.color\:--green-color {
+    color: var(--green-color)
 }
 .margin\:0_5px {
     margin: 0 5px
@@ -21,6 +24,9 @@
 }
 .padding\:0_10px {
     padding: 0 10px
+}
+.z\:1000 {
+    z-index: 1000
 }
 .position\:fixed {
     position: fixed
@@ -70,14 +76,14 @@
 .padding-bottom\:10px {
     padding-bottom: 10px
 }
-.color\:\#666\; {
-    color: #666;
+.color\:--text-color {
+    color: var(--text-color)
 }
 .font-size\:16px {
     font-size: 16px
 }
-.color\:\#666 {
-    color: #666
+.animation\:hexagon-item_linear_infinite_2s {
+    animation: hexagon-item linear infinite 2s
 }
 .after\:content\:attr\(data-content\):after {
     content: attr(data-content)
@@ -91,8 +97,8 @@
 .hover\:color\:\#000:hover {
     color: #000
 }
-.hover\:border\:1px_solid_lab\(83\.7876\%_-45\.0447_88\.4738\):hover {
-    border: 1px solid lab(83.7876% -45.0447 88.4738)
+.hover\:border\:1px_solid_--green-color:hover {
+    border: var(1px solid --green-color)
 }
 .transition\:all_0\.3s {
     transition: all 0.3s
@@ -112,15 +118,93 @@
 .margin-top\:20px {
     margin-top: 20px
 }
-.background\:lab\(83\.7876\%_-45\.0447_88\.4738\) {
-    background: lab(83.7876% -45.0447 88.4738)
-}
-.color\:\#000 {
-    color: #000
+.background\:--green-color {
+    background: var(--green-color)
 }
 .border-radius\:3px {
     border-radius: 3px
 }
-.border\:none {
-    border: none
+.border\:1px_solid_var\(--green-color\) {
+    border: 1px solid var(--green-color)
+}
+.height\:fit-content {
+    height: fit-content
+}
+.position\:relative {
+    position: relative
+}
+.--size\:30px\; {
+    --size: 30px;
+}
+.hover\:background\:var\(--green-color\):hover {
+    background: var(--green-color)
+}
+.width\:--size {
+    width: var(--size)
+}
+.height\:calc\(var\(--size\)_\*_58\/100\) {
+    height: calc(var(--size) * 58/100)
+}
+.border-left\:1px_solid_var\(--green-color\) {
+    border-left: 1px solid var(--green-color)
+}
+.border-right\:1px_solid_var\(--green-color\) {
+    border-right: 1px solid var(--green-color)
+}
+.before\:content\:attr\(data-content\):before {
+    content: attr(data-content)
+}
+.before\:position\:absolute:before {
+    position: absolute
+}
+.before\:inset\:0:before {
+    inset: 0
+}
+.before\:background\:inherit:before {
+    background: inherit
+}
+.before\:border-radius\:inherit:before {
+    border-radius: inherit
+}
+.before\:transform\:rotate\(60deg\):before {
+    transform: rotate(60deg)
+}
+.before\:border-left\:1px_solid_var\(--green-color\):before {
+    border-left: 1px solid var(--green-color)
+}
+.before\:border-right\:1px_solid_var\(--green-color\):before {
+    border-right: 1px solid var(--green-color)
+}
+.after\:border-left\:1px_solid_var\(--green-color\):after {
+    border-left: 1px solid var(--green-color)
+}
+.after\:border-right\:1px_solid_var\(--green-color\):after {
+    border-right: 1px solid var(--green-color)
+}
+.after\:position\:absolute:after {
+    position: absolute
+}
+.after\:inset\:0:after {
+    inset: 0
+}
+.after\:background\:inherit:after {
+    background: inherit
+}
+.after\:border-radius\:inherit:after {
+    border-radius: inherit
+}
+.after\:transform\:rotate\(-60deg\):after {
+    transform: rotate(-60deg)
+}
+.flex-direction\:column {
+    flex-direction: column
+}
+.gap\:10px {
+    gap: 10px
+}
+.gap\:1px {
+    gap: 1px
+}
+.margin-left\:16px {
+    margin-left: 16px
 }

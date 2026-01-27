@@ -2,13 +2,47 @@ export const id6 = () => 'v1-' + Math.random().toString(36).substring(2, 8);
 
 
 export const PSEUDO_SELECTORS = [
-  'hover', 'focus', 'active', 'visited', 'after', 'before',
-  'first', 'last', 'nth-child', 'nth-last-child', 'nth-of-type', 'nth-last-of-type',
-  'only-child', 'only-of-type', 'empty', 'target', 'checked', 'disabled', 'enabled',
-  'required', 'optional', 'valid', 'invalid', 'in-range', 'out-of-range',
-  'read-only', 'read-write', 'placeholder-shown', 'autofill', 'user-invalid',
-  'user-valid', 'blank', 'valid', 'invalid', 'in-range', 'out-of-range',
-  'read-only', 'read-write', 'placeholder-shown', 'autofill', 'user-invalid',
+  'hover',
+  'focus',
+  'active',
+  'visited',
+  'after',
+  'before',
+  'first',
+  'last',
+  'nth-child',
+  'nth-last-child',
+  'nth-of-type',
+  'nth-last-of-type',
+  'only-child',
+  'only-of-type',
+  'empty',
+  'target',
+  'checked',
+  'disabled',
+  'enabled',
+  'required',
+  'optional',
+  'valid',
+  'invalid',
+  'in-range',
+  'out-of-range',
+  'read-only',
+  'read-write',
+  'placeholder-shown',
+  'autofill',
+  'user-invalid',
+  'user-valid',
+  'blank',
+  'valid',
+  'invalid',
+  'in-range',
+  'out-of-range',
+  'read-only',
+  'read-write',
+  'placeholder-shown',
+  'autofill',
+  'user-invalid',
 ];
 
 export const cssPropertyMapping = {
@@ -24,11 +58,15 @@ export const cssPropertyMapping = {
   pb: 'padding-bottom',
   pl: 'padding-left',
 
+  pos: 'position',
+  cl: 'color',
+
   w: 'width',
   h: 'height',
+  bor: 'border',
 
   bg: 'background',
-  "bg-color": "background-color",
+  "bg-cl": "background-color",
 
   z: 'z-index',
 
@@ -80,43 +118,48 @@ const useUniqueClass = ({
 }) => {
   let id = 0;
   return classList.reduce((acc, cls) => {
-    id++;
     try {
       const { className: classExcludedMedia, media } = useMediaQuery(cls, configs?.mediaQuery || DEFAULT_MEDIA_QUERY);
       const { className: classExcludedPseudo, pseudoSelector } = usePseudoSelector(classExcludedMedia, configs);
       const { value, property, cssQuery } = useClassString(classExcludedPseudo, cls);
-      const queryId = 'v1-' + id.toString();
-
       if (acc[cssQuery]) return acc;
 
-      if (configs.mode === 'production') {
-        // document.querySelectorAll(`.${cssQuery}`).forEach(el => {
-        //   el.classList.add(queryId);
-        //   el.classList.remove(cls);
-        // });
-      }
+      const cssValue = useCssValue(value);
+      const cssProperty = useCssProperty(property);
+      const cssQuerySelector = useCssQuerySelector({ cssQuery, pseudoSelector });
 
-      if (pseudoSelector) {
-        acc[cssQuery] = {
-          media: media,
-          query: [(configs.mode === 'production' ? queryId : cssQuery), pseudoSelector].join(':'),
-          property: cssPropertyMapping[property] || property,
-          value: value.replace(/[\[\]]/g, "").replace(/_/g, " ")
-        };
-      } else {
-        acc[cssQuery] = {
-          media: media,
-          query: configs.mode === 'production' ? queryId : cssQuery,
-          property: cssPropertyMapping[property] || property,
-          value: value.replace(/[\[\]]/g, "").replace(/_/g, " ")
-        };
-      }
+      acc[cssQuery] = {
+        media: media,
+        query: cssQuerySelector,
+        property: cssProperty,
+        value: cssValue
+      };
+
     } catch (error) {
       console.error(error);
     }
 
     return acc;
   }, {});
+}
+
+const useCssQuerySelector = ({
+  cssQuery,
+  pseudoSelector
+}) => {
+  return [cssQuery, pseudoSelector].filter(Boolean).join(':');
+}
+
+const useCssProperty = (property) => {
+  return cssPropertyMapping[property] || property;
+}
+
+const useCssValue = (value) => {
+  const v = value.replace(/[\[\]]/g, "").replace(/_/g, " ");
+  if (v.includes('--') && !v.includes('var')) {
+    return `var(${v})`;
+  }
+  return v;
 }
 
 
