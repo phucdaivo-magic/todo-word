@@ -534,6 +534,21 @@
 .font-size\:16px {
     font-size: 16px
 }
+.after\:content\:attr\(data-content\):after {
+    content: attr(data-content)
+}
+.hover\:background\:\#fff:hover {
+    background: #fff
+}
+.hover\:color\:\#000:hover {
+    color: #000
+}
+.hover\:border\:1px_solid_lab\(83\.7876\%_-45\.0447_88\.4738\):hover {
+    border: 1px solid lab(83.7876% -45.0447 88.4738)
+}
+.transition\:all_0\.3s {
+    transition: all 0.3s
+}
 .cursor\:pointer {
     cursor: pointer
 }

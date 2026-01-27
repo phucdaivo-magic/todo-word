@@ -53,8 +53,7 @@ const CTActionComponent = () => {
         We design immersive, motion-driven websites that command attention
         and guide users to act. Clean builds. Sharp strategy. Zero fluff.
       </div>
-      <button onClick={() => setIsModalOpen(true)} class="cursor:pointer font-family:Anton font-weight:500 width:fit-content margin-top:20px background:lab(83.7876%_-45.0447_88.4738) color:#000 padding:10px border-radius:3px border:none">
-        LET'S TALK
+      <button data-content="Let's Talk" onClick={() => setIsModalOpen(true)} class="after:content:attr(data-content) box-sizing:border-box hover:background:#fff hover:color:#000 hover:border:1px_solid_lab(83.7876%_-45.0447_88.4738) transition:all_0.3s cursor:pointer font-family:Anton font-weight:500 width:fit-content margin-top:20px background:lab(83.7876%_-45.0447_88.4738) color:#000 padding:10px border-radius:3px border:none">
       </button>
 
       <Block condition={isModalOpen}>
