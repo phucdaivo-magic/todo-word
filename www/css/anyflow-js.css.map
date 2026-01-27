@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/css/anyflow-js.css"],
+  "sourcesContent": [".font-size\\:50px {\n    font-size: 50px\n}\n.font-weight\\:bold {\n    font-weight: bold\n}\n.text-transform\\:uppercase {\n    text-transform: uppercase\n}\n.color\\:lab\\(83\\.7876\\%_-45\\.0447_88\\.4738\\) {\n    color: lab(83.7876% -45.0447 88.4738)\n}\n.margin\\:0_5px {\n    margin: 0 5px\n}\n.background\\:red {\n    background: red\n}"],
+  "mappings": "AAAA,CAAC,gBACG,UAAW,IACf,CACA,CAAC,kBACG,YAAa,GACjB,CACA,CAAC,0BACG,eAAgB,SACpB,CACA,CAAC,4CACG,MAAO,IAAI,SAAS,SAAS,QACjC,CACA,CAAC,cAZD,OAaY,EAAE,GACd,CACA,CAAC,gBACG,WAAY,GAChB",
+  "names": []
+}

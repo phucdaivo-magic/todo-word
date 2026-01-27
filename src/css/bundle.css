@@ -13,11 +13,17 @@
 .background\:\#eee {
     background: #eee
 }
+.max-width\:1024px {
+    max-width: 1024px
+}
+.margin\:0_auto {
+    margin: 0 auto
+}
 .height\:100vh {
     height: 100vh
 }
-.width\:100vw {
-    width: 100vw
+.width\:100\% {
+    width: 100%
 }
 .display\:flex {
     display: flex
@@ -97,18 +103,6 @@
         order: 3
     }
 }
-.font-size\:50px {
-    font-size: 50px
-}
-.font-weight\:bold {
-    font-weight: bold
-}
-.text-transform\:uppercase {
-    text-transform: uppercase
-}
-.color\:lab\(83\.7876\%_-45\.0447_88\.4738\) {
-    color: lab(83.7876% -45.0447 88.4738)
-}
 .position\:relative {
     position: relative
 }
@@ -129,6 +123,12 @@
 }
 .font-size\:40px {
     font-size: 40px
+}
+.font-weight\:bold {
+    font-weight: bold
+}
+.color\:lab\(83\.7876\%_-45\.0447_88\.4738\) {
+    color: lab(83.7876% -45.0447 88.4738)
 }
 .height\:2px {
     height: 2px
@@ -189,6 +189,12 @@
 }
 .height\:100\% {
     height: 100%
+}
+.font-size\:50px {
+    font-size: 50px
+}
+.text-transform\:uppercase {
+    text-transform: uppercase
 }
 .position\:fixed {
     position: fixed
@@ -494,4 +500,40 @@
 }
 .color\:\[\#fce179\] {
     color: #fce179
+}
+.margin\:0_5px {
+    margin: 0 5px
+}
+.display\:inline-block {
+    display: inline-block
+}
+.padding\:0_10px {
+    padding: 0 10px
+}
+.background\:rgba\(0\,_0\,_0\,_0\.5\) {
+    background: rgba(0, 0, 0, 0.5)
+}
+.width\:500px {
+    width: 500px
+}
+.height\:500px {
+    height: 500px
+}
+.font-size\:20px {
+    font-size: 20px
+}
+.border-bottom\:1px_solid_\#eee {
+    border-bottom: 1px solid #eee
+}
+.padding-bottom\:10px {
+    padding-bottom: 10px
+}
+.color\:\#666\; {
+    color: #666;
+}
+.font-size\:16px {
+    font-size: 16px
+}
+.cursor\:pointer {
+    cursor: pointer
 }

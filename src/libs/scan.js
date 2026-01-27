@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { parseFile } from "./css-magi.js";
+import { DEFAULT_MEDIA_QUERY, parseFile } from "./css-magi.js";
 import postcss from "postcss";
 import cssnano from "cssnano";
 
@@ -15,7 +15,7 @@ const scanDir = (dir, files = []) => {
       scanDir(fullPath, files);
     } else if (
       entry.isFile() &&
-      (fullPath.endsWith(".html"))
+      (fullPath.endsWith(".html") || fullPath.endsWith(".jsx") || fullPath.endsWith(".js"))
     ) {
       files.push(fullPath);
     }
@@ -27,8 +27,8 @@ const scanDir = (dir, files = []) => {
 const extractClassNames = (code) => {
   const classSet = new Set();
 
-  // match: className="..."
-  const regex = /class\s*=\s*["'`]([^"'`]*)["'`]/g;
+  // match: class="..." or className="..."
+  const regex = /(?:class|className)\s*=\s*["'`]([^"'`]*)["'`]/g;
 
   let match;
   while ((match = regex.exec(code)) !== null) {
@@ -79,7 +79,11 @@ const useFileOutput = (file, outDir) => {
   if (!fs.existsSync(outDir)) {
     fs.mkdirSync(outDir, { recursive: true });
   }
-  const fileName = path.basename(file).replace('.html', '.css');
+  const fileName = path.basename(file)
+    .replace('.jsx', '-jsx.css')
+    .replace('.js', '-js.css')
+    .replace('.html', '.css')
+
   const outDirPath = path.resolve(outDir);
   const outFile = path.join(outDirPath, fileName);
   return outFile;

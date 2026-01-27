@@ -78,19 +78,22 @@ const useUniqueClass = ({
     mediaQuery: DEFAULT_MEDIA_QUERY
   }
 }) => {
+  let id = 0;
   return classList.reduce((acc, cls) => {
+    id++;
     try {
       const { className: classExcludedMedia, media } = useMediaQuery(cls, configs?.mediaQuery || DEFAULT_MEDIA_QUERY);
       const { className: classExcludedPseudo, pseudoSelector } = usePseudoSelector(classExcludedMedia, configs);
-      const { value, property, cssQuery, queryId } = useClassString(classExcludedPseudo, cls);
+      const { value, property, cssQuery } = useClassString(classExcludedPseudo, cls);
+      const queryId = 'v1-' + id.toString();
 
       if (acc[cssQuery]) return acc;
 
       if (configs.mode === 'production') {
-        document.querySelectorAll(`.${cssQuery}`).forEach(el => {
-          el.classList.add(queryId);
-          el.classList.remove(cls);
-        });
+        // document.querySelectorAll(`.${cssQuery}`).forEach(el => {
+        //   el.classList.add(queryId);
+        //   el.classList.remove(cls);
+        // });
       }
 
       if (pseudoSelector) {
