@@ -26,9 +26,9 @@ const ModalComponent = ({ onClose }) => {
   return (
     <div
       onClick={onClose}
-      class="z:1000 position:fixed top:0 left:0 width:100% height:100% background:rgba(0,_0,_0,_0.5) display:flex justify-content:center align-items:center"
+      className="z:1000 position:fixed top:0 left:0 width:100% height:100% background:rgba(0,_0,_0,_0.5) display:flex justify-content:center align-items:center"
     >
-      <div class="width:500px height:500px background:#fff padding:10px">
+      <div className="width:500px height:500px background:#fff padding:10px">
         <h1 className="font-size:20px border-bottom:1px_solid_#eee padding-bottom:10px">
           Let's Talk
         </h1>

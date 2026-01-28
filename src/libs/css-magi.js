@@ -116,7 +116,6 @@ const useUniqueClass = ({
     mediaQuery: DEFAULT_MEDIA_QUERY
   }
 }) => {
-  let id = 0;
   return classList.reduce((acc, cls) => {
     try {
       const { className: classExcludedMedia, media } = useMediaQuery(cls, configs?.mediaQuery || DEFAULT_MEDIA_QUERY);
@@ -155,11 +154,14 @@ const useCssProperty = (property) => {
 }
 
 const useCssValue = (value) => {
-  const v = value.replace(/[\[\]]/g, "").replace(/_/g, " ");
-  if (v.includes('--') && !v.includes('var')) {
-    return `var(${v})`;
+  if (value) {
+    const v = value.replace(/[\[\]]/g, "").replace(/_/g, " ");
+    if (v.includes('--') && !v.includes('var')) {
+      return `var(${v})`;
+    }
+    return v;
   }
-  return v;
+  return value;
 }
 
 

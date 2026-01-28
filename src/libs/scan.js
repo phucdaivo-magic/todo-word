@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { DEFAULT_MEDIA_QUERY, parseFile } from "./css-magi.js";
+import { parseFile } from "./css-magi.js";
 import postcss from "postcss";
 import cssnano from "cssnano";
 
@@ -49,21 +49,23 @@ const generateCSS = async (map, minify = false) => {
       selector: `.${query}`
     });
 
-    rule.append({
-      prop: property,
-      value: value
-    });
+    if (value) {
+      rule.append({
+        prop: property,
+        value: value
+      });
+    }
 
     if (media) {
       const params = media.replace(/@media/, "");
       const atRule = postcss.atRule({
         name: "media",
-        params: params
+        params,
       });
       atRule.append(rule);
       root.append(atRule);
     } else {
-      root.append(rule);
+      value && root.append(rule);
     }
   });
 
@@ -115,11 +117,11 @@ const generateCSSForFile = async ({ srcDir, outDir, minify = false }) => {
   fs.writeFileSync(outFile, bundleCss, "utf8");
 }
 
-// generateCSSForFile({
-//   srcDir: "www",
-//   outDir: "www/styles",
-//   minify: true,
-// });
+generateCSSForFile({
+  srcDir: "www",
+  outDir: "www/styles",
+  minify: true,
+});
 
 export { generateCSSForFile };
 
