@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import YouTubePlayer from "youtube-player";
 
 new EventSource("/esbuild").addEventListener("change", () => location.reload());
 
@@ -196,3 +197,78 @@ document.querySelectorAll("[data-component]").forEach((element) => {
   const root = ReactDOM.createRoot(element);
   root.render(<Component />);
 });
+
+
+let player;
+
+function onYouTubeIframeAPIReady() {
+
+  // player.loadVideoById('VUQfT3gNT3g');
+  // player.playVideo();
+  // player.mute();
+  // player.setVolume(0);
+  // // controls
+  // player.setOption('controls', 0);
+  // player.setOption('modestbranding', 1);
+  // player.setOption('rel', 0);
+  // player.setOption('fs', 0);
+  // player.setOption('iv_load_policy', 3);
+  // player.setOption('autoplay', 1);
+  // player.setOption('mute', 1);
+  // player.setOption('allow', 'autoplay');
+  // player.setOption('events', { onReady: onPlayerReady });
+
+  const width = window.innerWidth;
+
+  player = YouTubePlayer('player', {
+    height: width * 0.5625,
+    width: width,
+    videoId: 'o87c1S3vVas',
+    autoplay: 1,
+    playerVars: {
+      controls: 0,
+      modestbranding: 1,
+      rel: 0,
+      fs: 0,
+      iv_load_policy: 3,
+      // auto play and mute the video
+      autoplay: 1,
+      mute: 1,
+      allow: 'autoplay',
+    },
+  })
+
+  player.getDuration().then((duration) => {
+    console.log('Duration (seconds):', duration);
+  });
+  // , {
+  // height: '360',
+  // width: '640',
+  // videoId: 'VUQfT3gNT3g',
+  // autoplay: 1,
+  // playerVars: {
+  //   controls: 0,
+  //   modestbranding: 1,
+  //   rel: 0,
+  //   fs: 0,
+  //   iv_load_policy: 3,
+  //   // auto play and mute the video
+  //   autoplay: 1,
+  //   mute: 1,
+  //   allow: 'autoplay',
+  // },
+  // events: {
+  //   onReady: onPlayerReady
+  // }
+  // });
+}
+
+function onPlayerReady(event) {
+  const duration = player.getDuration(); // đơn vị: giây
+  console.log('Duration:', duration);
+}
+
+setTimeout(() => {
+  onYouTubeIframeAPIReady();
+}, 1000);
+
