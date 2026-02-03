@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/volkswagencentral.scss"],
+  "sourcesContent": [".hero-banner {\n    .slider-navigation {\n        position: absolute;\n        inset: 0;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 20px;\n        pointer-events: none;\n        .slider-navigation-button {\n            width: 50px;\n            height: 50px;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            border: none;\n            background-color: transparent;\n            pointer-events: auto;\n            cursor: pointer;\n\n            &:after {\n                border-top: 3px solid #fff;\n                border-right: 3px solid #fff;\n                content: '';\n                display: block;\n                width: 26px;\n                height: 26px;\n                transform: rotate(45deg);\n            }\n            &-next {\n                transform: rotate(180deg);\n            }\n        }\n    }\n}"],
+  "mappings": "AACI,CAAA,YAAA,CAAA,kBACI,SAAA,SADJ,MAEI,EACA,QAAA,KACA,gBAAA,cACA,YAAA,OALJ,QAMI,KACA,eAAA,KACA,CARJ,YAQI,CARJ,kBAQI,CAAA,yBACI,MAAA,KACA,OAAA,KACA,QAAA,KACA,gBAAA,OACA,YAAA,OACA,OAAA,KACA,iBAAA,YACA,eAAA,KACA,OAAA,QAEA,CAnBR,YAmBQ,CAnBR,kBAmBQ,CAXJ,wBAWI,OACI,WAAA,IAAA,MAAA,KACA,aAAA,IAAA,MAAA,KACA,QAAA,GACA,QAAA,MACA,MAAA,KACA,OAAA,KACA,UAAA,OAAA,OAEJ,CA5BR,YA4BQ,CA5BR,kBA4BQ,CAAA,8BACI,UAAA,OAAA",
+  "names": []
+}

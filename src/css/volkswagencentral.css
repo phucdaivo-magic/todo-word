@@ -10,6 +10,15 @@
 .height\:62px {
     height: 62px
 }
+.position\:sticky {
+    position: sticky
+}
+.top\:0 {
+    top: 0
+}
+.z-index\:9999 {
+    z-index: 9999
+}
 .display\:flex {
     display: flex
 }
@@ -31,8 +40,8 @@
 .list-style-type\:none {
     list-style-type: none
 }
-.gap\:10px {
-    gap: 10px
+.gap\:25px {
+    gap: 25px
 }
 .justify-content\:center {
     justify-content: center
@@ -72,6 +81,12 @@
 }
 .justify-content\:space-around {
     justify-content: space-around
+}
+.gap\:10px {
+    gap: 10px
+}
+.justify-center\:center {
+    justify-center: center
 }
 .padding\:20px_30px {
     padding: 20px 30px
@@ -177,4 +192,133 @@
 }
 .border-radius\:2px {
     border-radius: 2px
+}
+.text-align\:right {
+    text-align: right
+}
+.font-size\:27px {
+    font-size: 27px
+}
+.font-weight\:bold {
+    font-weight: bold
+}
+.font-size\:22px {
+    font-size: 22px
+}
+.height\:60px {
+    height: 60px
+}
+.box-sizing\:border-box {
+    box-sizing: border-box
+}
+.padding\:10px_50px {
+    padding: 10px 50px
+}
+.color\:\#000 {
+    color: #000
+}
+.margin-top\:40px {
+    margin-top: 40px
+}
+.aspect-ratio\:16\/9 {
+    aspect-ratio: 16/9
+}
+.padding-top\:40px {
+    padding-top: 40px
+}
+.color\:\#00437A {
+    color: #00437A
+}
+.height\:50vh {
+    height: 50vh
+}
+.width\:50\% {
+    width: 50%
+}
+.gap\:20px {
+    gap: 20px
+}
+.padding-right\:100px {
+    padding-right: 100px
+}
+.align-items\:flex-start {
+    align-items: flex-start
+}
+.width\:70px {
+    width: 70px
+}
+.min-width\:70px {
+    min-width: 70px
+}
+.height\:70px {
+    height: 70px
+}
+.border-radius\:50\% {
+    border-radius: 50%
+}
+.line-height\:20px {
+    line-height: 20px
+}
+.padding\:_60px_0px {
+    padding:  60px 0px
+}
+.border\:0 {
+    border: 0
+}
+.background\:\#001E50 {
+    background: #001E50
+}
+.padding\:50px_0 {
+    padding: 50px 0
+}
+.border\:1px_solid_\#fff {
+    border: 1px solid #fff
+}
+.width\:300px {
+    width: 300px
+}
+.height\:40px {
+    height: 40px
+}
+.border-radius\:4px {
+    border-radius: 4px
+}
+.padding\:0_20px {
+    padding: 0 20px
+}
+.height\:400px {
+    height: 400px
+}
+.position\:relative {
+    position: relative
+}
+.background\:\#000 {
+    background: #000
+}
+.position\:absolute {
+    position: absolute
+}
+.inset\:0 {
+    inset: 0
+}
+.opacity\:0\.2 {
+    opacity: 0.2
+}
+.padding\:30px_10px {
+    padding: 30px 10px
+}
+.border-radius\:10px {
+    border-radius: 10px
+}
+.border-bottom\:2px_solid_\#00437A {
+    border-bottom: 2px solid #00437A
+}
+.padding\:10px_0 {
+    padding: 10px 0
+}
+.gap\:5px {
+    gap: 5px
+}
+.flex-derection\:row {
+    flex-derection: row
 }
