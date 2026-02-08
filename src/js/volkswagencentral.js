@@ -373,8 +373,28 @@ class VideoPlayer {
     }
 }
 
+class Toogle {
+    constructor(element) {
+        this.$element = element;
+        this.registerEvent();
+    }
+
+    registerEvent() {
+        const [className, classActive] = this.$element.dataset.toggle.split('|').map(item => item.trim());
+        this.$element.addEventListener('click', () => {
+            document.querySelectorAll(className).forEach(($tagget) => {
+                $tagget.classList.toggle(classActive);
+            })
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-component="video-player"]').forEach(($videoPlayer) => {
         new VideoPlayer($videoPlayer);
     });
+    document.querySelectorAll('[data-toggle]').forEach(($toggle) => {
+        new Toogle($toggle);
+    });
 });
+

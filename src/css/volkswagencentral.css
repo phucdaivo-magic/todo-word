@@ -4,6 +4,9 @@
 .font-family\:Montserrat\,sans-serif {
     font-family: Montserrat,sans-serif
 }
+.active.active\.overflow\:hidden {
+    overflow: hidden
+}
 .background\:\#fff {
     background: #fff
 }
@@ -64,8 +67,8 @@
 .display\:none {
     display: none
 }
-@media (min-width:800px) {
-    .\@media\(min-width\:800px\)\:display\:flex {
+@media (min-width:768px) {
+    .\@media\(min-width\:768px\)\:display\:flex {
         display: flex
     }
 }
@@ -84,14 +87,94 @@
 .padding\:0_50px {
     padding: 0 50px
 }
-.height\:fit-content {
-    height: fit-content
+@media (min-width:768px) {
+    .\@media\(min-width\:768px\)\:display\:none {
+        display: none
+    }
+}
+.cursor\:pointer {
+    cursor: pointer
+}
+.width\:40px {
+    width: 40px
+}
+.height\:40px {
+    height: 40px
+}
+.margin-left\:auto {
+    margin-left: auto
+}
+.flex-direction\:column {
+    flex-direction: column
+}
+.justify-content\:space-around {
+    justify-content: space-around
+}
+.height\:4px {
+    height: 4px
+}
+.background\:--color-primary {
+    background: var(--color-primary)
+}
+.active.active\.display\:block {
+    display: block
+}
+.position\:fixed {
+    position: fixed
+}
+.left\:0 {
+    left: 0
+}
+.right\:0 {
+    right: 0
+}
+.height\:100vh {
+    height: 100vh
+}
+.z-index\:9999 {
+    z-index: 9999
+}
+.text-transform\:uppercase {
+    text-transform: uppercase
+}
+.font-size\:14px {
+    font-size: 14px
+}
+.border-bottom\:1px_solid_\#ddd {
+    border-bottom: 1px solid #ddd
+}
+.padding\:10px_15px {
+    padding: 10px 15px
+}
+.color\:--color-primary {
+    color: var(--color-primary)
 }
 .position\:relative {
     position: relative
 }
+.aspect-ratio\:1 {
+    aspect-ratio: 1
+}
+.position\:absolute {
+    position: absolute
+}
+.width\:20px {
+    width: 20px
+}
+.height\:2px {
+    height: 2px
+}
+.transform\:rotate\(-45deg\) {
+    transform: rotate(-45deg)
+}
+.transform\:rotate\(45deg\) {
+    transform: rotate(45deg)
+}
 .border-bottom\:1px_solid_\#eee {
     border-bottom: 1px solid #eee
+}
+.height\:fit-content {
+    height: fit-content
 }
 .font-size\:40px {
     font-size: 40px
@@ -126,9 +209,6 @@
 .text-align\:center {
     text-align: center
 }
-.color\:--color-primary {
-    color: var(--color-primary)
-}
 .font-size\:16px {
     font-size: 16px
 }
@@ -141,30 +221,24 @@
 .padding\:10px_0 {
     padding: 10px 0
 }
-.cursor\:pointer {
-    cursor: pointer
-}
 .active.active\.border-bottom\:1px_solid_var\(--color-primary\) {
     border-bottom: 1px solid var(--color-primary)
 }
 .active.active\.color\:--color-primary {
     color: var(--color-primary)
 }
-@media (max-width:800px) {
-    .\@media\(max-width\:800px\)\:display\:block {
+@media (max-width:767px) {
+    .\@media\(max-width\:767px\)\:display\:block {
         display: block
     }
 }
 .padding\:0_80px {
     padding: 0 80px
 }
-@media (min-width:801px) {
-    .\@media\(min-width\:801px\)\:display\:block {
+@media (min-width:768px) {
+    .\@media\(min-width\:768px\)\:display\:block {
         display: block
     }
-}
-.height\:40px {
-    height: 40px
 }
 .padding\:40px {
     padding: 40px
@@ -172,14 +246,8 @@
 .line-height\:1\.6 {
     line-height: 1.6
 }
-.font-size\:14px {
-    font-size: 14px
-}
 .font-weight\:bold {
     font-weight: bold
-}
-.position\:absolute {
-    position: absolute
 }
 .object-fit\:cover {
     object-fit: cover

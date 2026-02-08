@@ -561,6 +561,9 @@
 .font-family\:Montserrat\,sans-serif {
     font-family: Montserrat,sans-serif
 }
+.active.active\.overflow\:hidden {
+    overflow: hidden
+}
 .border-bottom\:_1px_solid_\#dfe4e8 {
     border-bottom:  1px solid #dfe4e8
 }
@@ -597,8 +600,8 @@
 .display\:none {
     display: none
 }
-@media (min-width:800px) {
-    .\@media\(min-width\:800px\)\:display\:flex {
+@media (min-width:768px) {
+    .\@media\(min-width\:768px\)\:display\:flex {
         display: flex
     }
 }
@@ -608,11 +611,58 @@
 .padding\:0_50px {
     padding: 0 50px
 }
-.height\:fit-content {
-    height: fit-content
+@media (min-width:768px) {
+    .\@media\(min-width\:768px\)\:display\:none {
+        display: none
+    }
+}
+.width\:40px {
+    width: 40px
+}
+.margin-left\:auto {
+    margin-left: auto
+}
+.justify-content\:space-around {
+    justify-content: space-around
+}
+.height\:4px {
+    height: 4px
+}
+.background\:--color-primary {
+    background: var(--color-primary)
+}
+.active.active\.display\:block {
+    display: block
+}
+.z-index\:9999 {
+    z-index: 9999
+}
+.font-size\:14px {
+    font-size: 14px
+}
+.border-bottom\:1px_solid_\#ddd {
+    border-bottom: 1px solid #ddd
+}
+.padding\:10px_15px {
+    padding: 10px 15px
+}
+.color\:--color-primary {
+    color: var(--color-primary)
+}
+.aspect-ratio\:1 {
+    aspect-ratio: 1
+}
+.transform\:rotate\(-45deg\) {
+    transform: rotate(-45deg)
+}
+.transform\:rotate\(45deg\) {
+    transform: rotate(45deg)
 }
 .border-bottom\:1px_solid_\#eee {
     border-bottom: 1px solid #eee
+}
+.height\:fit-content {
+    height: fit-content
 }
 .font-weight\:100 {
     font-weight: 100
@@ -632,9 +682,6 @@
 .height\:30px {
     height: 30px
 }
-.color\:--color-primary {
-    color: var(--color-primary)
-}
 .font-size\:16px {
     font-size: 16px
 }
@@ -650,16 +697,16 @@
 .active.active\.color\:--color-primary {
     color: var(--color-primary)
 }
-@media (max-width:800px) {
-    .\@media\(max-width\:800px\)\:display\:block {
+@media (max-width:767px) {
+    .\@media\(max-width\:767px\)\:display\:block {
         display: block
     }
 }
 .padding\:0_80px {
     padding: 0 80px
 }
-@media (min-width:801px) {
-    .\@media\(min-width\:801px\)\:display\:block {
+@media (min-width:768px) {
+    .\@media\(min-width\:768px\)\:display\:block {
         display: block
     }
 }
@@ -668,9 +715,6 @@
 }
 .line-height\:1\.6 {
     line-height: 1.6
-}
-.font-size\:14px {
-    font-size: 14px
 }
 .object-fit\:cover {
     object-fit: cover
