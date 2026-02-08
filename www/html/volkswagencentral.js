@@ -1,1 +1,1 @@
-(()=>{var s="../assets/volkswagencentral.html";})();
+(()=>{var e="../assets/volkswagencentral.html";})();
