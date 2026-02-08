@@ -1,3 +1,4 @@
+import YouTubePlayer from "youtube-player";
 new EventSource("/esbuild").addEventListener("change", () => location.reload());
 class Slider {
     constructor($element) {
@@ -7,8 +8,8 @@ class Slider {
         this.isNavigating = false;
         this.limitKeepCurrent = 50;
         this.draggingOver = true;
-        this.rows = 1;
-        this.gap = 0;
+        this.rows = this.dataset('rows', 1);
+        this.gap = this.dataset('gap', 0);
         Object.entries(this.$element.dataset).forEach(([key, value]) => {
             if (isNaN(value)) {
                 this[key] = value;
@@ -28,6 +29,10 @@ class Slider {
             this.addMouseDrag();
             this.addKeyboardEvents();
         });
+    }
+
+    dataset(key, initData) {
+        return this.$element.dataset[key] || initData;
     }
 
     shouldAddActions(callback) {
@@ -301,5 +306,75 @@ class Slider {
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-component="hero-banner"]').forEach(($slider) => {
         new Slider($slider);
+    });
+});
+
+class VideoPlayer {
+    constructor(element) {
+        this.$element = element;
+        this.ids = element.dataset.ids.split(',');
+        this.indexIds = Array.from({ length: this.ids.length }, (_, i) => i);
+        this.init();
+        this.play(0);
+        this.registerEvent();
+    }
+
+    play(index) {
+        this.player.loadVideoById({
+            videoId: this.ids[index],
+            startSeconds: 0,
+        });
+    }
+
+    registerEvent() {
+        document.querySelector('[data-next]').addEventListener('click', () => {
+            this.next();
+        });
+
+        document.querySelector('[data-prev]').addEventListener('click', () => {
+            this.prev();
+        });
+    }
+
+    next() {
+        this.index = this.indexIds.includes(this.index + 1) ? this.index + 1 : 0;
+        this.player.loadVideoById(this.ids[this.index]);
+    }
+
+    prev() {
+        this.index = this.indexIds.includes(this.index - 1) ? this.index - 1 : this.indexIds.at(-1);
+        this.player.loadVideoById(this.ids[this.index]);
+    }
+
+    init() {
+        this.player = YouTubePlayer(this.$element, {
+            autoplay: 1,
+            playerVars: {
+                controls: 0,
+                title: 0,
+                description: 0,
+                keywords: 0,
+                playlist: this.ids.join(','),
+                playsinline: 1,
+                rel: 0,
+                showinfo: 0,
+                enablejsapi: 1,
+                widgetid: 1,
+                aoriginsup: 1,
+                modestbranding: 1,
+                rel: 0,
+                fs: 0,
+                iv_load_policy: 3,
+                autoplay: 1,
+                mute: 1,
+                allow: 'autoplay',
+            },
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-component="video-player"]').forEach(($videoPlayer) => {
+        new VideoPlayer($videoPlayer);
     });
 });

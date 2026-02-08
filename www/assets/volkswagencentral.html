@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,649 +24,377 @@
       }
     </style>
   </head>
+
   <body class="margin:0 font-family:Montserrat,sans-serif">
-    <header
-      class="background:#00437A height:62px position:sticky top:0 z-index:9999"
+    <div
+      class="header background:#fff border-bottom:_1px_solid_#dfe4e8 position:sticky top:0 z-index:999"
     >
-      <div
-        class="display:flex flex-direction:row justify-content:space-between max-width:1280px margin:auto"
-      >
-        <ul
-          class="margin:0 color:#fff display:flex list-style-type:none gap:25px height:62px justify-content:center align-items:center text-transform:uppercase"
-        >
-          <li>Trang chủ</li>
-          <li>Giới Thiệu</li>
-          <li>Bảng Giá</li>
-        </ul>
-
-        <div class="display:flex justify-content:center align-items:center">
-          <img
-            width="183"
-            height="183"
-            src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/logo.png"
-            class="width:50px height:50px"
-            alt=""
-            srcset="
-              https://volkswagencentral.com.vn/wp-content/uploads/2024/01/logo.png         183w,
-              https://volkswagencentral.com.vn/wp-content/uploads/2024/01/logo-150x150.png 150w
-            "
-            sizes="(max-width: 183px) 100vw, 183px"
-          />
-        </div>
-
-        <ul
-          class="margin:0 color:#fff display:flex list-style-type:none gap:25px height:62px justify-content:center align-items:center text-transform:uppercase"
-        >
-          <li>Mua Xe</li>
-          <li>Tính Phí Lăn Bánh</li>
-          <li>Tin Tức</li>
-        </ul>
-      </div>
-    </header>
-    <main>
-      <!-- SLIDER HERO BANNER -->
-      <div
-        data-component="hero-banner"
-        class="hero-banner height:calc(100vh_-_62px)"
-      >
-        <div class="hero-banner__images">
-          <img
-            class="width:100% height:100% object-fit:cover object-position:bottom"
-            src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/COVER-1.webp"
-            alt=""
-          />
-        </div>
-        <div class="hero-banner__images">
-          <img
-            class="width:100% height:100% object-fit:cover object-position:bottom"
-            src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/XCN_5636.webp"
-            alt=""
-          />
-        </div>
-
-        <div class="hero-banner__images">
-          <img
-            class="width:100% height:100% object-fit:cover object-position:bottom"
-            src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/COVER-1.webp"
-            alt=""
-          />
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div
-        class="cta display:flex padding:40px background:#2B2B2B justify-content:space-around"
-      >
-        <a
-          href=""
-          class="gap:10px display:flex justify-center:center align-items:center padding:20px_30px color:#fff text-transform:uppercase background:--color-primary text-decoration:none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#fff"
-          >
-            <path
-              d="M520-520h278q-15-110-91.5-186.5T520-798v278Zm-80 358v-636q-121 15-200.5 105.5T160-480q0 122 79.5 212.5T440-162Zm80 0q110-14 187-91t91-187H520v278Zm-40-318Zm0 400q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Z"
-            />
-          </svg>
-          mua xe trả góp</a
-        >
-        <a
-          class="gap:10px display:flex justify-center:center align-items:center padding:20px_30px color:#fff text-transform:uppercase background:--color-primary text-decoration:none"
-          href=""
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#fff"
-          >
-            <path
-              d="M520-520h278q-15-110-91.5-186.5T520-798v278Zm-80 358v-636q-121 15-200.5 105.5T160-480q0 122 79.5 212.5T440-162Zm80 0q110-14 187-91t91-187H520v278Zm-40-318Zm0 400q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Z"
-            />
-          </svg>
-          đăng ký lái thử</a
-        >
-      </div>
-
-      <!-- PLP -->
-      <div class="plp max-width:1280px padding:10px margin:auto">
-        <h3
-          class="font-size:20px font-weight:normal text-transform:uppercase text-align:center"
-        >
-          Dòng xe tiêu biểu tại
-        </h3>
-        <h2
-          class="font-size:30px font-weight:700 text-transform:uppercase text-align:center color:--color-primary"
-        >
-          Volkswagen Central
-        </h2>
-        <div class="list display:flex flex-wrap:wrap gap:30px">
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2025/12/golf.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2025/06/teramont-pre.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/teramostx.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2023/11/viron.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2023/01/TIGUAN.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2023/01/teramont.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2023/01/TOUAREG.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-
-          <div
-            class="card width:calc(100%_/_4_-_30px) cursor:pointer text-align:center"
-          >
-            <img
-              class="width:100%"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2025/12/golf.png"
-              alt=""
-            />
-            <a class="color:--color-primary font-size:18px">Volkswagen Golf</a>
-            <p class="font-size:17px color:#D53838 font-weight:900">
-              789.000.000 ₫
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- BLOGS -->
-      <div class="plp-blogs background:#424242 padding:30px_0">
-        <div class="max-width:1280px padding:10px margin:auto">
-          <h2
-            class="color:#fff text-transform:uppercase font-size:35px text-align:center margin:10px_0_25px"
-          >
-            Tìm hiểu thêm
-          </h2>
-          <div class="display:flex gap:30px">
-            <div class="width:calc(100%_/3_-_30px) background:#fff">
-              <img
-                fetchpriority="high"
-                decoding="async"
-                width="800"
-                height="419"
-                src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/RGB_virlon.jpg"
-                class="width:100% height:fit-content display:block"
-                alt="RGB virlon Xe"
-                title="Xe 19 Xe"
-              />
-              <div
-                class="padding:20px_10px display:flex justify-content:center flex-direction:column align-items:center"
-              >
-                <h3 class="font-size:26px color:--color-primary margin:0">
-                  VILORAN
-                </h3>
-                <p class="color:#3333339e font-size:14px">
-                  Sự kết hợp hoàn hảo giữa sang trọng và hiệu suất.
-                </p>
-                <a
-                  class="display:block width:fit-content text-decoration:none font-weight:200 padding:10px_20px border-radius:2px background:--color-primary color:#fff"
-                  href="TÌM HIỂU THÊM"
-                  >TÌM HIỂU THÊM</a
-                >
-              </div>
-            </div>
-
-            <div class="width:calc(100%_/3_-_30px) background:#fff">
-              <img
-                fetchpriority="high"
-                decoding="async"
-                width="800"
-                height="419"
-                src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/Touareg-Da-co-mat-tai-he-thong-showroom-Volkswagen.jpg"
-                class="width:100% height:fit-content display:block"
-                alt="RGB virlon Xe"
-                title="Xe 19 Xe"
-              />
-              <div
-                class="padding:20px_10px display:flex justify-content:center flex-direction:column align-items:center"
-              >
-                <h3 class="font-size:26px color:--color-primary margin:0">
-                  VILORAN
-                </h3>
-                <p class="color:#3333339e font-size:14px">
-                  Sự kết hợp hoàn hảo giữa sang trọng và hiệu suất.
-                </p>
-                <a
-                  class="display:block width:fit-content text-decoration:none font-weight:200 padding:10px_20px border-radius:2px background:--color-primary color:#fff"
-                  href="TÌM HIỂU THÊM"
-                  >TÌM HIỂU THÊM</a
-                >
-              </div>
-            </div>
-
-            <div class="width:calc(100%_/3_-_30px) background:#fff">
-              <img
-                fetchpriority="high"
-                decoding="async"
-                width="800"
-                height="419"
-                src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/RGB_Teramont_Ban-chay-nhat-phan-khuc22.jpg"
-                class="width:100% height:fit-content display:block"
-                alt="RGB virlon Xe"
-                title="Xe 19 Xe"
-              />
-              <div
-                class="padding:20px_10px display:flex justify-content:center flex-direction:column align-items:center"
-              >
-                <h3 class="font-size:26px color:--color-primary margin:0">
-                  VILORAN
-                </h3>
-                <p class="color:#3333339e font-size:14px">
-                  Sự kết hợp hoàn hảo giữa sang trọng và hiệu suất.
-                </p>
-                <a
-                  class="display:block width:fit-content text-decoration:none font-weight:200 padding:10px_20px border-radius:2px background:--color-primary color:#fff"
-                  href="TÌM HIỂU THÊM"
-                  >TÌM HIỂU THÊM</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- BANNER -->
-      <div class="background:#00437A">
-        <div class="max-width:1280px padding:10px margin:auto">
-          <div
-            class="display:flex gap:30px flex-direction:row justify-content:space-around align-items:center"
-          >
-            <div class="color:#fff text-align:right">
-              <h3
-                class="font-size:27px font-weight:bold text-transform:uppercase"
-              >
-                Hỗ trợ mua XE Volkswagen trả góp 85%
-              </h3>
-              <p class="font-size:22px font-weight:normal">
-                LÃI SUẤT THẤP - THỦ TỤC NHANH CHÓNG
-              </p>
-            </div>
-            <a
-              href="tel:03891xxxxx"
-              class="font-size:20px display:flex justify-content:center align-items:center font-weight:normal text-transform:uppercase height:60px box-sizing:border-box width:fit-content text-decoration:none font-weight:200 padding:10px_50px border-radius:2px color:--color-primary background:#fff"
-              >03891xxxxx</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- VIDEO -->
-      <div class="video">
-        <div class="max-width:1280px padding:10px margin:auto">
-          <h2
-            class="color:#000 text-transform:uppercase margin-top:40px font-size:35px text-align:center margin:10px_0_25px"
-          >
-            VIDEO
-          </h2>
-          <div class="display:flex gap:30px flex-direction:row">
-            <div class="width:calc(100%_/3_-_30px) aspect-ratio:16/9">
-              <iframe
-                class="width:100% height:100%"
-                src="https://www.youtube.com/embed/bg3BqNKGuq8?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fvolkswagencentral.com.vn&widgetid=1&forigin=https%3A%2F%2Fvolkswagencentral.com.vn%2F%3Fgad_source%3D1%26gad_campaignid%3D23365212371%26gbraid%3D0AAAABCUGWVVuMDjjnyNtG9n8aIEjXV-zX%26gclid%3DCjwKCAiAs4HMBhBJEiwACrfNZZTxf3m8KEaQ2zZVmfg-CPPVQCRn3Evuh1YsWAMtcxgBdxQsI9POcRoCgW0QAvD_BwE&aoriginsup=1&gporigin=https%3A%2F%2Fwww.google.com%2F&vf=1"
-                frameborder="0"
-              ></iframe>
-            </div>
-            <div class="width:calc(100%_/3_-_30px) aspect-ratio:16/9">
-              <iframe
-                class="width:100% height:100%"
-                src="https://www.youtube.com/embed/YeARD_23_SQ?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fvolkswagencentral.com.vn&widgetid=3&forigin=https%3A%2F%2Fvolkswagencentral.com.vn%2F%3Fgad_source%3D1%26gad_campaignid%3D23365212371%26gbraid%3D0AAAABCUGWVVuMDjjnyNtG9n8aIEjXV-zX%26gclid%3DCjwKCAiAs4HMBhBJEiwACrfNZZTxf3m8KEaQ2zZVmfg-CPPVQCRn3Evuh1YsWAMtcxgBdxQsI9POcRoCgW0QAvD_BwE&aoriginsup=1&gporigin=https%3A%2F%2Fwww.google.com%2F&vf=1"
-                frameborder="0"
-              ></iframe>
-            </div>
-            <div class="width:calc(100%_/3_-_30px) aspect-ratio:16/9">
-              <iframe
-                class="width:100% height:100%"
-                src="https://www.youtube.com/embed/Zvr0WvN4bi4?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fvolkswagencentral.com.vn&widgetid=5&forigin=https%3A%2F%2Fvolkswagencentral.com.vn%2F%3Fgad_source%3D1%26gad_campaignid%3D23365212371%26gbraid%3D0AAAABCUGWVVuMDjjnyNtG9n8aIEjXV-zX%26gclid%3DCjwKCAiAs4HMBhBJEiwACrfNZZTxf3m8KEaQ2zZVmfg-CPPVQCRn3Evuh1YsWAMtcxgBdxQsI9POcRoCgW0QAvD_BwE&aoriginsup=1&gporigin=https%3A%2F%2Fwww.google.com%2F&vf=1"
-                frameborder="0"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONTENT -->
-      <div>
-        <div class="padding-top:40px">
-          <h3
-            class="color:#000 font-weight:normal font-size:20px text-align:center margin:10px_0_25px text-transform:uppercase"
-          >
-            Vì sao nên mua xe tại volkswagen central
-          </h3>
-          <h2
-            class="color:#00437A font-weight:bold font-size:30px text-align:center margin:10px_0_25px text-transform:uppercase"
-          >
-            Volkswagen Central
-          </h2>
-          <div class="display:flex gap:30px flex-direction:row height:50vh">
-            <img
-              class="width:50% height:100% object-fit:cover object-position:bottom"
-              src="https://volkswagencentral.com.vn/wp-content/uploads/2024/01/showroom-volkswagen-central.jpg"
-            />
-
-            <div
-              class="width:50% height:100% display:flex gap:20px justify-content:center align-items:center flex-direction:column padding-right:100px"
-            >
-              <div
-                class="display:flex gap:20px justify-content:center align-items:flex-start"
-              >
-                <div
-                  class="width:70px min-width:70px height:70px background:#00437A border-radius:50% display:flex justify-content:center align-items:center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="34px"
-                    viewBox="0 -960 960 960"
-                    width="34px"
-                    fill="#fff"
-                  >
-                    <path
-                      d="M160-160v-640 640Zm0 80q-33 0-56.5-23.5T80-160v-640q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v320h-80v-320H160v640h200v80H160Zm72-140h16q14 0 23-9t9-23v-48h80v-80h-80v-120h480v-16l-66-192q-5-14-16.5-23t-25.5-9H308q-14 0-25.5 9T266-708l-66 192v264q0 14 9 23t23 9Zm74-360 28-80h292l28 80H306Zm54 180q17 0 28.5-11.5T400-440q0-17-11.5-28.5T360-480q-17 0-28.5 11.5T320-440q0 17 11.5 28.5T360-400Zm197 260h246q5-21 20.5-36.5T860-197v-86q-21-5-36.5-20.5T803-340H557q-5 21-20.5 36.5T500-283v86q21 5 36.5 20.5T557-140Zm123-40q25 0 42.5-17.5T740-240q0-25-17.5-42.5T680-300q-25 0-42.5 17.5T620-240q0 25 17.5 42.5T680-180ZM520-80q-33 0-56.5-23.5T440-160v-160q0-33 23.5-56.5T520-400h320q33 0 56.5 23.5T920-320v160q0 33-23.5 56.5T840-80H520Z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4
-                    class="font-size:20px font-weight:normal color:#00437A margin:0"
-                  >
-                    CAM KẾT BÁN GIÁ RẺ NHẤT
-                  </h4>
-                  <p class="font-size:14px line-height:20px">
-                    Với nhiều Chương trình khuyến mãi hấp dẫn, quà tặng đặc biệt
-                    và liên kết với mạng lưới ngân hàng lớn mạnh tại Việt Nam sẽ
-                    giúp cho người dùng yên tâm về Volkswagen Central
-                  </p>
-                </div>
-              </div>
-
-              <div
-                class="display:flex gap:20px justify-content:center align-items:flex-start"
-              >
-                <div
-                  class="width:70px min-width:70px height:70px background:#00437A border-radius:50% display:flex justify-content:center align-items:center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="34px"
-                    viewBox="0 -960 960 960"
-                    width="34px"
-                    fill="#fff"
-                  >
-                    <path
-                      d="M40-160v-160q0-34 23.5-57t56.5-23h131q20 0 38 10t29 27q29 39 71.5 61t90.5 22q49 0 91.5-22t70.5-61q13-17 30.5-27t36.5-10h131q34 0 57 23t23 57v160H640v-91q-35 25-75.5 38T480-200q-43 0-84-13.5T320-252v92H40Zm440-160q-38 0-72-17.5T351-386q-17-25-42.5-39.5T253-440q22-37 93-58.5T480-520q63 0 134 21.5t93 58.5q-29 0-55 14.5T609-386q-22 32-56 49t-73 17ZM160-440q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T280-560q0 50-34.5 85T160-440Zm640 0q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T920-560q0 50-34.5 85T800-440ZM480-560q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-680q0 50-34.5 85T480-560Z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4
-                    class="font-size:20px font-weight:normal color:#00437A margin:0"
-                  >
-                    Hết lòng vì khách hàng
-                  </h4>
-                  <p class="font-size:14px line-height:20px">
-                    Đội ngũ tư vấn bán hàng luôn sẵn lòng giúp tư vấn để tìm ra
-                    chiếc xe ưng ý cho quý khách hàng. Hỗ trợ 24/7 tận tâm,
-                    nhiệt tình, có trách nhiệm.
-                  </p>
-                </div>
-              </div>
-
-              <div
-                class="display:flex gap:20px justify-content:center align-items:flex-start"
-              >
-                <div
-                  class="width:70px min-width:70px height:70px background:#00437A border-radius:50% display:flex justify-content:center align-items:center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="34px"
-                    viewBox="0 -960 960 960"
-                    width="34px"
-                    fill="#fff"
-                  >
-                    <path
-                      d="M120-120v-560h160v-160h400v320h160v400H520v-160h-80v160H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4
-                    class="font-size:20px font-weight:normal color:#00437A margin:0"
-                  >
-                    ĐẠI LÝ Tốt nhất
-                  </h4>
-                  <p class="font-size:14px line-height:20px">
-                    Volkswagen Central tự hào là đại lý bán hàng tốt nhất trong
-                    những năm qua, với đội ngũ nhân viên đào tạo chuyên nghiệp
-                    luôn nằm top tư vấn bán hàng xuất sắc trong hệ thống sẽ mang
-                    đến chất lượng, dịch vụ tốt nhất.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MAP -->
-      <div class="padding:_60px_0px">
-        <iframe
-          class="width:100% height:50vh border:0"
-          loading="lazy"
-          src="https://maps.google.com/maps?q=115%20L%C3%BD%20Ch%C3%ADnh%20Th%E1%BA%AFng%2C%20P.%20V%C3%B5%20Th%E1%BB%8B%20S%C3%A1u%2C%20Qu%E1%BA%ADn%203%2C%20Tp.%20H%E1%BB%93%20Ch%C3%AD%20Minh&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near"
-          title="115 Lý Chính Thắng, P. Võ Thị Sáu, Quận 3, Tp. Hồ Chí Minh"
-          aria-label="115 Lý Chính Thắng, P. Võ Thị Sáu, Quận 3, Tp. Hồ Chí Minh"
-        ></iframe>
-      </div>
-
-      <!-- SUBSCRIBE -->
-      <div class="background:#001E50 padding:50px_0">
+      <div class="background:#001E50">
         <div
-          class="max-width:1280px margin:auto display:flex gap:20px flex-direction:column"
+          class="font-size:12px color:#fff text-align:right max-width:1280px padding:10px_20px margin:auto gap:20px display:flex justify-content:flex-end"
         >
-          <h3
-            class="font-size:30px font-weight:normal text-transform:uppercase text-align:center color:#fff margin:0"
-          >
-            Nhận tư vấn nhanh
-          </h3>
-          <div class="display:flex gap:20px justify-content:center">
-            <input
-              placeholder="Tên bạn"
-              class="border:1px_solid_#fff width:300px height:40px border-radius:4px padding:0_20px"
-            />
-
-            <input
-              placeholder="Số Điện Thoại"
-              class="border:1px_solid_#fff width:300px height:40px border-radius:4px padding:0_20px"
-            />
-            <button
-              class="border:0 width:300px height:40px border-radius:4px padding:0_20px color:#fff background:#00437A"
-            >
-              ĐĂNG KÝ
-            </button>
-          </div>
+          <span>Sales: 0389102462</span>
+          <span>Address: 192/168/233 HCM</span>
         </div>
       </div>
-
-      <footer class="height:400px position:relative background:#000">
+      <div
+        class="header__inner display:flex height:90px padding:20px box-sizing:border-box"
+      >
         <img
-          class="width:100% height:100% object-fit:cover position:absolute inset:0 opacity:0.2"
-          src="https://volkswagencentral.com.vn/wp-content/uploads/2023/06/Touareg-PC.webp"
+          class="height:100%"
+          src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2025/09/VW-SouthCharlotte-Logo-HORZ-1.png"
           alt=""
         />
         <div
-          class="display:flex position:relative padding:30px_10px max-width:1280px gap:20px margin:auto"
+          class="display:none @media(min-width:800px):display:flex flex-direction:row justify-content:center align-items:center gap:50px padding:0_50px"
         >
-          <img
-            class="border-radius:10px width:300px"
-            src="https://volkswagencentral.com.vn/wp-content/uploads/2023/06/vw-touared-5-400x300.jpg"
-            alt=""
-          />
+          <div>New</div>
+          <div>Used</div>
+          <div>Special</div>
+          <div>Sell and Trade</div>
+          <div>Finance and Lease</div>
+        </div>
+      </div>
+    </div>
 
-          <div class="color:#fff display:flex flex-direction:column gap:10px">
-            <h3 class="border-bottom:2px_solid_#00437A padding:10px_0">
-              Volkswagen Central
-            </h3>
-            <div
-              class="display:flex gap:5px flex-derection:row justify-center:center align-items:center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#fff"
-              >
-                <path
-                  d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
-                />
-              </svg>
-              <div>
-                Địa Chỉ: 115 Lý Chính Thắng, P. Võ Thị Sáu, Quận 3, Tp. Hồ Chí
-                Minh
-              </div>
+    <div class="news">
+      <div class="height:fit-content position:relative">
+        <div class="video-player">
+          <div
+            class=""
+            data-component="video-player"
+            data-ids="mgg36JIG98w,gZ3INxX4WVY,qZVshqOZzhM"
+          ></div>
+          <div class="prev" data-prev>
+            <div class="prev-overload">
+              <img
+                src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/homepages/savings-desktop-t2.jpg"
+                alt=""
+              />
             </div>
-            <div
-              class="display:flex gap:5px flex-derection:row justify-center:center align-items:center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#fff"
-              >
-                <path
-                  d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"
-                />
-              </svg>
-              <div>Hotline: 0909 4678 xx</div>
-            </div>
-            <div
-              class="display:flex gap:5px flex-derection:row justify-center:center align-items:center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#fff"
-              >
-                <path
-                  d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"
-                />
-              </svg>
-              <div>Email: xxxa@gmail.com</div>
-            </div>
-            <div
-              class="display:flex gap:5px flex-derection:row justify-center:center align-items:center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#fff"
-              >
-                <path
-                  d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"
-                />
-              </svg>
-              <div>www.volkswagencentral.com.vn</div>
+          </div>
+          <div class="next" data-next>
+            <div class="next-overload">
+              <img
+                src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/homepages/trade-t2.jpg"
+                alt=""
+              />
             </div>
           </div>
         </div>
-      </footer>
-    </main>
+      </div>
+    </div>
+
+    <div
+      class="view max-width:1280px margin:auto padding:20px border-bottom:1px_solid_#eee"
+    >
+      <div>
+        <div class="font-size:40px font-weight:100 color:#000">
+          The Volkswagen Fantastic Fortnight Event <strong>Now on!</strong> Ends
+          16th February
+        </div>
+        <div class="font-size:13px padding-top:20px">T&Cs Apply</div>
+      </div>
+    </div>
+    <!-- <div
+      class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"
+    ></div> -->
+    <div class="height:30px"></div>
+
+    <div class="hero-banner">
+      <div class="hero-banner__inner" data-component="hero-banner">
+        <div>
+          <img
+            class="width:100%"
+            src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/02/Feb_26_Tiguan_S_FWD_Lease_1920x450.png"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            class="width:100%"
+            src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/02/128584-WB-VOSC_rev_D.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            class="width:100%"
+            src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/01/tire-banner-1920x450-1.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"
+      ></div>
+
+      <div>
+        <div class="max-width:1280px margin:auto padding:20px">
+          <div
+            class="padding:20px font-size:30px text-align:center color:--color-primary"
+          >
+            Our Vehicles
+          </div>
+          <div
+            class="display:flex flex-direction:row gap:50px font-size:16px width:fit-content margin:auto padding-bottom:30px"
+          >
+            <div class="padding:10px_0 cursor:pointer">Sedans</div>
+            <div
+              class="active.border-bottom:1px_solid_var(--color-primary) active padding:10px_0 cursor:pointer active.color:--color-primary"
+            >
+              SUV
+            </div>
+            <div class="padding:10px_0 cursor:pointer">Compacts</div>
+            <div class="padding:10px_0 cursor:pointer">Electric Vehicles</div>
+          </div>
+          <div class="display:none @media(max-width:800px):display:block">
+            <div
+              class="categories padding:0_80px"
+              data-component="hero-banner"
+              data-rows="1"
+              data-gap="0"
+            >
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">Atlas</div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id4.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">
+                  Atlas Cross Sport
+                </div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id.buzz.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Taos</div>
+              </div>
+
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/tiguan.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Tiguan</div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/golf-gti.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">Atlas</div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas-cross-sport.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">
+                  Atlas Cross Sport
+                </div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Taos</div>
+              </div>
+
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta-gli.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Tiguan</div>
+              </div>
+            </div>
+          </div>
+          <div class="display:none @media(min-width:801px):display:block">
+            <div
+              class="categories padding:0_80px"
+              data-component="hero-banner"
+              data-rows="3"
+              data-gap="100"
+            >
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">Atlas</div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id4.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">
+                  Atlas Cross Sport
+                </div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id.buzz.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Taos</div>
+              </div>
+
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/tiguan.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Tiguan</div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/golf-gti.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">Atlas</div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas-cross-sport.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="text-align:center font-size:16px">
+                  Atlas Cross Sport
+                </div>
+              </div>
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Taos</div>
+              </div>
+
+              <div>
+                <img
+                  class="width:100%"
+                  src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta-gli.png"
+                  alt=""
+                />
+                <div class="text-align:center font-size:16px">Tiguan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="height:40px"></div>
+
+          <div>
+            <div class="max-width:1280px margin:auto padding:20px">
+              <div
+                class="font-size:30px padding:40px text-align:center color:--color-primary"
+              >
+                News
+              </div>
+              <div data-component="hero-banner" data-rows="2" data-gap="50">
+                <div>
+                  <img
+                    src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/homepages/finance-t2.jpg"
+                    alt=""
+                    class="width:100%"
+                  />
+                  <h3 class="color:--color-primary">
+                    Effortless Auto Financing
+                  </h3>
+                  <p class="line-height:1.6">
+                    Whether you’re looking to buy or lease, you’ll find our
+                    competitive finance packages as meticulously handcrafted as
+                    the cars themselves.
+                  </p>
+                  <a
+                    href=""
+                    class="color:--color-primary font-size:14px font-weight:bold"
+                    >Read more</a
+                  >
+                </div>
+                <div>
+                  <img
+                    src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/homepages/trade-t2.jpg"
+                    class="width:100%"
+                  />
+                  <h3 class="color:--color-primary">Value Your Trade-In</h3>
+                  <p class="line-height:1.6">
+                    Trade in your old vehicle and upgrade to a brand new one
+                    with ease!
+                  </p>
+                  <a
+                    href=""
+                    class="color:--color-primary font-size:14px font-weight:bold"
+                    >Read more</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="position:relative">
+      <img
+        class="width:100% height:100% position:absolute object-fit:cover"
+        src="https://assets.volkswagen.com/is/image/volkswagenag/owners_drivers-servicing-mot_test-hero-4_3-1920x1865?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTEyODAmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmMzI3Yw=="
+        alt=""
+      />
+      <div
+        class="max-width:1280px padding:20px position:relative display:flex justify-content:flex-end"
+      >
+        <div class="margin:60px_0 background:#fff padding:60px width:50%">
+          <h3 class="font-size:30px color:--color-primary">
+            Your one-stop destination for authentic OEM parts
+          </h3>
+          <p class="line-height:1.6">
+            We understand the importance of genuine and reliable parts to keep
+            your vehicle running smoothly. Whether you're looking for
+            replacement parts or accessories to enhance your driving experience,
+            our knowledgeable team is here to assist you.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"
+    ></div>
+    <div class="height:40px"></div>
   </body>
 
   <script src="../js/volkswagencentral.js"></script>

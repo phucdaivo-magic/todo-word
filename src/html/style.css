@@ -1,0 +1,113 @@
+/*-----------------------------------------------------------------------------------------------------------
+For breakpoint // Usage @include breakpoint(sm) {}
+-----------------------------------------------------------------------------------------------------------*/
+.outbound-dialog {
+  background: rgba(0, 0, 0, 0.8);
+}
+.outbound-dialog__body {
+  color: #000;
+}
+.outbound-dialog__body p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.outbound-dialog__body p strong {
+  font-weight: bold;
+}
+.outbound-dialog__content {
+  font-family: "Montserrat", sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 60px;
+  height: 90%;
+  border-top: 30px solid #fff;
+  border-bottom: 30px solid #fff;
+}
+.outbound-dialog__content:before {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.outbound-dialog__title {
+  font-size: px(30);
+  display: block;
+}
+@media only screen and (min-width: 1280px) {
+  .outbound-dialog__title {
+    font-size: px(48);
+  }
+}
+.outbound-dialog__title {
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  text-align: center;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.outbound-dialog__title:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  height: 2px;
+  width: 160px;
+  background-color: #ceb863;
+}
+.outbound-dialog__close {
+  display: block;
+  opacity: 1;
+}
+.outbound-dialog__overlay-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 10px;
+  right: 10px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  --rotate: 45deg;
+}
+.outbound-dialog__overlay-button:hover {
+  --rotate: 0deg;
+}
+.outbound-dialog__overlay-button:before {
+  content: "";
+  display: block;
+  right: 10px;
+  top: 20px;
+  background-color: #fff;
+  width: 17px;
+  height: 2px;
+  cursor: pointer;
+  transform: rotate(calc(var(--rotate) * -1));
+  transition: all 0.3s ease;
+}
+.outbound-dialog__overlay-button:after {
+  content: "";
+  display: block;
+  right: 10px;
+  top: 20px;
+  background-color: #fff;
+  width: 17px;
+  height: 2px;
+  transform: rotate(var(--rotate));
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: -2px;
+  transition: all 0.3s ease;
+}

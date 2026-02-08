@@ -2,189 +2,139 @@
 For breakpoint // Usage @include breakpoint(sm) {}
 -----------------------------------------------------------------------------------------------------------*/
 @mixin breakpoint($point) {
-    @if $point ==xxs {
-        @media only screen and (min-width: 480px) {
-            @content;
-        }
+  @if $point ==xxs {
+    @media only screen and (min-width: 480px) {
+      @content;
     }
+  }
 
-    @if $point ==xs {
-        @media only screen and (min-width: 640px) {
-            @content;
-        }
+  @if $point ==xs {
+    @media only screen and (min-width: 640px) {
+      @content;
     }
-
-    @else if $point ==sm {
-        @media only screen and (min-width: 768px) {
-            @content;
-        }
+  } @else if $point ==sm {
+    @media only screen and (min-width: 768px) {
+      @content;
     }
-
-    @else if $point ==md {
-        @media only screen and (min-width: 960px) {
-            @content;
-        }
+  } @else if $point ==md {
+    @media only screen and (min-width: 960px) {
+      @content;
     }
-
-    @else if $point ==rg {
-        @media only screen and (min-width: 1024px) {
-            @content;
-        }
+  } @else if $point ==rg {
+    @media only screen and (min-width: 1024px) {
+      @content;
     }
-
-    @else if $point ==rg1025 {
-
-        // special breakpoint for brand 2 Tiger and Sol
-        @media only screen and (min-width: 1025px) {
-            @content;
-        }
+  } @else if $point ==rg1025 {
+    // special breakpoint for brand 2 Tiger and Sol
+    @media only screen and (min-width: 1025px) {
+      @content;
     }
-
-    @else if $point ==lg {
-        @media only screen and (min-width: 1280px) {
-            @content;
-        }
+  } @else if $point ==lg {
+    @media only screen and (min-width: 1280px) {
+      @content;
     }
-
-    @else if $point ==xl {
-        @media only screen and (min-width: 1440px) {
-            @content;
-        }
+  } @else if $point ==xl {
+    @media only screen and (min-width: 1440px) {
+      @content;
     }
-
-    @else if $point ==xxl {
-        @media only screen and (min-width: 1600px) {
-            @content;
-        }
+  } @else if $point ==xxl {
+    @media only screen and (min-width: 1600px) {
+      @content;
     }
-
-    @else if $point ==xxxl {
-        @media only screen and (min-width: 1920px) {
-            @content;
-        }
+  } @else if $point ==xxxl {
+    @media only screen and (min-width: 1920px) {
+      @content;
     }
-
-    @else if $point ==hv {
-
-        // for hover stage
-        @media only screen and (min-width: 1025px) {
-            @content;
-        }
+  } @else if $point ==hv {
+    // for hover stage
+    @media only screen and (min-width: 1025px) {
+      @content;
     }
+  }
 }
 
 @mixin breakpoint-down($point) {
-    @if $point ==xxs {
-        @media only screen and (max-width: 479px) {
-            @content;
-        }
+  @if $point ==xxs {
+    @media only screen and (max-width: 479px) {
+      @content;
     }
+  }
 
-    @if $point ==xs {
-        @media only screen and (max-width: 639px) {
-            @content;
-        }
+  @if $point ==xs {
+    @media only screen and (max-width: 639px) {
+      @content;
     }
-
-    @else if $point ==sm {
-        @media only screen and (max-width: 767px) {
-            @content;
-        }
+  } @else if $point ==sm {
+    @media only screen and (max-width: 767px) {
+      @content;
     }
-
-    @else if $point ==md {
-        @media only screen and (max-width: 959px) {
-            @content;
-        }
+  } @else if $point ==md {
+    @media only screen and (max-width: 959px) {
+      @content;
     }
-
-    @else if $point ==rg {
-        @media only screen and (max-width: 1023px) {
-            @content;
-        }
+  } @else if $point ==rg {
+    @media only screen and (max-width: 1023px) {
+      @content;
     }
-
-    @else if $point ==rg1025 {
-
-        // special breakpoint for brand 2 Tiger and Sol
-        @media only screen and (max-width: 1024px) {
-            @content;
-        }
+  } @else if $point ==rg1025 {
+    // special breakpoint for brand 2 Tiger and Sol
+    @media only screen and (max-width: 1024px) {
+      @content;
     }
-
-    @else if $point ==lg {
-        @media only screen and (max-width: 1279px) {
-            @content;
-        }
+  } @else if $point ==lg {
+    @media only screen and (max-width: 1279px) {
+      @content;
     }
-
-    @else if $point ==xl {
-        @media only screen and (max-width: 1339px) {
-            @content;
-        }
+  } @else if $point ==xl {
+    @media only screen and (max-width: 1339px) {
+      @content;
     }
-
-    @else if $point ==xxl {
-        @media only screen and (max-width: 1599px) {
-            @content;
-        }
+  } @else if $point ==xxl {
+    @media only screen and (max-width: 1599px) {
+      @content;
     }
-
-    @else if $point ==xxxl {
-        @media only screen and (max-width: 1919px) {
-            @content;
-        }
+  } @else if $point ==xxxl {
+    @media only screen and (max-width: 1919px) {
+      @content;
     }
+  }
 }
 
 @mixin breakpoint-between($point) {
-    @if $point ==xxs {
-        @media only screen and (min-width: 480px) and (max-width: 639px) {
-            @content;
-        }
+  @if $point ==xxs {
+    @media only screen and (min-width: 480px) and (max-width: 639px) {
+      @content;
     }
+  }
 
-    @if $point ==xs {
-        @media only screen and (min-width: 640px) and (max-width: 767px) {
-            @content;
-        }
+  @if $point ==xs {
+    @media only screen and (min-width: 640px) and (max-width: 767px) {
+      @content;
     }
-
-    @else if $point ==sm {
-        @media only screen and (min-width: 768px) and (max-width: 959px) {
-            @content;
-        }
+  } @else if $point ==sm {
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+      @content;
     }
-
-    @else if $point ==md {
-        @media only screen and (min-width: 960px) and (max-width: 1023px) {
-            @content;
-        }
+  } @else if $point ==md {
+    @media only screen and (min-width: 960px) and (max-width: 1023px) {
+      @content;
     }
-
-    @else if $point ==rg {
-        @media only screen and (min-width: 1024px) and (max-width: 1279px) {
-            @content;
-        }
+  } @else if $point ==rg {
+    @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+      @content;
     }
-
-    @else if $point ==lg {
-        @media only screen and (min-width: 1280px) and (max-width: 1439px) {
-            @content;
-        }
+  } @else if $point ==lg {
+    @media only screen and (min-width: 1280px) and (max-width: 1439px) {
+      @content;
     }
-
-    @else if $point ==xl {
-        @media only screen and (min-width: 1440px) and (max-width: 1599px) {
-            @content;
-        }
+  } @else if $point ==xl {
+    @media only screen and (min-width: 1440px) and (max-width: 1599px) {
+      @content;
     }
-
-    @else if $point ==rg&lg {
-
-        ///////////////    mix    //////////////////////
-        @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-            @content;
-        }
+  } @else if $point ==rg&lg {
+    ///////////////    mix    //////////////////////
+    @media only screen and (min-width: 1024px) and (max-width: 1439px) {
+      @content;
     }
+  }
 }
