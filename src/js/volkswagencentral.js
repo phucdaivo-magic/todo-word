@@ -347,7 +347,9 @@ class SliderHero {
   init() {
     this.listIds = SLIDER_HERO.map((_, index) => index);
     this.index = 0;
-    this.updateView();
+    this.updateViewTimer = null;
+    this.nextTimer = null;
+    this.createTimer();
   }
 
   next() {
@@ -369,13 +371,21 @@ class SliderHero {
   }
 
   updateView() {
+    document.querySelectorAll('[data-progress]').forEach(($progress) => {
+      // $progess.style.setProperty('animation', 'progress 4s ease-in-out');
+      $progress.style.animation = 'none';
+      $progress.offsetHeight;
+      $progress.style.animation = 'progress 6s ease-in-out forwards';
+    });
     // Update background and image
     const { background, image, title, description } = SLIDER_HERO[this.index];
     this.$element.style.background = background;
     this.$element.querySelector('[data-image]').style.setProperty('opacity', '0');
     this.$element.querySelector('[data-title]').classList.remove('in-view');
     this.$element.querySelector('[data-description]').classList.remove('in-view');
-    setTimeout(() => {
+
+    clearTimeout(this.updateViewTimer);
+    this.updateViewTimer = setTimeout(() => {
       this.$element.querySelector('[data-image]').style.setProperty('transform', 'translateX(100%)');
       this.$element.querySelector('[data-image]').src = image;
       this.$element.querySelector('[data-image]').onload = setTimeout(() => {
@@ -400,14 +410,13 @@ class SliderHero {
       this.$element.querySelector('[data-title]').classList.add('in-view');
       this.$element.querySelector('[data-description]').classList.add('in-view');
     }
-
-
   }
 
   registerEvent() {
     this.$element.querySelectorAll('[data-navigation-prev]').forEach(($item) => {
       $item.addEventListener('click', () => {
         this.prev();
+        this.createTimer();
       });
 
       $item.addEventListener('mouseenter', () => {
@@ -422,6 +431,7 @@ class SliderHero {
     this.$element.querySelectorAll('[data-navigation-next]').forEach(($item) => {
       $item.addEventListener('click', () => {
         this.next();
+        this.createTimer();
       });
 
       $item.addEventListener('mouseenter', () => {
@@ -432,15 +442,17 @@ class SliderHero {
         this.$element.classList.remove('is-right-hover');
       });
     });
-    this.$element.addEventListener('keypress', () => {
-      this.next();
-    });
+  }
 
-    setInterval(() => {
+  createTimer() {
+    clearInterval(this.nextTimer);
+    this.nextTimer = setInterval(() => {
       this.next();
-    }, 3000);
+    }, 6000);
   }
 }
+
+
 class VideoPlayer {
   constructor(element) {
     this.$element = element;
@@ -472,7 +484,6 @@ class VideoPlayer {
         this.next();
       }
     });
-
   }
 
   next() {
@@ -493,7 +504,7 @@ class VideoPlayer {
         title: 0,
         description: 0,
         keywords: 0,
-        playlist: this.ids.join(','),
+        playlist: [],
         playsinline: 1,
         rel: 0,
         showinfo: 0,

@@ -379,3 +379,14 @@ img {
     }
   }
 }
+[data-progress] {
+  animation: progress 4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
