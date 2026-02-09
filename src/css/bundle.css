@@ -704,6 +704,9 @@
 .line-height\:1\.8 {
     line-height: 1.8
 }
+.background\:_radial-gradient\(circle_at_0\%_0\%\,\#00437a_0\%\,\#001e50_100\%\) {
+    background:  radial-gradient(circle at 0% 0%,#00437a 0%,#001e50 100%)
+}
 .height\:60px {
     height: 60px
 }
@@ -799,9 +802,6 @@
 }
 .width\:50\% {
     width: 50%
-}
-.background\:_radial-gradient\(circle_at_0\%_0\%\,\#00437a_0\%\,\#001e50_100\%\) {
-    background:  radial-gradient(circle at 0% 0%,#00437a 0%,#001e50 100%)
 }
 .border-top\:2px_solid_var\(--color-primary\) {
     border-top: 2px solid var(--color-primary)
