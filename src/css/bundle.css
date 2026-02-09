@@ -693,6 +693,20 @@
 .active.active\.background\:rgba\(0\,0\,0\,0\.8\) {
     background: rgba(0,0,0,0.8)
 }
+@media (max-width:768px) {
+    .\@media\(max-width\:768px\)\:font-size\:32px {
+        font-size: 32px
+    }
+}
+.font-size\:18px {
+    font-size: 18px
+}
+.line-height\:1\.8 {
+    line-height: 1.8
+}
+.height\:60px {
+    height: 60px
+}
 .height\:fit-content {
     height: fit-content
 }
