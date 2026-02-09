@@ -14,13 +14,103 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=diversity_3" />
   <style>
+    @font-face {
+    font-family: 'vw-head';
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwhead-regular.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwhead-regular.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'vw-head';
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwhead-bold.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwhead-bold.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'vw-head';
+    font-weight: 200;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwhead-light.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwhead-light.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'vw-text';
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwtext-regular.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwtext-regular.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'vw-text';
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwtext-bold.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/vwtext-bold.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'vw-text-ar';
+    font-weight: 200;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/beiruti-light.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/beiruti-light.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'vw-text-ar';
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/beiruti-regular.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/beiruti-regular.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'vw-text-ar';
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/beiruti-bold.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/beiruti-bold.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'roboto-vi';
+    font-weight: 200;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/roboto-vietnamese-latin-ext-light.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/roboto-vietnamese-latin-ext-light.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'roboto-vi';
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/roboto-vietnamese-latin-ext-regular.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/roboto-vietnamese-latin-ext-regular.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'roboto-vi';
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/roboto-vietnamese-latin-ext-bold.woff2') format('woff2'),
+    url('https://www.volkswagen.co.uk/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/fonts/roboto-vietnamese-latin-ext-bold.woff') format('woff');
+  }
     :root {
       --color-primary: #001e50;
     }
+     h1,h2,h3,h4 {
+    font-family: vw-head;
+  }
   </style>
+ 
 </head>
 
-<body class="margin:0 font-family:Montserrat,sans-serif active.overflow:hidden">
+<body class="margin:0 font-family:vw-text,sans-serif active.overflow:hidden">
+  <!-- 1.HEADER -->
   <div class="header background:#fff border-bottom:_1px_solid_#dfe4e8 position:sticky top:-36px z-index:999">
     <div class="background:#001E50">
       <div
@@ -51,6 +141,7 @@
     </div>
   </div>
 
+  <!-- 2.SLIDER MENU -->
   <div
     class="main-menu transform:translateX(-100vw) active.transform:translateX(0) transition:transform_.3s_cubic-bezier(.645,.045,.355,1) position:fixed top:0 left:0 right:0 height:100vh background:#fff z-index:9999 font-weight:bold">
     <div class="menu-inner text-transform:uppercase font-size:14px">
@@ -86,15 +177,18 @@
     class="transition:background.3s_cubic-bezier(.645,.045,.355,1) overload z-index:-1 position:fixed active.z-index:9998 inset:0 background:rgba(0,0,0,0) active.background:rgba(0,0,0,0.8)">
   </div>
 
+  <!-- 3.SLIDER HERO -->
   <div class="slider-hero" data-component="slider-hero">
     <div class="slider-hero__overlay">
-
     </div>
+
     <div class="slider-hero__inner">
       <div class="slider-hero__left">
-        <h2 data-title class="font-size:50px @media(max-width:768px):font-size:32px color:#fff font-weight:bold">The
+        <h2 data-title
+          class="animate font-size:50px margin:0 @media(max-width:768px):font-size:32px color:#fff font-weight:bold">The
           2026 Atlas Cross Sport Crossover SUV</h2>
-        <p data-description class="font-size:18px color:#fff line-height:1.8">See each Atlas Cross Sport side by side
+        <p data-description class="animate font-size:18px color:#fff line-height:1.8">See each Atlas Cross Sport side by
+          side
           and compare trims
           to build your perfect match. Want to get started?
           Select a
@@ -106,6 +200,7 @@
           alt="" data-image>
       </div>
     </div>
+
     <div class="slider-hero__navigation">
       <div class="navigation-prev navigation-item" data-navigation-prev>
         <div class="navigation-prev-inner navigation-item-inner"></div>
@@ -121,6 +216,165 @@
   <div class="height:60px">
   </div>
 
+  <!-- 6.CATEGORIES -->
+  <div>
+    <div class="max-width:1280px margin:auto">
+      <div class="padding:20px font-size:30px text-align:center color:--color-primary">
+        Our Vehicles
+      </div>
+      <div
+        class="display:flex flex-direction:row gap:50px font-size:16px width:fit-content max-width:100% overflow:auto margin:auto padding-bottom:30px">
+        <div class="padding:10px_0 cursor:pointer">Sedans</div>
+        <div
+          class="active.border-bottom:1px_solid_var(--color-primary) active padding:10px_0 cursor:pointer active.color:--color-primary">
+          SUV
+        </div>
+        <div class="padding:10px_0 cursor:pointer">Compacts</div>
+        <div class="padding:10px_0 cursor:pointer">Electric Vehicles</div>
+      </div>
+      <!-- MOBLIE -->
+      <div class="display:none @media(max-width:767px):display:block">
+        <div class="categories padding:0_80px_50px" data-component="hero-banner" data-rows="1" data-gap="40">
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas.png" alt=""
+              loading="lazy" />
+            <div class="text-align:center font-size:16px">Atlas</div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id4.png" alt=""
+              loading="lazy" />
+            <div class="text-align:center font-size:16px">
+              Atlas Cross Sport
+            </div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id.buzz.png" alt="" />
+            <div class="text-align:center font-size:16px">Taos</div>
+          </div>
+
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/tiguan.png" alt="" />
+            <div class="text-align:center font-size:16px">Tiguan</div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/golf-gti.png" alt=""
+              loading="lazy" />
+            <div class="text-align:center font-size:16px">Atlas</div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas-cross-sport.png"
+              alt="" loading="lazy" />
+            <div class="text-align:center font-size:16px">
+              Atlas Cross Sport
+            </div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta.png" alt="" />
+            <div class="text-align:center font-size:16px">Taos</div>
+          </div>
+
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta-gli.png" alt="" />
+            <div class="text-align:center font-size:16px">Tiguan</div>
+          </div>
+        </div>
+      </div>
+      <!-- DESKTOP -->
+      <div class="display:none @media(min-width:768px):display:block">
+        <div class="categories padding:0_80px_70px_80px" data-component="hero-banner" data-rows="4" data-gap="40">
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas.png" alt=""
+              loading="lazy" />
+            <div class="text-align:center font-size:16px">Atlas</div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id4.png" alt=""
+              loading="lazy" />
+            <div class="text-align:center font-size:16px">
+              Atlas Cross Sport
+            </div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/id.buzz.png" alt="" />
+            <div class="text-align:center font-size:16px">Taos</div>
+          </div>
+
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/tiguan.png" alt="" />
+            <div class="text-align:center font-size:16px">Tiguan</div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/golf-gti.png" alt=""
+              loading="lazy" />
+            <div class="text-align:center font-size:16px">Atlas</div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas-cross-sport.png"
+              alt="" loading="lazy" />
+            <div class="text-align:center font-size:16px">
+              Atlas Cross Sport
+            </div>
+          </div>
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta.png" alt="" />
+            <div class="text-align:center font-size:16px">Taos</div>
+          </div>
+
+          <div>
+            <img class="width:100%"
+              src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/jetta-gli.png" alt="" />
+            <div class="text-align:center font-size:16px">Tiguan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="height:60px">
+  </div>
+
+  <div class="margin:auto max-width:800px padding:10px">
+    <div class="font-size:30px padding:30px text-align:center">Shaped for adventure</div>
+    <div class="hero-banner__inner" data-component="hero-banner">
+      <div>
+        <img
+          class="width:100%"
+          src="https://assets.volkswagen.com/is/image/volkswagenag/tiguan-exterior-design-16x9-2500x1406?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTIzNDMmaGVpPTE0MDYmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmZTc3Mw=="
+          alt="">
+      </div>
+      <div>
+        <img
+         class="width:100%"
+          src="https://assets.volkswagen.com/is/image/volkswagenag/the-new-tiguan-content_slider_16x9_TN2373_Exterior-3-1?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTE4MDAmaGVpPTEwODAmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmYmEyYQ=="
+          alt="">
+      </div>
+      <div>
+        <img
+         class="width:100%"
+          src="https://assets.volkswagen.com/is/image/volkswagenag/Tiguan_TN2503-1920x1080-1?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTE4MDAmaGVpPTEwODAmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmYmEyYQ=="
+          alt="">
+      </div>
+    </div>
+    <div class="font-size:15px line-height:1.5 padding:20px color:--color-primary opacity:0.8">The Tiguan’s seats are designed with comfort and flexibility in mind. There’s plenty of room for everyone to stretch out, and the clever second row easily adjusts, slides, or folds down to suit your plans, whether you’re carrying extra passengers, sports kit, or holiday luggage. And with the optional variable luggage compartment floor, you can expand your storage space to a generous 1,650 litres. No matter where you’re headed or what you’re bringing along, the Tiguan’s seats are ready to adapt and make every journey a pleasure.</div>
+  </div>
+  <div class="height:60px"></div>
+
+  <!-- 4.NEWS -->
   <div class="news">
     <div class="height:fit-content position:relative">
       <div class="video-player">
@@ -140,6 +394,7 @@
     </div>
   </div>
 
+  <!-- 5.HEADING -->
   <div class="view max-width:1280px margin:auto padding:20px border-bottom:1px_solid_#eee">
     <div>
       <div class="font-size:40px @media(max-width:768px):font-size:24px font-weight:100 color:#000">
@@ -149,12 +404,8 @@
       <div class="font-size:13px padding-top:20px">T&Cs Apply</div>
     </div>
   </div>
-  <!-- <div
-      class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"
-    ></div> -->
 
-
-
+  <!-- 6.CATEGORIES -->
   <div>
     <div class="max-width:1280px margin:auto">
       <div class="padding:20px font-size:30px text-align:center color:--color-primary">
@@ -170,8 +421,9 @@
         <div class="padding:10px_0 cursor:pointer">Compacts</div>
         <div class="padding:10px_0 cursor:pointer">Electric Vehicles</div>
       </div>
+      <!-- MOBLIE -->
       <div class="display:none @media(max-width:767px):display:block">
-        <div class="categories padding:0_80px" data-component="hero-banner" data-rows="1" data-gap="0">
+        <div class="categories padding:0_80px_50px" data-component="hero-banner" data-rows="1" data-gap="40">
           <div>
             <img class="width:100%"
               src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas.png" alt=""
@@ -224,8 +476,9 @@
           </div>
         </div>
       </div>
+      <!-- DESKTOP -->
       <div class="display:none @media(min-width:768px):display:block">
-        <div class="categories padding:0_80px" data-component="hero-banner" data-rows="3" data-gap="100">
+        <div class="categories padding:0_80px_70px_80px" data-component="hero-banner" data-rows="4" data-gap="40">
           <div>
             <img class="width:100%"
               src="https://di-sitebuilder-assets.dealerinspire.com/Volkswagen-US/modelImages/atlas.png" alt=""
@@ -280,6 +533,8 @@
       </div>
     </div>
   </div>
+
+  <!-- 7.NEWS -->
   <div class="height:40px"></div>
   <div class="max-width:1280px margin:auto padding:20px">
     <div class="font-size:30px padding:40px text-align:center color:--color-primary">
@@ -343,6 +598,7 @@
   </div>
 
 
+  <!-- 8.CTA BANNER -->
   <div class="position:relative">
     <img class="width:100% height:100% position:absolute object-fit:cover"
       src="https://assets.volkswagen.com/is/image/volkswagenag/owners_drivers-servicing-mot_test-hero-4_3-1920x1865?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTEyODAmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmMzI3Yw=="
@@ -365,6 +621,30 @@
   <div class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"></div>
   <div class="height:40px"></div>
 
+  <!-- 9.HERO BANNER -->
+  <div class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"></div>
+  <div class="hero-banner">
+    <div class="hero-banner__inner" data-component="hero-banner">
+      <div>
+        <img class="width:100%"
+          src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/02/Feb_26_Tiguan_S_FWD_Lease_1920x450.png"
+          alt="" />
+      </div>
+      <div>
+        <img class="width:100%"
+          src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/02/128584-WB-VOSC_rev_D.jpg"
+          alt="" />
+      </div>
+      <div>
+        <img class="width:100%"
+          src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/01/tire-banner-1920x450-1.png"
+          alt="" />
+      </div>
+    </div>
+    <div class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"></div>
+  </div>
+
+  <!-- 11.MASONRY -->
   <div class="position:relative max-width:1024px margin:auto">
     <div class="masonry">
       <div class="masonry-item">
@@ -452,26 +732,31 @@
     </div>
   </div>
 
-  <div class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"></div>
-  <div class="hero-banner">
-    <div class="hero-banner__inner" data-component="hero-banner">
+  <div class="footer border-top:2px_solid_var(--color-primary) color:--color-primary">
+    <div class="padding:20px display:flex max-width:1280px margin:auto width:100% justify-content:space-around">
       <div>
-        <img class="width:100%"
-          src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/02/Feb_26_Tiguan_S_FWD_Lease_1920x450.png"
-          alt="" />
+        <h3 class="font-weight:100">About Volkswagen</h3>
+        <div class="padding:8px_0 font-size:13px">Corporate</div>
+          <div class="padding:8px_0 font-size:13px">Newsroom</div>
+          <div class="padding:8px_0 font-size:13px">Contact Us</div>
+          <div class="padding:8px_0 font-size:13px">Help Center</div>
       </div>
-      <div>
-        <img class="width:100%"
-          src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/02/128584-WB-VOSC_rev_D.jpg"
-          alt="" />
+
+       <div>
+       <h3 class="font-weight:100">Shopping Tools</h3>
+          <div class="padding:8px_0 font-size:13px">Carefree Shopping</div>
+          <div class="padding:8px_0 font-size:13px">Financial Services</div>
+          <div class="padding:8px_0 font-size:13px">DriverGear</div>
       </div>
-      <div>
-        <img class="width:100%"
-          src="https://di-uploads-pod32.dealerinspire.com/volkswagenofsouthcharlotte1/uploads/2026/01/tire-banner-1920x450-1.png"
-          alt="" />
+
+       <div>
+       <h3 class="font-weight:100">Owners and Services</h3>
+          <div class="padding:8px_0 font-size:13px">Ownership Home</div>
+          <div class="padding:8px_0 font-size:13px">Accessories</div>
+          <div class="padding:8px_0 font-size:13px">About My Vehicle</div>
       </div>
+
     </div>
-    <div class="height:10px background:_radial-gradient(circle_at_0%_0%,#00437a_0%,#001e50_100%)"></div>
   </div>
 
 
