@@ -206,13 +206,12 @@ img {
 
     @media (max-width: 768px) {
       flex-direction: column-reverse;
-
     }
   }
 
   .slider-hero__left {
     width: calc(50% - 20px);
-    padding: 40px;
+    padding: 0 80px;
     box-sizing: border-box;
 
     @media (max-width: 768px) {
