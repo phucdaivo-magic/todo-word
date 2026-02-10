@@ -1,0 +1,856 @@
+export default {
+    "sys": {
+        "type": "Array"
+    },
+    "total": 15,
+    "skip": 0,
+    "limit": 100,
+    "items": [
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "42T8kzu9UlK305y7UojEru",
+                "type": "Entry",
+                "createdAt": "2026-02-10T13:18:30.973Z",
+                "updatedAt": "2026-02-10T13:18:30.973Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 3,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "block-1"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "dataComponent": "slider-hero",
+                "view": true,
+                "items": [
+                    {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Entry",
+                            "id": "NRVmZhk8UauTsdZDQ4IOi"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "4Spp9mjAdufkIqtnydXuGQ",
+                "type": "Entry",
+                "createdAt": "2026-02-10T13:18:25.198Z",
+                "updatedAt": "2026-02-10T13:18:25.198Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 5,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "home"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "block": [
+                    {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Entry",
+                            "id": "42T8kzu9UlK305y7UojEru"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "NRVmZhk8UauTsdZDQ4IOi",
+                "type": "Entry",
+                "createdAt": "2026-02-10T13:17:59.730Z",
+                "updatedAt": "2026-02-10T13:17:59.730Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 5,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "sliderHero"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "background": "#fafafa",
+                "image": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Asset",
+                        "id": "4EPKyOm1foyKBIFj7FXP4A"
+                    }
+                },
+                "title": "The 2026 Atlas Cross Sport Crossover SUV",
+                "description": "S 2.0 TSI 7-speed DSG® automatic transmission with Tiptronic® and Sport mode"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "msQRxiOGhG546ILYsh8SB",
+                "type": "Entry",
+                "createdAt": "2026-02-10T12:59:43.645Z",
+                "updatedAt": "2026-02-10T12:59:43.645Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 2,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "product"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "type": "SUV",
+                "title": "Atlas Cross Sport ",
+                "image": "https://media.vw.mediaservice.avp.tech/media/fast/v3_x2SW4gbZRiGf591XWtzYGayGdmmSRqbsU0y2WSSpo0apYer6upKZaUKDZPkz6HNJHEyybZ7IRWPFERQu4KoCEKrtbSK7IVQrOKFhxtFQVYRD4iIoELxQpGKpoUP3u-F7335Lp6zv4vpkSt4cM_ZP_W_r7v-vh8Q4uhAiKkFMe2N3Fr_GiHEIjd0HLsl5w8PZEuPjJdNezyYt72uPZy3clbJvLqa9frYCoqZSUBMCTFzfCLvXzEiEBi53YHt2k62IWujlrKtXi7mys2d-Z3FulWs1XcV7YKVb5Rq9ZrVlLJpNwrlYr68w1In6TNiajS0RbBRcvpN2yo03X7PG9TFTN1pFAYrOXHtlR9EcKvndlot6VYdt9oe5NlmsPU3ItuJLBDzE1untEL8IvGfSKgk2xiPY7yI8RbGGqnNpO4gtUjqDKkLpA9ifkc2RLZMUKJ8inocrYX2MKEDRB22rJM5hHkJsRkh8Y0Iv44-jR5m02TOE3-SxM0kLNI9zBG-7QS-RjmB-gDhu9BPoH_IpteIrhJ7hNgfxGNk7iZzAf95AscInkTPoR8icgvKjyjfoqZQfyb0DrP_EN5AuED4VsIvEH4TvYB-D3offZW5y8S-IdEjeZDkyyTPkXyX5EcY95LaRTpD-nMyL5F5g8xXiFMEH0V5GzWEtgPtPbS_mD1M_FUST5P4DO0xogNu_IW5i8x9SSRKZIloiKiHEce4jZSJKTA3Yq4inmPjv_iex_cBvv_wH8G_jv8SwadQVlBeQTmFchn1dtT9qEdRn0VdQ_sC7RNCvxJbY8sBEuvctIHkfpLfY2RJ3UlYI3aaRJR0GTNL4BkC59DShJ5g9mPCy0T8RIYTUE7K3rgzgcORPa-ydH91794lq7qn320Yy52G167ky1bOaMtOq-1VyqWcYXcHbbviuSNp1G1HunZl99Kita-6u2pVcznLsHsT6r1OvzesGE6_IbuuHHeGE19ZWMwbrW6_Zndde_mIPDaUD41kry4rluFIz27Ynj2W7tVTS5uatP4PY3gVQmgDAAA.webp?width=648"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "7l8HMWTrqnE9sHlUysXUKc",
+                "type": "Entry",
+                "createdAt": "2026-02-10T12:59:16.092Z",
+                "updatedAt": "2026-02-10T12:59:29.079Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 3,
+                "revision": 2,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "product"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "type": "SUV",
+                "title": "Atlas Cross Sport",
+                "image": "https://media.vw.mediaservice.avp.tech/media/fast/v3_x2SW4gbZRiGf591XWtzYGayGdmmSRqbsU0y2WSSpo0apYer6upKZaUKDZPkz6HNJHEyybZ7IRWPFERQu4KoCEKrtbSK7IVQrOKFhxtFQVYRD4iIoELxQpGKpoUP3u-F7335Lp6zv4vpkSt4cM_ZP_W_r7v-vh8Q4uhAiKkFMe2N3Fr_GiHEIjd0HLsl5w8PZEuPjJdNezyYt72uPZy3clbJvLqa9frYCoqZSUBMCTFzfCLvXzEiEBi53YHt2k62IWujlrKtXi7mys2d-Z3FulWs1XcV7YKVb5Rq9ZrVlLJpNwrlYr68w1In6TNiajS0RbBRcvpN2yo03X7PG9TFTN1pFAYrOXHtlR9EcKvndlot6VYdt9oe5NlmsPU3ItuJLBDzE1untEL8IvGfSKgk2xiPY7yI8RbGGqnNpO4gtUjqDKkLpA9ifkc2RLZMUKJ8inocrYX2MKEDRB22rJM5hHkJsRkh8Y0Iv44-jR5m02TOE3-SxM0kLNI9zBG-7QS-RjmB-gDhu9BPoH_IpteIrhJ7hNgfxGNk7iZzAf95AscInkTPoR8icgvKjyjfoqZQfyb0DrP_EN5AuED4VsIvEH4TvYB-D3offZW5y8S-IdEjeZDkyyTPkXyX5EcY95LaRTpD-nMyL5F5g8xXiFMEH0V5GzWEtgPtPbS_mD1M_FUST5P4DO0xogNu_IW5i8x9SSRKZIloiKiHEce4jZSJKTA3Yq4inmPjv_iex_cBvv_wH8G_jv8SwadQVlBeQTmFchn1dtT9qEdRn0VdQ_sC7RNCvxJbY8sBEuvctIHkfpLfY2RJ3UlYI3aaRJR0GTNL4BkC59DShJ5g9mPCy0T8RIYTUE7K3rgzgcORPa-ydH91794lq7qn320Yy52G167ky1bOaMtOq-1VyqWcYXcHbbviuSNp1G1HunZl99Kita-6u2pVcznLsHsT6r1OvzesGE6_IbuuHHeGE19ZWMwbrW6_Zndde_mIPDaUD41kry4rluFIz27Ynj2W7tVTS5uatP4PY3gVQmgDAAA.webp?width=648"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "2q0ZVCpMJncmSmT1ngw9np",
+                "type": "Entry",
+                "createdAt": "2026-02-10T11:26:03.311Z",
+                "updatedAt": "2026-02-10T11:26:03.311Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 3,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "product"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "type": "SUV",
+                "title": "ID.4",
+                "image": "https://media.vw.mediaservice.avp.tech/media/fast/v3_02SX2hbdRTHf_vUrc62Ccltb9waszT2XkeS2-berEkzTaHdZJs6qbVUnGK8zf01iUtu4s1Nah-UiX8efBEdThyuT-KYDMEHEXGICk6mbwrSF9lg-iSCQwc-7MHbPe3p8Dnne875Pnwv_iV29jzBMwsX_4n9t-vu5WsI8VJHiIFFsdPveavtHUKIRe5ptOyanH6hI2ux8f66Yfc70w1n2spZBaPhHDBM86RRrfatsBgM9GJAiMFTQflmG0Qo1POaHduzW1OOXO3VIvvzdilnm85aLi-LzuxaIWeWivlSzskX886Mk3eKVtFxCgdmosH2phjodW0Rdgqt9ppt5de8tut3qmJQzpp5zzXFXdsuRHjS9xq1mvQqLa9S75joP6JNML6D8SvEM8QPEz9C4l-SGsnvSF4ndRWtjv4G-ln0L0jvJ71EWpL-hPQlMk9jfMVUlKk5wpLwBpHvUWoorzC6TKLFxBbaNbIVstcxbiDuQ8wh6qgfEhsj-RqpB0hZZFyMHpG3iJ5g7BfUh4ltEPuB8YPse5XkHjKfkX2W7LeMnCcUjJ4jdoL4QSJ_oO5GnUGdRX2fWJvYGfbeIuWS-hvNRnsP7Rzal-hPkJ4l7ZKBjErmV7Jvk71A9jcUC-Vrxh4k-RHK6yRckjeZGOZe2HOKvZeJJ4gvEb9M4hH0h0gbGALjDOI04hxDNxneZDjw9jwjPzNyg9AHhN8l8jKRTSIfE7lFdI7oO0QvEL1E9CcKMyhbKFcY_ZN9nzPxJKkt7t-NtoR2FX2K9KOoCrEhUglCpwl9SnQJJcPom6jrqL8TDxHviqHJ-eMLxx47duTosnknWHdCXuyafLxRq_tBTs5Kt98IstGSrl9eeapy6NCKVVloNx19veH49bJZsnJ6XW6ry6VCTrebnbpd9r2e1Kt2S3p2eX5l0Tpcma9YlVzO0m03yLzfaLvd8u0XeqvtyKYn-41u0CwfXzT1WrO9ajc9e_2k3OjKF3vSrcqypbekbzu2b_eld1tqKQPB6f8B94AGb2sDAAA.webp?width=648"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "3nD8vYmMCp2YG9PZXXBPSt",
+                "type": "Entry",
+                "createdAt": "2026-02-10T11:25:39.520Z",
+                "updatedAt": "2026-02-10T11:25:39.520Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 3,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "product"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "type": "SUV",
+                "title": "Taos",
+                "image": "https://media.vw.mediaservice.avp.tech/media/fast/v3_x2TXWhbdRjG__7aWbs2DTlpc0ab5aRn5tgm57TJ6ZYPMMrWgfgxrU6qTlg8PTlN0uXLk5NURWFFmAoq1kEHw12IF2Na1AkTxsYYvXA4YQ5B3cCL4QcIIjJ2MZEJpl69H7y_h-fiedf_FFvaruD5Peu35L_vvufpGwjxUlOInjWxxWu7C427hBBzbK3UrJIzvdR0SnKks2xYnea0ZzVa02bSTBubnWGWaoZtd0y_6OsiokeIvsPdcnFzEENDbbfatFyrNlV0FtqlwETK3mlnM-lcNpnN2dmZtG07mYVUNjOTM3O7LLuYTlmL2Vxxp9SlL4qedssS_mK61li0zJlFt1H3mrbos6um2XplRvRu2hD-ez23Uio5bqHmFsrNFBO_smOSsW8JTxJ-CGUQZRblGtGHiW4Q_QVVQt1AvUqsjPYq2nG0z4lvJ_4g8TniHxM_R-IFjKtMbWUqhngW3wR-h8BXSIcJlgjeYng_kTKRDxm_hl7AuIlQEC6hJUKnkHuQRxjrZewM0TdQ70PNkGiTOI_ei76EfhujzWAfg5MMXUc6QOgx5HeRf2fsCJE1lBUUl6hCvEP8SxKnSdxA19EPoG_g-wz5IOEMgd8I_IRkMPIPoX5CM4SyhI4R-gR5F_ITyA3ko4zeZPQOioXyM2od9TSx54idILZO7CyxS2hPEs-S-AF9Ff0U-veIk_hXCFxAkgheIHibkb1EP0J9C_USwRUiTSLfsA22vcfoeUavEI4QfortrxN5hMgyWhjtAeIGhsAYwHgbcZSBfxlcY_AcPoGvH98aviv4_sL_Jv53CLxG4ASBTwncQbofqY20inQS6QzSZYLfEfya4T-QD6GcZXw_6nV29BPbR-wDYj-iTRF_lFAQeQBllegXqOMkMhhTDL3PUFf2IMEEw0cYuUxombCPcKsbteNOvVPpxqvm1L38_DOF2dl5s7CnUS1qy5WiV86ncmZSKzuVUtnL59JJzao2y1bec9uOZls1x7Xyu-fnzL2F3QWzkEyamlXvfo5XadRb-cc3Ia3WKDpV1-lUWt1lft9cSitVGwtW1bWWDzkvt5wX207ddvKmVnM8q2h5Vsdx_z81gz1d6f8AgSFQUrEDAAA.webp?width=648"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "2r8SnoHOqRyMVUkh6h4zcQ",
+                "type": "Entry",
+                "createdAt": "2026-02-10T11:25:02.906Z",
+                "updatedAt": "2026-02-10T11:25:02.906Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 3,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "product"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "type": "SUV",
+                "title": "Tiguan",
+                "image": "https://media.vw.mediaservice.avp.tech/media/fast/v3_yWSXWhbZRiAvz3Z7OaahJzT5ow1Jl1mTtf0nDQ96a8YpZug6FbLnJUqNHxJviaZ-fPkJNkunA6mCFOGCBUHCt6IddMLoaBTRL2wboKCF6PCwN0Igngxd6HIBFO9en94n5eXl-fy72JX2xU8c_jybeOvu3afuIkQp5pC-JbFLq_t5hs7hBCL3F2pyZIaP9lUJcPsdG3ZaY57lVJb1sedtDNt_5_bUzML9sL8cbtQ6DhB0ddDhU-Ivhd74cvtQgQCbbfalK6spYoq3y6FDs1MKSmnCnOzxeL0pDM9K9OymHHU5ExmUubzc2mVzxfkarqg9eh14Wu3pAgWp2uNVelkVt1G3WsWRJ9bm3CarYzYuX2MCN7ruZVSSbm5mpsrNycwv-bgCEM7GPqByCiRo6TOEdsidZXhT0hdI66RKGO-hHmR5CGSD5JcJPkByc8YW8a-QWo3qVF6j_CPEFSEvkE7g15CP8PACaJlou9yYIvETawV7FuIMUQXw4cxyNBOhjYYPk98hLjDWJuxX7FOYt3GbtM_SuAntKcJH8U4j_EdqW-JrhE7y3AMy8K6D-tz_OsETmOskHqB0C-EbhDeQzhDeJbwm4QvYWQwHsdoYKyx_w7xOvHfSCyTeJvEpyQ2Sc6SrDN2HesC1jrWdcQlgmfRBtAn0L9A_5PBKwyvE3-N-Cb6OaJ1hv9gH-x7hP3XiESJHOeej4k-yuSTmFHM-0naWH9jryHeYO8_9K_R_xV-gX8F_4_4bxF4i-ArhJ4n9A6h9wjdQXsA7RTaq2gfom2gXUH7Hv199C30q8Q2OPAE8S0O7iHxMImfMVMkHyOsY-wldozY68Sj2CkCFwh8xMDLDG4S7hLxE2n1LLmo6p1Kz4yaqnvZpadyR44sObnDjWrR7FaKXjk7MeekzbKqlMpedm46bcpqsyyznttWZkHWlCuz80uLzkO5-ZyTS6cdU9Z78nuVRr2VXdiGzFqjqKqu6lRavWb22OKEWao28rLqyu6z6nRLPddW9YLKOmZNebIoPdlR7n-jju7rrf4XAUgxzXQDAAA.webp?width=648"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "sPHKDS17P8fypqTT24Lxt",
+                "type": "Entry",
+                "createdAt": "2026-02-10T11:21:59.406Z",
+                "updatedAt": "2026-02-10T11:24:29.076Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 8,
+                "revision": 3,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "product"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "type": "SUV",
+                "title": "Atlas\n            ",
+                "image": "https://media.vw.mediaservice.avp.tech/media/fast/v3_x2TW4hbZRSFf79xHGtzIedkcmQmk6SxOdYkJ5OcpOmEmkpbn5TBkcpIFQz_JH-TTHPz5CTTmaeKF8ShCGJHERVBqLdSW7SCL15Q8PJSUZAoooL0QbFC8UGRiqaFDWsvWGuzHtY-fUlMDhzBgwdO_2n8fcON9_2MEMd6QkxUxKQ7cFa61wkhlrip2ZZ1Nb_aU3UjPFyz5LA3L92W7M_bWbtoXVutanVo-8XU2CAmhJg6PoaPrhLh8w2cVk86sp2pqZVBPbBLFgoyq6rFlUJ-Qe0u5UsLxWKhZteKqlSoquzu3EK2Zu8pZrWx-6yYGPSl8NeK7e4RaeePON2O26uKqarM7-lt5MT1VzMI_07Xadbryqm0nUqjl2NXjp2_M3uBcJrwItE5oiOKG8TeI_YLcY1EA_NxzBcwz2KeJzlH8g6SSyTfJDkidRjrRzJBMiX8isCXaMfRfkOvo68TPESkzY4R6QrWZcQcQuEZEHodYxIjxOx4zhHbJH4rcZtUh_Qq1gDPbfi-I_AU2gOEFjE2MT5h9lUiW0SeJ_oI0T-IRUnvI_0p3rfxreM_iZHDeIjwXgIXCfyAlkS7SPAdpv8htI1QntBeQs8Regsjj3EPRhdji5krRL8n3iFxmMRLJM6QeJ_EZ5j3klwglSb1FekXSb9B-lvEKfyPEjiHFkQvon-A_hfTq8ReIX6C-AX0x4h0ubnCzIfMfEM4QniZyDQRFzOGeTtJC0tgbcfaQmyy_V88z-L5GM9_eI_iHeG9jP9J_CcIbBB4mcApAlfQ9qEtoh1DewbtXfSv0b8g-CvR8-w4RHzELdtI3EXiJ8wMybtJXyKkE32NeIRUASuD72l8Z9BTBJ9g-nNCa4S9hPvj6pxUnWFzXJe26rjl5fsrBw8u25UD3VbNXGvW3EY5V7KzZkM16w23XCpmTdnqNWTZdQbKrMq2cmR5__KSfWdlf8WuZLO2KTvjP3Cb3U6_bLa7NdVy1LDZH_Py4lLOrLe6K7LlyLWjar2vHh6oTlWVbbOtXFmTrhwq55rU1ifGV_8H_BrCe3oDAAA.webp?width=648"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "7nL7diBsZpOcU4Wovw7r6A",
+                "type": "Entry",
+                "createdAt": "2026-02-10T11:21:27.460Z",
+                "updatedAt": "2026-02-10T11:24:02.701Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 6,
+                "revision": 2,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "product"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "type": "SUV",
+                "title": "Atlas Cross Sport",
+                "image": "https://media.vw.mediaservice.avp.tech/media/fast/v3_x2SW4gbZRiGf591XWtzYGayGdmmSRqbsU0y2WSSpo0apYer6upKZaUKDZPkz6HNJHEyybZ7IRWPFERQu4KoCEKrtbSK7IVQrOKFhxtFQVYRD4iIoELxQpGKpoUP3u-F7335Lp6zv4vpkSt4cM_ZP_W_r7v-vh8Q4uhAiKkFMe2N3Fr_GiHEIjd0HLsl5w8PZEuPjJdNezyYt72uPZy3clbJvLqa9frYCoqZSUBMCTFzfCLvXzEiEBi53YHt2k62IWujlrKtXi7mys2d-Z3FulWs1XcV7YKVb5Rq9ZrVlLJpNwrlYr68w1In6TNiajS0RbBRcvpN2yo03X7PG9TFTN1pFAYrOXHtlR9EcKvndlot6VYdt9oe5NlmsPU3ItuJLBDzE1untEL8IvGfSKgk2xiPY7yI8RbGGqnNpO4gtUjqDKkLpA9ifkc2RLZMUKJ8inocrYX2MKEDRB22rJM5hHkJsRkh8Y0Iv44-jR5m02TOE3-SxM0kLNI9zBG-7QS-RjmB-gDhu9BPoH_IpteIrhJ7hNgfxGNk7iZzAf95AscInkTPoR8icgvKjyjfoqZQfyb0DrP_EN5AuED4VsIvEH4TvYB-D3offZW5y8S-IdEjeZDkyyTPkXyX5EcY95LaRTpD-nMyL5F5g8xXiFMEH0V5GzWEtgPtPbS_mD1M_FUST5P4DO0xogNu_IW5i8x9SSRKZIloiKiHEce4jZSJKTA3Yq4inmPjv_iex_cBvv_wH8G_jv8SwadQVlBeQTmFchn1dtT9qEdRn0VdQ_sC7RNCvxJbY8sBEuvctIHkfpLfY2RJ3UlYI3aaRJR0GTNL4BkC59DShJ5g9mPCy0T8RIYTUE7K3rgzgcORPa-ydH91794lq7qn320Yy52G167ky1bOaMtOq-1VyqWcYXcHbbviuSNp1G1HunZl99Kita-6u2pVcznLsHsT6r1OvzesGE6_IbuuHHeGE19ZWMwbrW6_Zndde_mIPDaUD41kry4rluFIz27Ynj2W7tVTS5uatP4PY3gVQmgDAAA.webp?width=648"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "6K4YH8FiGhx5LjxhRGwniB",
+                "type": "Entry",
+                "createdAt": "2026-02-10T07:49:06.356Z",
+                "updatedAt": "2026-02-10T08:05:13.027Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 7,
+                "revision": 2,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "sliderHero"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "background": "#768393",
+                "image": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Asset",
+                        "id": "51heBL4SENPwtcxv0kmmTL"
+                    }
+                },
+                "title": "The 2026 Taos Compact SUV",
+                "description": "Excitement is where you find it, and the 2026 Taos can get you there in style. It’s thoughtfully designed inside and out and anything but a chore to drive."
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "1m2ellYm2OqlF3VB5jp9FY",
+                "type": "Entry",
+                "createdAt": "2026-02-10T08:01:30.002Z",
+                "updatedAt": "2026-02-10T08:01:30.002Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 5,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "sliderHero"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "background": "#686c6f",
+                "image": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Asset",
+                        "id": "4EPKyOm1foyKBIFj7FXP4A"
+                    }
+                },
+                "title": "Golf GTI",
+                "description": "S 2.0 TSI 7-speed DSG® automatic transmission with Tiptronic® and Sport mode"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "7f7x2iX6cBz7dZE9duxc0j",
+                "type": "Entry",
+                "createdAt": "2026-02-10T07:57:41.174Z",
+                "updatedAt": "2026-02-10T07:58:46.060Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 10,
+                "revision": 3,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "sliderHero"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "background": "#6587b0",
+                "image": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Asset",
+                        "id": "lXU2vNMN632QVowGj90k5"
+                    }
+                },
+                "title": "Pro S Plus with 4MOTION®",
+                "description": "He available second row captain’s chairs serve them up along with armrests and fold-flat capabilities"
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "1Aa3oyjSAWiOH593I0uxdK",
+                "type": "Entry",
+                "createdAt": "2026-02-10T04:41:45.605Z",
+                "updatedAt": "2026-02-10T04:41:45.605Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 5,
+                "revision": 1,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "sliderHero"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "background": "#cad1d5",
+                "image": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Asset",
+                        "id": "5jtB8o6KhnJaugQ4nRUDLt"
+                    }
+                },
+                "title": "The 2026 Atlas Cross Sport Crossover SUV",
+                "description": "See each Atlas Cross Sport side by side and compare trims to build your perfect match. Want to get started? Select a trim below."
+            }
+        },
+        {
+            "metadata": {
+                "tags": [],
+                "concepts": []
+            },
+            "sys": {
+                "space": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "wxetfbdill9l"
+                    }
+                },
+                "id": "2dglZKMeWFdGgyKdwyCFXK",
+                "type": "Entry",
+                "createdAt": "2026-02-10T04:36:22.654Z",
+                "updatedAt": "2026-02-10T04:37:31.917Z",
+                "environment": {
+                    "sys": {
+                        "id": "master",
+                        "type": "Link",
+                        "linkType": "Environment"
+                    }
+                },
+                "publishedVersion": 5,
+                "revision": 4,
+                "contentType": {
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "ContentType",
+                        "id": "contentArea"
+                    }
+                },
+                "locale": "en-US"
+            },
+            "fields": {
+                "contents": {}
+            }
+        }
+    ],
+    "includes": {
+        "Asset": [
+            {
+                "metadata": {
+                    "tags": [],
+                    "concepts": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "wxetfbdill9l"
+                        }
+                    },
+                    "id": "4EPKyOm1foyKBIFj7FXP4A",
+                    "type": "Asset",
+                    "createdAt": "2026-02-10T08:00:20.438Z",
+                    "updatedAt": "2026-02-10T08:00:20.438Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "publishedVersion": 3,
+                    "revision": 1,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "v3 02TXWhbdRjG vVrc7mw5x052Ab0 SsOSvJOW1y0qatLEhbQcc6Vm2pONF4kpwmmfna6UniJg4HygQpXsg6Jn5cqKCubMwhKH6gMpFtoldiFcXB0LuBY6BeTDT1alfv-4P3eXgunnf9mtjadASPzqzfUP7edvviFYR4qiFE15tiq9t0cvUtQoh57ihXraI9erBhF5Vwq",
+                    "description": "",
+                    "file": {
+                        "url": "//images.ctfassets.net/wxetfbdill9l/4EPKyOm1foyKBIFj7FXP4A/157ad7ffe22bb278202bd9553b08e086/v3_02TXWhbdRjG__vVrc7mw5x052Ab0_SsOSvJOW1y0qatLEhbQcc6Vm2pONF4kpwmmfna6UniJg4HygQpXsg6Jn5cqKCubMwhKH6gMpFtoldiFcXB0LuBY6BeT.webp",
+                        "details": {
+                            "size": 32582,
+                            "image": {
+                                "width": 864,
+                                "height": 432
+                            }
+                        },
+                        "fileName": "v3_02TXWhbdRjG__vVrc7mw5x052Ab0_SsOSvJOW1y0qatLEhbQcc6Vm2pONF4kpwmmfna6UniJg4HygQpXsg6Jn5cqKCubMwhKH6gMpFtoldiFcXB0LuBY6BeTDT1alfv-4P3eXgunnf9mtjadASPzqzfUP7edvviFYR4qiFE15tiq9t0cvUtQoh57ihXraI9erBhF5Vwq.webp",
+                        "contentType": "image/webp"
+                    }
+                }
+            },
+            {
+                "metadata": {
+                    "tags": [],
+                    "concepts": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "wxetfbdill9l"
+                        }
+                    },
+                    "id": "51heBL4SENPwtcxv0kmmTL",
+                    "type": "Asset",
+                    "createdAt": "2026-02-10T07:48:53.487Z",
+                    "updatedAt": "2026-02-10T07:48:55.426Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "publishedVersion": 5,
+                    "revision": 2,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "v3 x2TXWhbdRjG 7aWbs2DTlpc0ab5aRn5tgm57TJ6ZYPMMrWgfgxrU6qTlg8PTlN0uXLk5NURWFFmAoq1kEHw12IF2Na1AkTxsYYvXA4YQ5B3cCL4QcIIjJ2MZEJpl69H7y h-fiedf FFvaruD5Peu35L vvufpGwjxUlOInjWxxWu7C427hBBzbK3UrJIzvdR0SnKks",
+                    "description": "",
+                    "file": {
+                        "url": "//images.ctfassets.net/wxetfbdill9l/51heBL4SENPwtcxv0kmmTL/d5dcc44f69d6ccbfb9edfa00ab21db2d/v3_x2TXWhbdRjG__7aWbs2DTlpc0ab5aRn5tgm57TJ6ZYPMMrWgfgxrU6qTlg8PTlN0uXLk5NURWFFmAoq1kEHw12IF2Na1AkTxsYYvXA4YQ5B3cCL4QcIIjJ2M.webp",
+                        "details": {
+                            "size": 23946,
+                            "image": {
+                                "width": 648,
+                                "height": 324
+                            }
+                        },
+                        "fileName": "v3_x2TXWhbdRjG__7aWbs2DTlpc0ab5aRn5tgm57TJ6ZYPMMrWgfgxrU6qTlg8PTlN0uXLk5NURWFFmAoq1kEHw12IF2Na1AkTxsYYvXA4YQ5B3cCL4QcIIjJ2MZEJpl69H7y_h-fiedf_FFvaruD5Peu35L_vvufpGwjxUlOInjWxxWu7C427hBBzbK3UrJIzvdR0SnKks.webp",
+                        "contentType": "image/webp"
+                    }
+                }
+            },
+            {
+                "metadata": {
+                    "tags": [],
+                    "concepts": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "wxetfbdill9l"
+                        }
+                    },
+                    "id": "5jtB8o6KhnJaugQ4nRUDLt",
+                    "type": "Asset",
+                    "createdAt": "2026-02-10T04:41:23.711Z",
+                    "updatedAt": "2026-02-10T04:41:23.711Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "publishedVersion": 4,
+                    "revision": 1,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "v3 02TbWhbdRTG 662tU2CffeNlfbmGSxuZtJbpvcdI1dDdJW1M1VqysVFBpvkpuXmjdvb1JFlKEDX1A3EIYMFT ZTkuZiiKKm1PZGEwm25dNBhP31SFuiCKKpvu0T-f8Duc5PB-es3ZFdDZtwRNTa9fUv27ePPczQjzTEKLjmOh0mna2fpMQYpZbylWzaI0sNqyiGmwt6",
+                    "description": "See each Atlas Cross Sport side by side and compare trims to build your perfect match. Want to get started? Select a trim below.",
+                    "file": {
+                        "url": "//images.ctfassets.net/wxetfbdill9l/5jtB8o6KhnJaugQ4nRUDLt/8509a64acbc9879c8cedb54bd9b44269/v3_02TbWhbdRTG__662tU2CffeNlfbmGSxuZtJbpvcdI1dDdJW1M1VqysVFBpvkpuXmjdvb1JFlKEDX1A3EIYMFT_ZTkuZiiKKm1PZGEwm25dNBhP31SFuiCKKp.webp",
+                        "details": {
+                            "size": 34472,
+                            "image": {
+                                "width": 864,
+                                "height": 432
+                            }
+                        },
+                        "fileName": "v3_02TbWhbdRTG__662tU2CffeNlfbmGSxuZtJbpvcdI1dDdJW1M1VqysVFBpvkpuXmjdvb1JFlKEDX1A3EIYMFT_ZTkuZiiKKm1PZGEwm25dNBhP31SFuiCKKpvu0T-f8Duc5PB-es3ZFdDZtwRNTa9fUv27ePPczQjzTEKLjmOh0mna2fpMQYpZbylWzaI0sNqyiGmwt6.webp",
+                        "contentType": "image/webp"
+                    }
+                }
+            },
+            {
+                "metadata": {
+                    "tags": [],
+                    "concepts": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "wxetfbdill9l"
+                        }
+                    },
+                    "id": "lXU2vNMN632QVowGj90k5",
+                    "type": "Asset",
+                    "createdAt": "2026-02-10T07:56:33.339Z",
+                    "updatedAt": "2026-02-10T07:56:33.339Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "publishedVersion": 3,
+                    "revision": 1,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "VW NGW6 Models ID-Buzz v2",
+                    "description": "",
+                    "file": {
+                        "url": "//images.ctfassets.net/wxetfbdill9l/lXU2vNMN632QVowGj90k5/9948720c95b58047f6fd974d478c8b25/VW_NGW6_Models_ID-Buzz_v2.webp",
+                        "details": {
+                            "size": 17030,
+                            "image": {
+                                "width": 500,
+                                "height": 292
+                            }
+                        },
+                        "fileName": "VW_NGW6_Models_ID-Buzz_v2.webp",
+                        "contentType": "image/webp"
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": [],
-  "sourcesContent": [],
-  "mappings": "",
+  "sources": ["../../src/css/volkswagencentral-js.css"],
+  "sourcesContent": [".width\\:100\\% {\n    width: 100%\n}\n.text-align\\:center {\n    text-align: center\n}\n.font-size\\:16px {\n    font-size: 16px\n}"],
+  "mappings": "AAAA,CAAC,aACG,MAAO,IACX,CACA,CAAC,mBACG,WAAY,MAChB,CACA,CAAC,gBACG,UAAW,IACf",
   "names": []
 }
