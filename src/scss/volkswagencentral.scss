@@ -2,7 +2,8 @@
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-[data-component="hero-banner"] {
+[data-component="hero-banner"],
+.slider-component {
   .slider-navigation {
     position: absolute;
     inset: 0;
@@ -87,7 +88,8 @@ img {
     .next-overload {
       position: absolute;
       inset: 0;
-      background: #fff;
+      background: #00000080;
+      transform: translateX(-80px);
       transform: translateX(80px);
       transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       display: flex;
@@ -132,7 +134,8 @@ img {
     .prev-overload {
       position: absolute;
       inset: 0;
-      background: #fff;
+      backdrop-filter: blur(10px);
+      background: #00000080;
       transform: translateX(-80px);
       transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       display: flex;
@@ -175,6 +178,7 @@ img {
     transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
     transform: translateX(0%);
     opacity: 1;
+
     &[data-description] {
       transition-delay: 0.05s;
     }
@@ -222,6 +226,7 @@ img {
     @media (max-width: 1024px) {
       flex-direction: column-reverse;
     }
+
     .slider-hero__left {
       width: calc(50% - 20px);
       padding: 0 80px;
@@ -379,13 +384,16 @@ img {
     }
   }
 }
+
 [data-progress] {
   animation: progress 4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 @keyframes progress {
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }

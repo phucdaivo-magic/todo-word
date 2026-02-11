@@ -95,9 +95,12 @@
 .padding\:0_50px {
     padding: 0 50px
 }
-@media (min-width:768px) {
-    .\@media\(min-width\:768px\)\:display\:none {
-        display: none
+.display\:none\!important {
+    display: none!important
+}
+@media (max-width:768px) {
+    .\@media\(max-width\:768px\)\:display\:flex\!important {
+        display: flex!important
     }
 }
 .cursor\:pointer {
@@ -190,24 +193,6 @@
 .transform\:rotate\(45deg\) {
     transform: rotate(45deg)
 }
-.transition\:background\.3s_cubic-bezier\(\.645\,\.045\,\.355\,1\) {
-    transition: background.3s cubic-bezier(.645,.045,.355,1)
-}
-.z-index\:-1 {
-    z-index: -1
-}
-.active.active\.z-index\:9998 {
-    z-index: 9998
-}
-.inset\:0 {
-    inset: 0
-}
-.background\:rgba\(0\,0\,0\,0\) {
-    background: rgba(0,0,0,0)
-}
-.active.active\.background\:rgba\(0\,0\,0\,0\.8\) {
-    background: rgba(0,0,0,0.8)
-}
 .max-width\:1024px {
     max-width: 1024px
 }
@@ -240,12 +225,6 @@
 }
 .opacity\:0\.8 {
     opacity: 0.8
-}
-.height\:60px {
-    height: 60px
-}
-.height\:fit-content {
-    height: fit-content
 }
 .border-bottom\:1px_solid_\#eee {
     border-bottom: 1px solid #eee
@@ -294,28 +273,6 @@
 .active.active\.color\:--color-primary {
     color: var(--color-primary)
 }
-@media (max-width:767px) {
-    .\@media\(max-width\:767px\)\:display\:block {
-        display: block
-    }
-}
-.padding\:0_80px_50px {
-    padding: 0 80px 50px
-}
-@media (min-width:768px) {
-    .\@media\(min-width\:768px\)\:display\:block {
-        display: block
-    }
-}
-.padding\:0_80px_50px_80px {
-    padding: 0 80px 50px 80px
-}
-.padding\:40px {
-    padding: 40px
-}
-.line-height\:1\.6 {
-    line-height: 1.6
-}
 .object-fit\:cover {
     object-fit: cover
 }
@@ -324,6 +281,9 @@
 }
 .padding\:60px {
     padding: 60px
+}
+.line-height\:1\.6 {
+    line-height: 1.6
 }
 .height\:10px {
     height: 10px

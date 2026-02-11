@@ -82,7 +82,7 @@ export const DEFAULT_MEDIA_QUERY = {
   xxl: '@media(min-width:1536px)',
 };
 
-export function parseDOM(configs = {
+export function parseDOM(rootElement = document, configs = {
   mode: 'development',
   mediaQuery: DEFAULT_MEDIA_QUERY
 }) {
@@ -91,7 +91,7 @@ export function parseDOM(configs = {
     return {};
   }
 
-  const defineClasses = Array.from(document.querySelectorAll("[class]"))
+  const defineClasses = Array.from(rootElement.querySelectorAll("[class]"))
     .flatMap(el => Array.from(el.classList).filter(cls => cls.includes(":")));
 
   const uniqueClasses = useUniqueClass({ classList: defineClasses, configs: configs });
