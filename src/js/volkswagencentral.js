@@ -367,16 +367,22 @@ class ContentPage {
     return new Promise(async (resolve, reject) => {
       const apiUrl =
         "https://cdn.contentful.com/spaces/kc9744crnpul/environments/master/entries?access_token=h4GdTuPTzjsGcZqNRXDcamMMfvvYbgW0AqJp1gHqPz8";
-      if (window.localStorage.getItem(apiUrl)) {
-        this.spaces = JSON.parse(window.localStorage.getItem(apiUrl));
-        resolve(this.data);
+      if (window.sessionStorage.getItem(apiUrl)) {
+        try {
+          const data = JSON.parse(window.sessionStorage.getItem(apiUrl));
+          this.data = normalizeContentfulData(data);
+          console.log('sessionStorage', this.data);
+          resolve(this.data);
+        } catch (error) {
+          window.sessionStorage.clear()
+        }
+
       } else {
         return fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            this.spaces = data;
-            window.localStorage.setItem(apiUrl, JSON.stringify(data));
+            window.sessionStorage.setItem(apiUrl, JSON.stringify(data));
             this.data = normalizeContentfulData(data);
             resolve(data);
           })
