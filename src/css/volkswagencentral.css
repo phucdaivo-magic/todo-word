@@ -249,30 +249,6 @@
 .padding-top\:20px {
     padding-top: 20px
 }
-.font-size\:16px {
-    font-size: 16px
-}
-.width\:fit-content {
-    width: fit-content
-}
-.max-width\:100\% {
-    max-width: 100%
-}
-.overflow\:auto {
-    overflow: auto
-}
-.padding-bottom\:30px {
-    padding-bottom: 30px
-}
-.padding\:10px_0 {
-    padding: 10px 0
-}
-.active.active\.border-bottom\:1px_solid_var\(--color-primary\) {
-    border-bottom: 1px solid var(--color-primary)
-}
-.active.active\.color\:--color-primary {
-    color: var(--color-primary)
-}
 .object-fit\:cover {
     object-fit: cover
 }
