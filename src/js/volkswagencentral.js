@@ -367,7 +367,7 @@ class ContentPage {
     return new Promise(async (resolve, reject) => {
       const apiUrl =
         "https://cdn.contentful.com/spaces/kc9744crnpul/environments/master/entries?access_token=h4GdTuPTzjsGcZqNRXDcamMMfvvYbgW0AqJp1gHqPz8";
-      if (window.localStorage.getItem(apiUrl) && false) {
+      if (window.localStorage.getItem(apiUrl)) {
         this.spaces = JSON.parse(window.localStorage.getItem(apiUrl));
         resolve(this.data);
       } else {
