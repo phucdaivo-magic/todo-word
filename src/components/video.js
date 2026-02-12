@@ -8,88 +8,111 @@ class VideoDOMTree {
   }
 
   render() {
-    return (
-      div({
-        name: "div",
-        attrs: {
-          class: "news",
-        },
-        childs: [
-          {
-            attrs: {
-              class: "height:fit-content position:relative",
-            },
-            childs: [
-              {
-                name: "div",
-                attrs: {
-                  class: "video-player",
-                },
+    return div({
+      name: "div",
+      attrs: {
+        class: "news",
+      },
+      childs: [
+        {
+          attrs: {
+            class: "height:fit-content position:relative",
+          },
+          childs: [
+            {
+              name: "div",
+              attrs: {
+                class: "video-player",
+              },
 
-                childs: [
-                  {
-                    callback: (element) => {
-                      this.videoController = new VideoPlayer(element);
-                    },
-                    name: "div",
-                    attrs: {
-                      'data-ids': this.props.youtubeIds.join(','),
-                    }
+              childs: [
+                {
+                  callback: (element) => {
+                    this.videoController = new VideoPlayer(element);
                   },
-                  {
-                    name: "div",
-                    on: {
-                      click: () => {
-                        this.videoController.prev();
-                      }
-                    },
-                    attrs: {
-                      class: "prev",
-                      'data-prev': '',
-                    },
-                    childs: [
-                      {
-                        name: "div",
-                        attrs: {
-                          class: "prev-overload",
-                        },
-                      }
-                    ]
+                  name: "div",
+                  attrs: {
+                    "data-ids": this.props.youtubeIds.join(","),
                   },
-                  {
-                    name: "div",
-                    callback: (element) => {
-                      element.addEventListener("click", () => {
-                        this.videoController.next();
-                      });
+                },
+                {
+                  name: "div",
+                  on: {
+                    click: () => {
+                      this.videoController.prev();
                     },
-                    on: {
-                      click: () => {
-                        this.videoController.next();
-                      }
-                    },
-                    attrs: {
-                      class: "next",
-                      'data-next': '',
-                    },
-                    childs: [
-                      {
-                        name: "div",
-                        attrs: {
-                          class: "next-overload",
-                        },
-                      }
-                    ]
                   },
-                ]
-              }
-            ]
-          }
-        ]
-      })
-    );
+                  attrs: {
+                    class: "prev",
+                    "data-prev": "",
+                  },
+                  childs: [
+                    {
+                      name: "div",
+                      attrs: {
+                        class: "prev-overload",
+                      },
+                    },
+                  ],
+                },
+                {
+                  name: "div",
+                  callback: (element) => {
+                    element.addEventListener("click", () => {
+                      this.videoController.next();
+                    });
+                  },
+                  on: {
+                    click: () => {
+                      this.videoController.next();
+                    },
+                  },
+                  attrs: {
+                    class: "next",
+                    "data-next": "",
+                  },
+                  childs: [
+                    {
+                      name: "div",
+                      attrs: {
+                        class: "next-overload",
+                      },
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          attrs: {
+            class:
+              "view max-width:1280px margin:auto padding:20px border-bottom:1px_solid_#eee",
+          },
+          childs: [
+            {
+              childs: [
+                {
+                  attrs: {
+                    class:
+                      "font-size:40px @media(max-width:768px):font-size:24px font-weight:100 color:#000",
+                  },
+                  childs: this.props.heading,
+                },
+                {
+                  attrs: {
+                    class: 'font-size:13px padding-top:20px'
+                  },
+                  childs: this.props.subText
+                }
+              ],
+            },
+          ],
+        },
+      ],
+    });
   }
-};
+}
 
 class VideoPlayer {
   constructor(element) {
@@ -162,6 +185,5 @@ class VideoPlayer {
     });
   }
 }
-
 
 export { VideoDOMTree, VideoPlayer };
