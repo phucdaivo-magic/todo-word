@@ -2,9 +2,10 @@ import { Slider } from "../js/volkswagencentral";
 import div from "../libs/domtree";
 
 class CategoryDOMTree {
-  constructor(props = {}) {
+  constructor(props = {}, eventMaps) {
     this.props = props;
     this.updateRows();
+    this.eventMaps = eventMaps;
   }
 
   updateRows() {
@@ -72,6 +73,14 @@ class CategoryDOMTree {
           },
           childs: this.props.products.map((item) => {
             return {
+              attrs: {
+                class: "cursor:pointer",
+              },
+              on: {
+                click: () => {
+                  this.eventMaps["showModal"](item);
+                },
+              },
               childs: [
                 {
                   name: "img",
@@ -86,7 +95,7 @@ class CategoryDOMTree {
                     class: "text-align:center font-size:16px",
                   },
                   childs: item.title,
-                },
+                }
               ],
             };
           }),
