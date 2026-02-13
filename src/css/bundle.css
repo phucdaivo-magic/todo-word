@@ -608,8 +608,10 @@
         height: 80px
     }
 }
-.display\:none {
-    display: none
+@media (max-width:767px) {
+    .\@media\(max-width\:767px\)\:display\:none {
+        display: none
+    }
 }
 @media (min-width:768px) {
     .\@media\(min-width\:768px\)\:display\:flex {
@@ -622,12 +624,14 @@
 .padding\:0_50px {
     padding: 0 50px
 }
-.display\:none\!important {
-    display: none!important
+@media (max-width:767px) {
+    .\@media\(max-width\:767px\)\:display\:flex {
+        display: flex
+    }
 }
-@media (max-width:768px) {
-    .\@media\(max-width\:768px\)\:display\:flex\!important {
-        display: flex!important
+@media (min-width:768px) {
+    .\@media\(min-width\:768px\)\:display\:none {
+        display: none
     }
 }
 .width\:30px {
