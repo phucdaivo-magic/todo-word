@@ -2,10 +2,10 @@
 
 // src/fonts/wd/Parfumerie Font/ParfumerieScriptOldStyle.otf
 
-// @font-face {
-//   font-family: ParfumerieScriptOldStyle;
-//   src: url('../fonts/wd/ParfumerieFont/ParfumerieScriptOldStyle.otf');
-// }
+@font-face {
+  font-family: ParfumerieScriptOldStyle;
+  src: url('../fonts/wd/ParfumerieFont/ParfumerieScriptOldStyle.otf');
+}
 
 @function px($value) {
   @return calc(#{$value} * 100vw / 1920);
@@ -17,7 +17,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  --font-name: 'The Nautigal';
+  --font-name: 'ParfumerieScriptOldStyle';
   --font-save: 'Cormorant';
   color: #fff;
 }
@@ -45,42 +45,44 @@ body {
     z-index: 2;
   }
 
+  &__image {
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./wd-2.jpg');
+    background-size: 135vw;
+    background-position: center right;
+    z-index: 99;
+    opacity: 0.9;
+  }
+
   &__content {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 999;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    width: 70%;
-    padding: 20px;
+    gap: 100px;
+    width: fit-content;
+    padding: 60px;
     box-sizing: border-box;
-
-    &::after {
-      content: '';
-      display: block;
-      top: 0;
-      bottom: 0;
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      left: 0;
-      background-image: url('https://lh3.googleusercontent.com/rd-d/ALs6j_EureVSG5po18Rq4InPcUc6js4NaGqfE3nxedmOEPUbsA_Gysy5nz-pf1aL6_w3YvfjtuJfBeAhAb1CdYaZjmMguN03x0VEnBIWWjn5ggbTkOAyhk1Ut6_VdZgudWJnyp2FgnoK_UzWJXN6hlMMDytxSrNYzsgqxw1IQOlNk0u9P7fWHxTPgqWuUNU-9nOsGLz2KJFQhQRtv5IOuLyRAOoEcgDzJC5d_z06au_ryUziPDkxcCoYSSoQLbLnlzo3-tUIaDbI0eCQrtF4AZsPpBSSt4DgOxIcoXfErS1YpIOd4heGMy6qGS30ooYEkNpI65ZxWm8H6axZ1-EedG84Yg6GaMAPLnexSr7PiQrxlhrrvqNv-hLF6tWSu0bsn3sa0g4ftU7I67xbcINnKTNSR8OG6w0U5khBAsJ1aRcOOXXEsg91DzABK7Qbd-4XyTODVVl2N3s7js0mXV2YBk2Bzfde0CVAi8bhvgGlJUYS9aQ25fQWHrN2B-6UwxPF6qSJeLWRA9f3ZK4PglKuI3negkJmoFOhJJpiOH6voC9roXRBIExKPLXfR0zDkzyilW8QT9S-qPfmDgnMHlw0RBJeGf1JQIGq8QwXvmUK7FO7unjG3ILxW8aoyk5ozQt8IMpDPPSNIJA3OX2JSiowLfyDLA0l_anQqjC4ipFJ2htjq99asY1059N5oZyHnxsVdGXxr4XbGw5_Gl6_IC6H29UPNzdHFNy_1JnNgF12wKfdtVKiHPkY81FoOLSQRyt1smW5dC_0kgFrTRRSG5UW4h-3saTTGoxynM-2C_ZtAqZKIrZq6N6UeAEbbLLeesT4navDJvLWm360pn07ENe0v9QhYlcB8kdHLkI4xlZO8cQEUN_0YuD9LL28e_TeWNuKyVtQupYNoP9Uhu6rYW7iNoE7JYsNzwgF-rztwyzKntcTjtVB41bKxd-BaoBM346bEVJvTFAJlUorGd-ZbCJQl3rXj7GAsdJ-6gaGu8HMOzeeX4sTh_48-lzExHWo1-xaaZYD3eONt6Bk-u5RbKHMfX49cu71DfjRJRCGfitn5qi3i95H91gtDNIu0ajHwBnvMOeVjyRyaIsxKq9c9t1JbEm-Va2ruJOIIM0XNXb1GLMdizoCfTeiuOZCwVlUZ3H6TlI7igv-zQ=w2940-h1602?auditContext=forDisplay');
-      background-size: cover;
-      background-position: center;
-      z-index: 2;
-      opacity: 0.9;
-    }
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.1);
 
     &-title {
       font-size: px(90);
       text-align: center;
-      margin-top: 100px;
+      font-weight: bold;
       font-family: var(--font-save);
       position: relative;
       z-index: 3;
@@ -93,10 +95,10 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 80px;
+      gap: 10px;
       position: relative;
       z-index: 3;
-      flex-direction: row-reverse;
+      flex-direction: column;
 
       &-name {
         font-family: var(--font-name);
@@ -108,6 +110,7 @@ body {
       svg {
         width: px(100);
         padding-top: 10px;
+        height: fit-content;
       }
 
       &-separator {
@@ -127,7 +130,7 @@ body {
       display: flex;
       flex-direction: row;
       gap: 10px;
-      letter-spacing: 10px;
+      letter-spacing: 4px;
     }
   }
 }
