@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=The+Nautigal:wght@400;700&display=swap');
 
+// src/fonts/wd/Parfumerie Font/ParfumerieScriptOldStyle.otf
+
+// @font-face {
+//   font-family: ParfumerieScriptOldStyle;
+//   src: url('../fonts/wd/ParfumerieFont/ParfumerieScriptOldStyle.otf');
+// }
+
 @function px($value) {
   @return calc(#{$value} * 100vw / 1920);
 }

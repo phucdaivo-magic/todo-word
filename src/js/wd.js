@@ -55,4 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-video]').forEach(video => {
     new VideoPlayer(video);
   });
+  document.addEventListener('click', () => {
+    document.documentElement.requestFullscreen();
+  })
 });

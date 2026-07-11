@@ -50,7 +50,7 @@ let ctx = await esbuild.context({
     assetNames: 'assets/[name]',
     sourcemap: true,
     minify: true,
-    loader: { '.png': 'file', '.css': 'empty', '.woff': 'file', '.jpg': 'file', '.html': 'file', '.ttf': 'file' },
+    loader: { '.png': 'file', '.css': 'empty', '.woff': 'file', '.jpg': 'file', '.html': 'file', '.ttf': 'file', '.otf': 'file' },
     // hide warnings
     logLevel: 'silent',
 })
