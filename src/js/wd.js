@@ -15,6 +15,7 @@ class VideoPlayer {
       videoId: this.ids[index],
       startSeconds: 0,
     });
+
   }
 
   registerEvent() {
@@ -57,5 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.addEventListener('click', () => {
     document.documentElement.requestFullscreen();
+    document.getElementById("music").play()
+      .catch(err => console.log(err));
   })
 });

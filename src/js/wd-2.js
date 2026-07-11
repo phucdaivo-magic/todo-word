@@ -57,5 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.addEventListener('click', () => {
     document.documentElement.requestFullscreen();
+    document.getElementById("music").play()
+      .catch(err => console.log(err));
   })
 });
