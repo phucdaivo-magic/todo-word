@@ -109,15 +109,14 @@ body {
 
       svg {
         width: px(100);
-        padding-top: 10px;
-        height: fit-content;
+        max-height: 100px;
       }
 
       &-separator {
         font-family: var(--font-name);
-        font-size: px(100);
         font-weight: 700;
         text-align: center;
+        max-height: fit-content;
       }
     }
 
