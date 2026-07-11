@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/css/ytb.css"],
+  "sourcesContent": [".width\\:100\\% {\n    width: 100%\n}\n.height\\:200px {\n    height: 200px\n}\n.overflow\\:hidden {\n    overflow: hidden\n}"],
+  "mappings": "AAAA,CAAC,aACG,MAAO,IACX,CACA,CAAC,cACG,OAAQ,KACZ,CACA,CAAC,iBACG,SAAU,MACd",
+  "names": []
+}

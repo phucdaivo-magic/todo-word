@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=The+Nautigal:wght@400;700&display=swap');
+
+@function px($value) {
+  @return calc(#{$value} * 100vw / 1920);
+}
+
+body {
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  --font-name: 'The Nautigal';
+  --font-save: 'Cormorant';
+  color: #fff;
+}
+
+.screen-intro {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(1.2);
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    &::after {
+      content: '';
+      display: block;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://lh3.googleusercontent.com/rd-d/ALs6j_G0-6gvb_uYCL68xdS3AqTxMPu1qti_0XGMckqKgOne86ROpqpzQhze9KF-RrJ4xCWkrRYXdxY6q0qCr4E6Ijndj3Qw6V2tnlAmHrgzNGEFp-iEEadgWNA9fNZb2YStQu8Rc42nKvwVRj2ycrZtXaFLtrsHx9wOg-9IRoRktgnaM6CnjEkxI3WsgxzawA8BVqz6GZ5RN9-ouOVSMF_gp2AP-yKOvao8rMYCWY9u0rrbUOEuZLspjx0vCKhu7dtD3ahGAiiyvM-yFQ7CK41JZrFuZFY2AjW1Q4IVKr0b0H4cpK6lzSRRgeM7fTKA8g3HsfZhR4XCafUY_1YvztdY7bOZMlSGck0VuXkbUZXKcdYtga39va1A5_TcaMK3COot7r97gAvDuxCy3zDM0h13bb2EDIjeTu9apG0eoC-UlSDY6LtFZaz8AULW1c9612fc6kbKtiFt_ymrdOoPdT1zElb4hM4djy1Jh857ZdRzJwBHcsfUoCorXB7XqWYDG8Qj_evUV93BCso7CIJDH2E5iwx6x4_FzLU-DvVtEQ-Qdp1dhuJPvKeJFlP4_cvs2USOi5EPv_XDiJ4nW8zPeqCQ0tzWc6-l0kLyYmQVUIAvgxdqWiJcsVD5A_wxpWUa-VSoHY_BQdUPHbtryHdAEjejge7MQZw8d59nMXqstRCE97zPGkckrLPplr8FsI-hiqg8INPoqSzzLpz-hwDGRccqv1XC7awMK1JHeakH7VpNrHE-erCIVNkuoT3Z6H164HG2Ikfbf1_5Q9d09V7-uUbKoCqVKZ0NDxRkUoic3sMgeIP6kE2kSmoHVjxt52m58L1sVQoUclKcWOHIBq9og3-rxikyLlEivO4sD7fCp2HbUPzPgGqj6nA_fOhlC5cV-E4EfGJV4x7S7pJnBKvKvs4K7uWbS866FUnwG2CBKgkVZKnD4OgtFfOP0R9zKTUaMf1StrtO07fF_w_kcJtN7TZBwUsIQkzwKiPEhqOID_ucYM0BnMxAMiR6w7qoCibdjUwdRGEVNJXNjcexbeJJ7KUENBtRuviOwtRkaGeo115tq34J0P-nwpn4w0SVx_HfgspnwpKI3BWVvzPDEukE11NgSGmnTMEpM2HO1Azd47VIodycyL1TnOGFukmbsAVdb0awPHzU=w2940-h1670?auditContext=prefetch');
+      background-size: cover;
+      background-position: center;
+      z-index: 2;
+      opacity: 0.4;
+    }
+
+    &-title {
+      font-size: px(90);
+      text-align: center;
+      margin-top: 100px;
+      font-family: var(--font-save);
+      position: relative;
+      z-index: 3;
+    }
+
+    &-description {
+      // save the date
+      font-weight: 700;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px;
+      position: relative;
+      z-index: 3;
+      flex-direction: row-reverse;
+
+      &-name {
+        font-family: var(--font-name);
+        font-size: px(130);
+        text-align: center;
+        font-weight: 400;
+      }
+
+      svg {
+        width: 100px;
+        padding-top: 10px;
+      }
+
+      &-separator {
+        font-family: var(--font-name);
+        font-size: px(100);
+        font-weight: 700;
+        text-align: center;
+      }
+    }
+
+    &-date {
+      z-index: 3;
+      position: relative;
+      font-family: var(--font-date);
+      font-size: px(40);
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      letter-spacing: 10px;
+    }
+  }
+}
